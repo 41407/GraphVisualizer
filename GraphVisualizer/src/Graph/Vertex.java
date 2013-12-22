@@ -2,14 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package DataStructures;
+package Graph;
+
+import DataStructures.Element;
 
 /**
- * Simple node to be used as an element in various data strutures.
+ * Vertex in graph.
+ * 
+ * Implements Element, so it can be used as an element in data structures.
  * 
  * @author 41407
  */
-public class Node implements Comparable<Node> {
+public class Vertex implements Element, Comparable<Element>{
 
     private int key;
 
@@ -17,16 +21,17 @@ public class Node implements Comparable<Node> {
         this.key = key;
     }
 
+    @Override
     public int getKey() {
         return key;
     }
 
-    public Node(int key) {
+    public Vertex(int key) {
         this.key = key;
     }
 
     @Override
-    public int compareTo(Node o) {
-        return this.key-o.key;
+    public int compareTo(Element o) {
+        return this.key-o.getKey();
     }
 }

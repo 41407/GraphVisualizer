@@ -9,11 +9,13 @@ import java.util.PriorityQueue;
 /**
  * Binary heap
  * 
+ * For now, uses Java PriorityQueue to implement its features
+ * 
  * @author 41407
  */
 public class BinaryHeap {
 
-    private PriorityQueue<Node> heap;
+    private PriorityQueue<Element> heap;
 
     public BinaryHeap() {
         this.heap = new PriorityQueue();
@@ -23,15 +25,15 @@ public class BinaryHeap {
         return heap.isEmpty();
     }
 
-    public void insert(Node n) {
+    public void insert(Element n) {
         heap.add(n);
     }
 
-    public Node min() {
+    public Element min() {
         return heap.peek();
     }
 
-    public Node delMin() {
+    public Element delMin() {
         return heap.poll();
     }
 }

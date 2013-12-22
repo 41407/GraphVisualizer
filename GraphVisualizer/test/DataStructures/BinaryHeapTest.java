@@ -4,11 +4,9 @@
  */
 package DataStructures;
 
+import Graph.Vertex;
 import java.util.Random;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,12 +17,12 @@ import static org.junit.Assert.*;
 public class BinaryHeapTest {
 
     private BinaryHeap h;
-    private Node n;
+    private Vertex n;
 
     @Before
     public void setUp() {
         h = new BinaryHeap();
-        n = new Node(0);
+        n = new Vertex(0);
     }
 
     @Test
@@ -36,7 +34,7 @@ public class BinaryHeapTest {
     @Test
     public void isEmptyReturnsFalseWhenNotEmptyTest() {
         BinaryHeap b = new BinaryHeap();
-        b.insert(new Node(0));
+        b.insert(new Vertex(0));
         assertFalse(b.isEmpty());
     }
 
@@ -68,8 +66,8 @@ public class BinaryHeapTest {
 
     @Test
     public void delMinHeapDoesNotSomehowEraseTheWholeHeapWhenCalled() {
-        h.insert(new Node(2));
-        h.insert(new Node(1));
+        h.insert(new Vertex(2));
+        h.insert(new Vertex(1));
         h.delMin();
         assertFalse(h.isEmpty());
     }
@@ -77,7 +75,7 @@ public class BinaryHeapTest {
     @Test
     public void delMinReturnsValuesInCorrectOrderWhenInputIsGivenInAscendingOrder() {
         for (int i = 0; i < 10; i++) {
-            h.insert(new Node(i));
+            h.insert(new Vertex(i));
         }
         for (int i = 0; i < 10; i++) {
             assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getKey());
@@ -87,7 +85,7 @@ public class BinaryHeapTest {
     @Test
     public void delMinReturnsValuesInCorrectOrderWhenInputIsGivenInDescendingOrder() {
         for (int i = 10; i > 0; i--) {
-            h.insert(new Node(i));
+            h.insert(new Vertex(i));
         }
         for (int i = 1; i < 10; i++) {
             assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getKey());
@@ -98,7 +96,7 @@ public class BinaryHeapTest {
     public void delMinReturnsCorrectOrderWithRandomInput() {
         Random r = new Random();
         for (int i = 0; i < 100; i++) {
-            h.insert(new Node(r.nextInt(5000)));
+            h.insert(new Vertex(r.nextInt(5000)));
         }
         int lastValue = h.min().getKey();
         for (int i = 0; i < 100; i++) {
