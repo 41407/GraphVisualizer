@@ -7,7 +7,8 @@ package DataStructures;
 import java.util.ArrayList;
 
 /**
- *
+ * Array that aspires to dynamically adjust its size when necessary.
+ * 
  * @author 41407
  */
 public class DynamicArray {

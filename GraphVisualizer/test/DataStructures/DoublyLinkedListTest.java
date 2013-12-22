@@ -33,9 +33,9 @@ public class DoublyLinkedListTest {
     public void emptyListReturnsCorrectValues() {
         assertNull(l.min());
         assertNull(l.max());
-        assertNull(l.pred(new Vertex(1)));
-        assertNull(l.succ(new Vertex(1)));
-        assertFalse(l.contains(null));
+        assertNull(l.pred(a));
+        assertNull(l.succ(a));
+        assertFalse(l.contains(a));
     }
 
     @Test

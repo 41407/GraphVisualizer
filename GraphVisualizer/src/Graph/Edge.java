@@ -67,6 +67,10 @@ public class Edge implements Element, Comparable<Element> {
         return this.weight - o.getKey();
     }
 
+    /**
+     * Reverses the direction of the edge. Works with non-directional edges as
+     * well.
+     */
     void flip() {
         Vertex temporary = this.start;
         this.start = end;

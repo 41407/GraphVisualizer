@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class VertexTest {
         
     @Test
-    public void TwoVerticesCompareCorrectly() {
+    public void twoVerticesCompareCorrectly() {
         Vertex v = new Vertex(1);
         Vertex w = new Vertex(1);
         Vertex u = new Vertex(2);

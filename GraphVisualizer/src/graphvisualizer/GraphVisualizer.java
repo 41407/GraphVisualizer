@@ -4,9 +4,6 @@
  */
 package graphvisualizer;
 
-import DataStructures.BinaryHeap;
-import java.util.PriorityQueue;
-
 /**
  *
  * @author 41407

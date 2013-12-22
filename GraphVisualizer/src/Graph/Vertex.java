@@ -8,14 +8,18 @@ import DataStructures.Element;
 
 /**
  * Vertex in graph.
- * 
+ *
  * Implements Element, so it can be used as an element in data structures.
- * 
+ *
  * @author 41407
  */
-public class Vertex implements Element, Comparable<Element>{
+public class Vertex implements Element, Comparable<Element> {
 
     private int key;
+
+    public Vertex(int key) {
+        this.key = key;
+    }
 
     public void setKey(int key) {
         this.key = key;
@@ -26,12 +30,8 @@ public class Vertex implements Element, Comparable<Element>{
         return key;
     }
 
-    public Vertex(int key) {
-        this.key = key;
-    }
-
     @Override
     public int compareTo(Element o) {
-        return this.key-o.getKey();
+        return this.key - o.getKey();
     }
 }

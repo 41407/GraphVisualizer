@@ -17,12 +17,12 @@ import static org.junit.Assert.*;
 public class BinaryHeapTest {
 
     private BinaryHeap h;
-    private Vertex n;
+    private Vertex v;
 
     @Before
     public void setUp() {
         h = new BinaryHeap();
-        n = new Vertex(0);
+        v = new Vertex(0);
     }
 
     @Test
@@ -39,35 +39,40 @@ public class BinaryHeapTest {
     }
 
     @Test
+    public void minReturnsNullWhenHeapIsEmpty() {
+        assertEquals(null, h.min());
+    }
+
+    @Test
     public void minReturnsCorrectValueAfterSingleInsert() {
-        h.insert(n);
-        assertEquals(n, h.min());
+        h.insert(v);
+        assertEquals(v, h.min());
     }
 
     @Test
     public void minDoesNotRemoveValuesWhenCalled() {
-        h.insert(n);
+        h.insert(v);
         h.min();
         assertFalse(h.isEmpty());
     }
 
     @Test
-    public void delMineturnsCorrectValueAfterSingleInsert() {
-        h.insert(n);
-        assertEquals(n, h.delMin());
+    public void delMinReturnsCorrectValueAfterSingleInsert() {
+        h.insert(v);
+        assertEquals(v, h.delMin());
     }
 
     @Test
     public void delMinHeapIsEmptyAfterLastEntryCalled() {
-        h.insert(n);
+        h.insert(v);
         h.delMin();
         assertTrue(h.isEmpty());
     }
 
     @Test
     public void delMinHeapDoesNotSomehowEraseTheWholeHeapWhenCalled() {
-        h.insert(new Vertex(2));
-        h.insert(new Vertex(1));
+        h.insert(v);
+        h.insert(v);
         h.delMin();
         assertFalse(h.isEmpty());
     }
@@ -97,6 +102,34 @@ public class BinaryHeapTest {
         Random r = new Random();
         for (int i = 0; i < 100; i++) {
             h.insert(new Vertex(r.nextInt(5000)));
+        }
+        int lastValue = h.min().getKey();
+        for (int i = 0; i < 100; i++) {
+            int currentValue = h.delMin().getKey();
+            assertTrue(lastValue <= currentValue);
+            lastValue = currentValue;
+        }
+    }
+
+    @Test
+    public void delMinReturnsCorrectOrderWithRandomNegativeInput() {
+        Random r = new Random();
+        for (int i = 0; i < 100; i++) {
+            h.insert(new Vertex(r.nextInt(5000) - 10000));
+        }
+        int lastValue = h.min().getKey();
+        for (int i = 0; i < 100; i++) {
+            int currentValue = h.delMin().getKey();
+            assertTrue(lastValue <= currentValue);
+            lastValue = currentValue;
+        }
+    }
+
+    @Test
+    public void delMinReturnsCorrectOrderWithManyIdenticalElements() {
+        Random r = new Random();
+        for (int i = 0; i < 100; i++) {
+            h.insert(new Vertex(r.nextInt(2)));
         }
         int lastValue = h.min().getKey();
         for (int i = 0; i < 100; i++) {

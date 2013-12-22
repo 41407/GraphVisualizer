@@ -7,7 +7,8 @@ package DataStructures;
 import java.util.LinkedList;
 
 /**
- *
+ * Simple doubly linked list
+ * 
  * @author 41407
  */
 public class DoublyLinkedList {

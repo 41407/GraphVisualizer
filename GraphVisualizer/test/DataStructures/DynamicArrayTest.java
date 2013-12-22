@@ -5,10 +5,7 @@
 package DataStructures;
 
 import Graph.Vertex;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -26,18 +23,14 @@ public class DynamicArrayTest {
         a = new DynamicArray();
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
-    public void singleInsertNoParameters() {
+    public void singleInsert() {
         a.insert(v);
         assertEquals(v, a.get(0));
     }
 
     @Test
-    public void multipleInsertsNoParametersHasCorrectOrder() {
+    public void multipleInsertsHasCorrectOrder() {
         for (int i = 0; i < 10; i++) {
             a.insert(new Vertex(i));
         }
@@ -63,14 +56,14 @@ public class DynamicArrayTest {
     }
 
     @Test
-    public void set() {
+    public void setReplacesCorrectElement() {
         a.insert(v);
         a.set(0, new Vertex(149));
         assertEquals(149, a.get(0).getKey());
     }
 
     @Test
-    public void getCrazyIndex() {
+    public void getIndexOutOfBoundsReturnsNull() {
         a.insert(v);
         assertEquals(null, a.get(Integer.MAX_VALUE));
         assertEquals(null, a.get(-1));

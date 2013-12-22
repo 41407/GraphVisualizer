@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class EdgeTest {
 
     @Test
-    public void TwoEdgesCompareCorrectly() {
+    public void twoEdgesCompareCorrectly() {
         Edge e = new Edge(null, null);
         Edge f = new Edge(null, null);
         Edge g = new Edge(null, null);
@@ -27,7 +27,7 @@ public class EdgeTest {
     }
 
     @Test
-    public void EdgeReturnsCorrectVerticesWhenConstructed() {
+    public void edgeReturnsCorrectVerticesWhenConstructed() {
         Vertex v = new Vertex(0);
         Vertex u = new Vertex(0);
         Edge e = new Edge(v, u);
@@ -36,7 +36,7 @@ public class EdgeTest {
     }
 
     @Test
-    public void EdgeReturnsCorrectVerticesWhenFlipped() {
+    public void edgeReturnsCorrectVerticesWhenFlipped() {
         Vertex v = new Vertex(0);
         Vertex u = new Vertex(0);
         Edge e = new Edge(v, u);
