@@ -8,12 +8,12 @@ import DataStructures.Element;
 
 /**
  * Edge between two vertices. Can be weighted and/or directional
- * 
+ *
  * Implements Element, so it can be used as an element in data structures.
- * 
+ *
  * @author 41407
  */
-public class Edge implements Element, Comparable<Element>  {
+public class Edge implements Element, Comparable<Element> {
 
     private int weight;
     private Vertex start;
@@ -56,7 +56,7 @@ public class Edge implements Element, Comparable<Element>  {
     public void setDirectional(boolean directional) {
         this.directional = directional;
     }
-    
+
     @Override
     public int getKey() {
         return weight;
@@ -64,7 +64,12 @@ public class Edge implements Element, Comparable<Element>  {
 
     @Override
     public int compareTo(Element o) {
-        return this.weight-o.getKey();
+        return this.weight - o.getKey();
     }
-    
+
+    void flip() {
+        Vertex temporary = this.start;
+        this.start = end;
+        this.end = temporary;
+    }
 }

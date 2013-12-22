@@ -25,4 +25,23 @@ public class EdgeTest {
         assertTrue(g.compareTo(e) > 0);
         assertTrue(e.compareTo(f) == 0);
     }
+
+    @Test
+    public void EdgeReturnsCorrectVerticesWhenConstructed() {
+        Vertex v = new Vertex(0);
+        Vertex u = new Vertex(0);
+        Edge e = new Edge(v, u);
+        assertEquals(e.getStart(), v);
+        assertEquals(e.getEnd(), u);
+    }
+
+    @Test
+    public void EdgeReturnsCorrectVerticesWhenFlipped() {
+        Vertex v = new Vertex(0);
+        Vertex u = new Vertex(0);
+        Edge e = new Edge(v, u);
+        e.flip();
+        assertEquals(e.getStart(), u);
+        assertEquals(e.getEnd(), v);
+    }
 }
