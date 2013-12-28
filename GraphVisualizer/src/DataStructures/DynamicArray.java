@@ -32,12 +32,31 @@ public class DynamicArray {
      *
      * @param index of element to be removed
      */
-    public void delete(int index) {
+    public void deleteByIndex(int index) {
         if (index >= 0) {
             if (index < size) {
                 l.set(index, null);
             }
         }
+    }
+    
+    /**
+     * Returns true if array contains parameter element
+     * 
+     * @param e element to be checked
+     * @return true if element is contained within array, false if not
+     */
+    public boolean contains(Element e) {
+        return l.contains(e);
+    }
+    
+    /**
+     * Removes element from list and shifts remaining elements left.
+     * 
+     * @param e element to be deleted
+     */
+    public void delete(Element e) {
+        l.remove(e);
     }
 
     /**

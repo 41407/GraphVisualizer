@@ -42,7 +42,7 @@ public class DynamicArrayTest {
     @Test
     public void deleteSingleEntry() {
         a.insert(v);
-        a.delete(0);
+        a.deleteByIndex(0);
         assertEquals(null, a.get(0));
     }
 
@@ -51,7 +51,7 @@ public class DynamicArrayTest {
         for (int i = 0; i < 10; i++) {
             a.insert(v);
         }
-        a.delete(3);
+        a.deleteByIndex(3);
         assertEquals(null, a.get(3));
     }
 
@@ -67,5 +67,17 @@ public class DynamicArrayTest {
         a.insert(v);
         assertEquals(null, a.get(Integer.MAX_VALUE));
         assertEquals(null, a.get(-1));
+    }
+    
+    @Test
+    public void containsReturnsTrueWhenElementInArray() {
+        a.insert(v);
+        assertTrue(a.contains(v));
+    }
+    
+    @Test
+    public void containsReturnsFalseWhenElementNotInArray() {
+        a.insert(new Vertex(493));
+        assertFalse(a.contains(v));
     }
 }

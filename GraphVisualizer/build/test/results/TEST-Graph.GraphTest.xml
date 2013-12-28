@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MBP12.local" name="Graph.VertexTest" tests="1" time="0.074" timestamp="2013-12-24T16:13:37">
+<testsuite errors="0" failures="0" hostname="MBP12.local" name="Graph.GraphTest" tests="1" time="0.074" timestamp="2013-12-24T16:13:36">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -67,7 +67,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Graph.VertexTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/test/results/TEST-Graph.VertexTest.xml crashfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junitvmwatcher8173000018968544473.properties propsfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junit7780714748783002513.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Graph.GraphTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/test/results/TEST-Graph.GraphTest.xml crashfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junitvmwatcher7604357488941665294.properties propsfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junit7528434434267814513.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -456,7 +456,7 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="Graph.VertexTest" name="twoVerticesCompareCorrectly" time="0.002" />
+  <testcase classname="Graph.GraphTest" name="addingVerticesWorks" time="0.003" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
