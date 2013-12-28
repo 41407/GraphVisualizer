@@ -11,4 +11,5 @@ package DataStructures;
  */
 public interface Element {
     public int getKey();
+    public int getId();
 }

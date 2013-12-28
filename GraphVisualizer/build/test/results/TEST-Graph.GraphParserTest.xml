@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="dsl-hkibrasgw5-58c045-166.dhcp.inet.fi" name="DataStructures.DynamicArrayTest" tests="8" time="0.105" timestamp="2013-12-28T11:17:58">
+<testsuite errors="0" failures="0" hostname="dsl-hkibrasgw5-58c045-166.dhcp.inet.fi" name="Graph.GraphParserTest" tests="1" time="0.093" timestamp="2013-12-28T11:18:00">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -67,7 +67,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DataStructures.DynamicArrayTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/test/results/TEST-DataStructures.DynamicArrayTest.xml crashfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junitvmwatcher93636804649756365.properties propsfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junit4701854666609526628.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Graph.GraphParserTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/test/results/TEST-Graph.GraphParserTest.xml crashfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junitvmwatcher254256113231924833.properties propsfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junit2831727307610597719.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -460,14 +460,7 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="DataStructures.DynamicArrayTest" name="multipleInsertsHasCorrectOrder" time="0.003" />
-  <testcase classname="DataStructures.DynamicArrayTest" name="deleteSingleEntry" time="0.0" />
-  <testcase classname="DataStructures.DynamicArrayTest" name="deleteFromListWithMultipleEntries" time="0.0" />
-  <testcase classname="DataStructures.DynamicArrayTest" name="setReplacesCorrectElement" time="0.0" />
-  <testcase classname="DataStructures.DynamicArrayTest" name="getIndexOutOfBoundsReturnsNull" time="0.0" />
-  <testcase classname="DataStructures.DynamicArrayTest" name="containsReturnsTrueWhenElementInArray" time="0.0" />
-  <testcase classname="DataStructures.DynamicArrayTest" name="containsReturnsFalseWhenElementNotInArray" time="0.0" />
-  <testcase classname="DataStructures.DynamicArrayTest" name="singleInsert" time="0.0" />
+  <testcase classname="Graph.GraphParserTest" name="smallGraphTestAddedTwoVerticesAndOneEdge" time="0.005" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

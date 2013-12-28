@@ -15,23 +15,41 @@ import DataStructures.Element;
  */
 public class Vertex implements Element, Comparable<Element> {
 
-    private int key;
+    private int distance;
+    private int id;
 
-    public Vertex(int key) {
-        this.key = key;
+    public Vertex(int id) {
+        this.id = id;
+    }
+    
+    public Vertex(int id, int distance) {
+        this.id = id;
+        this.distance = distance;
     }
 
-    public void setKey(int key) {
-        this.key = key;
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public int getKey() {
-        return key;
+        return distance;
     }
 
     @Override
     public int compareTo(Element o) {
-        return this.key - o.getKey();
+        return this.distance - o.getKey();
     }
 }

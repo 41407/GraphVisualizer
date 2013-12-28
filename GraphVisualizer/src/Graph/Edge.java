@@ -18,7 +18,7 @@ public class Edge implements Element, Comparable<Element> {
     private int weight;
     private Vertex start;
     private Vertex end;
-    private boolean directional;
+    private boolean directed;
 
     public Edge(Vertex start, Vertex end) {
         this.start = start;
@@ -49,12 +49,12 @@ public class Edge implements Element, Comparable<Element> {
         this.end = end;
     }
 
-    public boolean isDirectional() {
-        return directional;
+    public boolean isDirected() {
+        return directed;
     }
 
-    public void setDirectional(boolean directional) {
-        this.directional = directional;
+    public void setDirected(boolean directional) {
+        this.directed = directional;
     }
 
     @Override
@@ -67,6 +67,20 @@ public class Edge implements Element, Comparable<Element> {
         return this.weight - o.getKey();
     }
 
+    public boolean equals(Edge o) {
+        if (o.start == this.start && o.end == this.end) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isReverseOf(Edge o) {
+        if (o.start == this.end && o.end == this.start) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Reverses the direction of the edge. Works with non-directional edges as
      * well.
@@ -75,5 +89,10 @@ public class Edge implements Element, Comparable<Element> {
         Vertex temporary = this.start;
         this.start = end;
         this.end = temporary;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
     }
 }

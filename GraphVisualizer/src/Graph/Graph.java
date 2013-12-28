@@ -39,12 +39,27 @@ public class Graph {
     }
 
     /**
-     * Add edge into graph
+     * Add edge into graph. Tests to see if the reversed version of the
+     * parameter edge already exists. If it does, sets the edge undirected.
      *
      * @param e edge to be added
      */
     public void addEdge(Edge e) {
-        edges.insert(e);
+        int i = 0;
+        boolean reverseFound = false;
+        while (edges.get(i) != null) {
+            Edge w = (Edge) edges.get(i);
+            if (w.isReverseOf(e)) {
+                w.setDirected(false);
+                edges.set(i, w);
+                edges.delete(e);
+                reverseFound = true;
+            }
+            i++;
+        }
+        if (!reverseFound) {
+            edges.insert(e);
+        }
     }
 
     public DynamicArray getEdges() {

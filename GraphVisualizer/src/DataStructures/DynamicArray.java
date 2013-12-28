@@ -60,11 +60,13 @@ public class DynamicArray {
     }
 
     /**
+     * Replace element at index with another element.
+     * 
      * Not quite sure how to react to index out of bounds yet. Should the list
      * just be resized to allow new value to be inserted?
      *
-     * @param index
-     * @param e
+     * @param index index of element to be replaced
+     * @param e replacing element
      */
     public void set(int index, Element e) {
         if (index >= 0) {

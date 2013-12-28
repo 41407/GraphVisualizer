@@ -15,9 +15,9 @@ public class VertexTest {
         
     @Test
     public void twoVerticesCompareCorrectly() {
-        Vertex v = new Vertex(1);
-        Vertex w = new Vertex(1);
-        Vertex u = new Vertex(2);
+        Vertex v = new Vertex(0, 1);
+        Vertex w = new Vertex(0, 1);
+        Vertex u = new Vertex(0, 2);
         assertTrue(v.compareTo(u) < 0);
         assertTrue(u.compareTo(v) > 0);
         assertTrue(w.compareTo(v) == 0);

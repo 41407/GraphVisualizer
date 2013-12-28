@@ -22,7 +22,7 @@ public class BinaryHeapTest {
     @Before
     public void setUp() {
         h = new BinaryHeap();
-        v = new Vertex(0);
+        v = new Vertex(0, 0);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class BinaryHeapTest {
     @Test
     public void isEmptyReturnsFalseWhenNotEmptyTest() {
         BinaryHeap b = new BinaryHeap();
-        b.insert(new Vertex(0));
+        b.insert(new Vertex(0, 0));
         assertFalse(b.isEmpty());
     }
 
@@ -80,7 +80,7 @@ public class BinaryHeapTest {
     @Test
     public void delMinReturnsValuesInCorrectOrderWhenInputIsGivenInAscendingOrder() {
         for (int i = 0; i < 10; i++) {
-            h.insert(new Vertex(i));
+            h.insert(new Vertex(0, i));
         }
         for (int i = 0; i < 10; i++) {
             assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getKey());
@@ -90,7 +90,7 @@ public class BinaryHeapTest {
     @Test
     public void delMinReturnsValuesInCorrectOrderWhenInputIsGivenInDescendingOrder() {
         for (int i = 10; i > 0; i--) {
-            h.insert(new Vertex(i));
+            h.insert(new Vertex(0, i));
         }
         for (int i = 1; i < 10; i++) {
             assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getKey());
@@ -101,7 +101,7 @@ public class BinaryHeapTest {
     public void delMinReturnsCorrectOrderWithRandomInput() {
         Random r = new Random();
         for (int i = 0; i < 100; i++) {
-            h.insert(new Vertex(r.nextInt(5000)));
+            h.insert(new Vertex(0, r.nextInt(5000)));
         }
         int lastValue = h.min().getKey();
         for (int i = 0; i < 100; i++) {
@@ -115,7 +115,7 @@ public class BinaryHeapTest {
     public void delMinReturnsCorrectOrderWithRandomNegativeInput() {
         Random r = new Random();
         for (int i = 0; i < 100; i++) {
-            h.insert(new Vertex(r.nextInt(5000) - 10000));
+            h.insert(new Vertex(0, r.nextInt(5000) - 10000));
         }
         int lastValue = h.min().getKey();
         for (int i = 0; i < 100; i++) {
@@ -129,7 +129,7 @@ public class BinaryHeapTest {
     public void delMinReturnsCorrectOrderWithManyIdenticalElements() {
         Random r = new Random();
         for (int i = 0; i < 100; i++) {
-            h.insert(new Vertex(r.nextInt(2)));
+            h.insert(new Vertex(0, r.nextInt(2)));
         }
         int lastValue = h.min().getKey();
         for (int i = 0; i < 100; i++) {

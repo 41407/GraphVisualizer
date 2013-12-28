@@ -19,10 +19,10 @@ import static org.junit.Assert.*;
 public class DoublyLinkedListTest {
 
     private DoublyLinkedList l;
-    private Vertex v = new Vertex(0);
-    private Vertex a = new Vertex(0);
-    private Vertex b = new Vertex(0);
-    private Vertex c = new Vertex(0);
+    private Vertex v = new Vertex(0, 0);
+    private Vertex a = new Vertex(0, 0);
+    private Vertex b = new Vertex(0, 0);
+    private Vertex c = new Vertex(0, 0);
 
     @Before
     public void setUp() {
