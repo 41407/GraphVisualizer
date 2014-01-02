@@ -17,11 +17,13 @@ public class Vertex implements Element, Comparable<Element> {
 
     private int distance;
     private int id;
+    private int x;
+    private int y;
 
     public Vertex(int id) {
         this.id = id;
     }
-    
+
     public Vertex(int id, int distance) {
         this.id = id;
         this.distance = distance;
@@ -35,12 +37,26 @@ public class Vertex implements Element, Comparable<Element> {
         return distance;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setLocation(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 
     @Override
