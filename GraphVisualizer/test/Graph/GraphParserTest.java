@@ -18,11 +18,10 @@ import static org.junit.Assert.*;
 public class GraphParserTest {
 
     private String[] test1 = {"0 1",
-        "1 0"};
-    
-    private String[] test2 = {"0 0 1",
-        "1 0 1",
-        "1 1 0"};
+        "0 0"};
+    private String[] test2 = {"0 1 0",
+        "0 0 1",
+        "1 0 0"};
 
     @Before
     public void setUp() {
@@ -31,14 +30,55 @@ public class GraphParserTest {
     @After
     public void tearDown() {
     }
-    
+
+    /**
+     * Returns the number of edges in graph
+     *
+     * @param g
+     * @return
+     */
+    private int countEdges(Graph g) {
+        int edges = 0;
+        while (g.getEdges().get(edges) != null) {
+            edges++;
+        }
+        return edges;
+    }
+
+    /**
+     * Returns the number of vertices in graph
+     *
+     * @param g
+     * @return
+     */
+    private int countVertices(Graph g) {
+        int vertices = 0;
+        while (g.getVertices().get(vertices) != null) {
+            vertices++;
+        }
+        return vertices;
+    }
+
     @Test
     public void smallGraphTestAddedTwoVerticesAndOneEdge() {
         Graph g = GraphParser.initialize(test1);
-        assertNotNull(g.getVertices().get(0));
-        assertNotNull(g.getVertices().get(1));
-        assertNull(g.getVertices().get(2));
-        assertNotNull(g.getEdges().get(0));
-        assertNull(g.getEdges().get(1));
+        assertEquals(2, countVertices(g));
+        assertEquals(1, countEdges(g));
+    }
+
+    @Test
+    public void anotherSmallGraphAddedCorrectly() {
+        Graph g = GraphParser.initialize(test2);
+        assertEquals(3, countVertices(g));
+        assertEquals(3, countEdges(g));
+    }
+
+    @Test
+    public void bidirectionalEdgesAreNotAddedMultipleTimes() {
+        String[] b = {"0 1",
+            "1 0"};
+        Graph g = GraphParser.initialize(b);
+        assertEquals(2, countVertices(g));
+        assertEquals(1, countEdges(g));
     }
 }
