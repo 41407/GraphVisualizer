@@ -24,9 +24,28 @@ public class DynamicArrayTest {
     }
 
     @Test
-    public void singleInsert() {
+    public void singleInsertSizeAndContent() {
         a.insert(v);
         assertEquals(v, a.get(0));
+        assertEquals(1, a.getSize());
+    }
+
+    @Test
+    public void singleDeleteSizeAndContent() {
+        a.insert(v);
+        a.delete(v);
+        assertNull(a.get(0));
+        assertEquals(0, a.getSize());
+    }
+
+    @Test
+    public void deletingFromEmptyListDoesntAffectSize() {
+        a.delete(v);
+        assertEquals(0, a.getSize());
+        for (int i = 0; i < 10; i++) {
+            a.delete(v);
+        }
+        assertEquals(0, a.getSize());
     }
 
     @Test
@@ -37,22 +56,6 @@ public class DynamicArrayTest {
         for (int i = 0; i < 10; i++) {
             assertEquals(i, a.get(i).getKey());
         }
-    }
-
-    @Test
-    public void deleteSingleEntry() {
-        a.insert(v);
-        a.deleteByIndex(0);
-        assertEquals(null, a.get(0));
-    }
-
-    @Test
-    public void deleteFromListWithMultipleEntries() {
-        for (int i = 0; i < 10; i++) {
-            a.insert(v);
-        }
-        a.deleteByIndex(3);
-        assertEquals(null, a.get(3));
     }
 
     @Test
@@ -68,13 +71,13 @@ public class DynamicArrayTest {
         assertEquals(null, a.get(Integer.MAX_VALUE));
         assertEquals(null, a.get(-1));
     }
-    
+
     @Test
     public void containsReturnsTrueWhenElementInArray() {
         a.insert(v);
         assertTrue(a.contains(v));
     }
-    
+
     @Test
     public void containsReturnsFalseWhenElementNotInArray() {
         a.insert(new Vertex(493));
