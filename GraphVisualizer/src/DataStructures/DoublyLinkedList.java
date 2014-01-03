@@ -11,44 +11,44 @@ import java.util.LinkedList;
  * 
  * @author 41407
  */
-public class DoublyLinkedList {
+public class DoublyLinkedList<E> {
 
-    private LinkedList<Element> l;
+    private LinkedList<E> l;
 
     public DoublyLinkedList() {
         this.l = new LinkedList();
     }
 
-    public void insert(Element e) {
+    public void insert(E e) {
         l.addFirst(e);
     }
 
-    public void delete(Element e) {
+    public void delete(E e) {
         l.remove(e);
     }
 
-    public boolean contains(Element e) {
+    public boolean contains(E e) {
         if (l.isEmpty()) {
             return false;
         }
         return l.contains(e);
     }
 
-    public Element min() {
+    public E min() {
         if (l.isEmpty()) {
             return null;
         }
         return l.element();
     }
 
-    public Element max() {
+    public E max() {
         if (l.isEmpty()) {
             return null;
         }
         return l.peekLast();
     }
 
-    public Element succ(Element e) {
+    public E succ(E e) {
         if (l.isEmpty()) {
             return null;
         }
@@ -59,7 +59,7 @@ public class DoublyLinkedList {
         return null;
     }
 
-    public Element pred(Element e) {
+    public E pred(E e) {
         if (l.isEmpty()) {
             return null;
         }

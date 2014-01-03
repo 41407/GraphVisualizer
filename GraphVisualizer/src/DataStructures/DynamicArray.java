@@ -11,9 +11,9 @@ import java.util.ArrayList;
  *
  * @author 41407
  */
-public class DynamicArray {
+public class DynamicArray<E> {
 
-    private ArrayList<Element> l;
+    private ArrayList<E> l;
     private int size;
 
     public DynamicArray() {
@@ -21,7 +21,7 @@ public class DynamicArray {
         this.size = 0;
     }
 
-    public void insert(Element e) {
+    public void insert(E e) {
         l.add(e);
         size++;
     }
@@ -32,7 +32,7 @@ public class DynamicArray {
      * @param e element to be checked
      * @return true if element is contained within array, false if not
      */
-    public boolean contains(Element e) {
+    public boolean contains(E e) {
         return l.contains(e);
     }
 
@@ -41,7 +41,7 @@ public class DynamicArray {
      *
      * @param e element to be deleted
      */
-    public void delete(Element e) {
+    public void delete(E e) {
         if (l.contains(e)) {
             l.remove(e);
             size--;
@@ -57,7 +57,7 @@ public class DynamicArray {
      * @param index index of element to be replaced
      * @param e replacing element
      */
-    public void set(int index, Element e) {
+    public void set(int index, E e) {
         if (index >= 0) {
             if (index < size) {
                 l.set(index, e);
@@ -65,7 +65,7 @@ public class DynamicArray {
         }
     }
 
-    public Element get(int index) {
+    public E get(int index) {
         if (index >= 0) {
             if (index < size) {
                 return l.get(index);

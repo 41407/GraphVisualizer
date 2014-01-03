@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 public class BinaryHeapTest {
 
-    private BinaryHeap h;
+    private BinaryHeap<Element> h;
     private Vertex v;
 
     @Before

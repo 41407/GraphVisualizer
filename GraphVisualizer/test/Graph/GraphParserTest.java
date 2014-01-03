@@ -18,10 +18,10 @@ import static org.junit.Assert.*;
 public class GraphParserTest {
 
     private String[] test1 = {"0 1",
-        "0 0"};
+                              "0 0"};
     private String[] test2 = {"0 1 0",
-        "0 0 1",
-        "1 0 0"};
+                              "0 0 1",
+                              "1 0 0"};
 
     @Before
     public void setUp() {

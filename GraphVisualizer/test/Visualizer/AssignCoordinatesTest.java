@@ -30,9 +30,9 @@ public class AssignCoordinatesTest {
     @Test
     public void assignCoordinatesAssignsCoordinates() {
         String[] s = {"0 0 0 0",
-            "0 0 0 0",
-            "0 0 0 0",
-            "0 0 0 0"};
+                      "0 0 0 0",
+                      "0 0 0 0",
+                      "0 0 0 0"};
         Graph g = GraphParser.initialize(s);
         AssignCoordinates.initialize(g);
         Vertex v;

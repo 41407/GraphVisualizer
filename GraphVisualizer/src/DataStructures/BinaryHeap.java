@@ -13,9 +13,9 @@ import java.util.PriorityQueue;
  * 
  * @author 41407
  */
-public class BinaryHeap {
+public class BinaryHeap<E> {
 
-    private PriorityQueue<Element> heap;
+    private PriorityQueue<E> heap;
 
     public BinaryHeap() {
         this.heap = new PriorityQueue();
@@ -25,15 +25,15 @@ public class BinaryHeap {
         return heap.isEmpty();
     }
 
-    public void insert(Element n) {
+    public void insert(E n) {
         heap.add(n);
     }
 
-    public Element min() {
+    public E min() {
         return heap.peek();
     }
 
-    public Element delMin() {
+    public E delMin() {
         return heap.poll();
     }
 }

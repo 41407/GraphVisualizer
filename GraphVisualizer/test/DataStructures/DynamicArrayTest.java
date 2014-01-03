@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
  */
 public class DynamicArrayTest {
 
-    private DynamicArray a;
+    private DynamicArray<Element> a;
     private Vertex v = new Vertex(0, 0);
 
     @Before

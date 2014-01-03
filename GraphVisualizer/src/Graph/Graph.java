@@ -14,7 +14,7 @@ public class Graph {
 
     private DynamicArray edges;
     private DynamicArray vertices;
-
+    
     public Graph() {
         edges = new DynamicArray();
         vertices = new DynamicArray();
