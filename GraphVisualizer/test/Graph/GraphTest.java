@@ -5,7 +5,6 @@
 package Graph;
 
 import DataStructures.DynamicArray;
-import DataStructures.Element;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

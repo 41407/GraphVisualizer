@@ -4,16 +4,12 @@
  */
 package Graph;
 
-import DataStructures.Element;
-
 /**
  * Vertex in graph.
  *
- * Implements Element, so it can be used as an element in data structures.
- *
  * @author 41407
  */
-public class Vertex implements Element, Comparable<Element> {
+public class Vertex implements Comparable<Vertex> {
 
     private int distance;
     private int id;
@@ -55,17 +51,7 @@ public class Vertex implements Element, Comparable<Element> {
     }
 
     @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public int getKey() {
-        return distance;
-    }
-
-    @Override
-    public int compareTo(Element o) {
-        return this.distance - o.getKey();
+    public int compareTo(Vertex o) {
+        return this.distance - o.getDistance();
     }
 }

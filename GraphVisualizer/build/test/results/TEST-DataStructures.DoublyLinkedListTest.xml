@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MBP12.local" name="DataStructures.DoublyLinkedListTest" tests="11" time="0.098" timestamp="2014-01-03T15:33:43">
+<testsuite errors="0" failures="0" hostname="MBP12.local" name="DataStructures.DoublyLinkedListTest" tests="11" time="0.088" timestamp="2014-01-03T15:48:00">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -67,7 +67,7 @@
     <property name="manifest.available+main.class" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DataStructures.DoublyLinkedListTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/test/results/TEST-DataStructures.DoublyLinkedListTest.xml crashfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junitvmwatcher4188892399011979237.properties propsfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junit51456877841722453.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DataStructures.DoublyLinkedListTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/test/results/TEST-DataStructures.DoublyLinkedListTest.xml crashfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junitvmwatcher2978204692999014541.properties propsfile=/Users/41407/koob/GraphVisualizerGit/GraphVisualizer/build/junit1310458137438681340.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -279,7 +279,6 @@
     <property name="meta.inf.dir" value="src/META-INF" />
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/GraphVisualizer.jar" />
-    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="GraphVisualizer" />
     <property name="libs.LWJGL-2.8.5.classpath" value="/Users/41407/lwjgl-2.8.5/jar/jinput.jar:/Users/41407/lwjgl-2.8.5/jar/lwjgl.jar:/Users/41407/lwjgl-2.8.5/jar/lwjgl_util.jar" />
@@ -298,22 +297,22 @@
     <property name="libs.primefaces.maven-pom" value="" />
     <property name="libs.javaee-api-6.0.maven-pom" value="" />
     <property name="libs.JWSAntTasks.src" value="" />
-    <property name="jar.index" value="false" />
     <property name="libs.CopyLibs.maven-pom" value="" />
+    <property name="jar.index" value="false" />
     <property name="libs.absolutelayout.javadoc" value="" />
-    <property name="libs.hibernate-persistence.maven-pom" value="" />
     <property name="libs.spring-framework300.javadoc" value="" />
+    <property name="libs.hibernate-persistence.maven-pom" value="" />
     <property name="java.specification.name" value="Java Platform API Specification" />
     <property name="libs.jakarta_slide_ant_webdav.maven-pom" value="" />
     <property name="do.archive+main.class.available" value="true" />
     <property name="libs.sjmc-ant-utils.src" value="" />
-    <property name="libs.cdc-agui-swing-layout.javadoc" value="" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.cdc-agui-swing-layout.javadoc" value="" />
     <property name="libs.javac-api.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/java/modules/ext/nb-javac-api.jar" />
     <property name="java.version" value="1.7.0_15" />
     <property name="libs.nokiaS80-ant-utils.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/mobility/modules/ext/org-netbeans-modules-j2me-cdc-project-nokiaS80.jar" />
-    <property name="run.jvmargs.ide" value="" />
     <property name="javadoc.version" value="false" />
+    <property name="run.jvmargs.ide" value="" />
     <property name="libs.MySQLDriver.javadoc" value="" />
     <property name="org.openide.version" value="deprecated" />
     <property name="source.encoding" value="UTF-8" />
@@ -335,8 +334,8 @@
     <property name="php.global.include.path" value="" />
     <property name="do.depend" value="false" />
     <property name="dist.javadoc.dir" value="dist/javadoc" />
-    <property name="libs.spring-webmvc3.0.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-3.1.1.RELEASE.jar" />
     <property name="libs.swing-layout.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/platform/modules/ext/swing-layout-1.0.4.jar" />
+    <property name="libs.spring-webmvc3.0.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/java/modules/ext/spring-3.0/spring-webmvc-3.1.1.RELEASE.jar" />
     <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
     <property name="libs.restlib.src" value="" />
     <property name="javac.source" value="1.7" />
@@ -377,9 +376,9 @@
     <property name="do.archive+manifest.available+main.class" value="true" />
     <property name="testng.debug.mode" value="" />
     <property name="ant.file.type.GraphVisualizer-impl" value="file" />
-    <property name="libs.groovy-all.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/groovy/modules/ext/groovy-all.jar" />
     <property name="javac.fork" value="false" />
     <property name="libs.sjmc-ant-utils.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/mobility/modules/ext/org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
+    <property name="libs.groovy-all.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/groovy/modules/ext/groovy-all.jar" />
     <property name="libs.JMUnit4CLDC10.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/mobility/modules/ext/jmunit4cldc10-1.2.1.jar" />
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
     <property name="default.javac.source" value="1.7" />
@@ -391,18 +390,18 @@
     <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.7.0_15-b03" />
     <property name="libs.ejb3-persistence.javadoc" value="" />
-    <property name="jna.platform.library.path" value="/usr/lib:/usr/lib" />
     <property name="manifest.available+main.class+mkdist.available" value="true" />
     <property name="libs.sjmc-ant-utils.javadoc" value="" />
+    <property name="jna.platform.library.path" value="/usr/lib:/usr/lib" />
     <property name="libs.LWJGL-2.8.5.src" value="" />
     <property name="default.javac.target" value="1.7" />
     <property name="libs.junit_4.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/platform/modules/ext/junit-4.10.jar" />
     <property name="user.timezone" value="" />
     <property name="nb.junit.single" value="false" />
     <property name="ant.file.type.GraphVisualizer" value="file" />
-    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
-    <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
     <property name="libs.ant-contrib.src" value="" />
+    <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
     <property name="netbeans.dirs" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/nb:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/ergonomics:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/ide:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/java:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/apisupport:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/webcommon:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/websvccommon:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/mobility:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/profiler:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/python:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/php:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/identity:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/harness:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/cnd:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/dlight:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/groovy:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/extra:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/javacard:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/javafx:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/tmcbeans:" />
     <property name="libs.jsf20.javadoc" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
     <property name="java.ext.dirs" value="/Users/41407/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.7.0_15.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
@@ -423,9 +422,9 @@
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
     <property name="libs.javaee-api-7.0.maven-pom" value="" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="libs.JMUnit4CLDC11.maven-pom" value="" />
     <property name="main.class.available" value="true" />
-    <property name="sun.awt.enableExtraMouseButtons" value="true" />
     <property name="libs.Comet-GlassFish-v3.src" value="" />
     <property name="libs.restlib.javadoc" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/jersey-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/jersey-apache-client-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/jersey-atom-abdera-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/jersey-guice-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/jersey-multipart-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/jersey-simple-server-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/jersey-spring-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/oauth-client-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/oauth-server-1.13-javadoc.zip:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/oauth-signature-1.13-javadoc.zip" />
     <property name="libs.JAXB-ENDORSED.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/ide/modules/ext/jaxb/api/jaxb-api.jar" />
@@ -448,28 +447,28 @@
     <property name="libs.junit.src" value="" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
     <property name="main.class" value="graphvisualizer.GraphVisualizer" />
-    <property name="libs.CopyLibs.src" value="" />
     <property name="build.dir" value="build" />
+    <property name="libs.CopyLibs.src" value="" />
     <property name="libs.jsp-compilation.classpath" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/java/ant/lib/ant.jar:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/modules/ext/servlet3.1-jsp2.3-api.jar:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/modules/ext/glassfish-jspparser-4.0.jar:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/modules/ext/jsf-2_2/javax.faces.jar:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/modules/ext/jstl.jar:/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/java/ant/lib/ant-launcher.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.8.4 compiled on May 22 2012" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
     <property name="file.encoding" value="US-ASCII" />
-    <property name="jdkBug6558476" value="false" />
     <property name="javadoc.nonavbar" value="false" />
+    <property name="jdkBug6558476" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/Applications/NetBeans/NetBeans 7.3.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="DataStructures.DoublyLinkedListTest" name="insertMultipleElementsContains" time="0.002" />
-  <testcase classname="DataStructures.DoublyLinkedListTest" name="succReturnsCorrectValue" time="0.0" />
+  <testcase classname="DataStructures.DoublyLinkedListTest" name="insertSingleElementToAnEmptyListMinMax" time="0.002" />
+  <testcase classname="DataStructures.DoublyLinkedListTest" name="insertAddsAtTheBeginningOfList" time="0.001" />
+  <testcase classname="DataStructures.DoublyLinkedListTest" name="MinMaxWithMultipleInserts" time="0.001" />
+  <testcase classname="DataStructures.DoublyLinkedListTest" name="containsReturnsCorrectly" time="0.0" />
+  <testcase classname="DataStructures.DoublyLinkedListTest" name="insertMultipleElementsContains" time="0.0" />
+  <testcase classname="DataStructures.DoublyLinkedListTest" name="succReturnsCorrectValue" time="0.001" />
   <testcase classname="DataStructures.DoublyLinkedListTest" name="predReturnsCorrectValue" time="0.0" />
   <testcase classname="DataStructures.DoublyLinkedListTest" name="deleteWorksAtBeginning" time="0.0" />
-  <testcase classname="DataStructures.DoublyLinkedListTest" name="deleteWorksAtEnd" time="0.0" />
+  <testcase classname="DataStructures.DoublyLinkedListTest" name="deleteWorksAtEnd" time="0.001" />
   <testcase classname="DataStructures.DoublyLinkedListTest" name="deleteWorksAtMiddle" time="0.001" />
-  <testcase classname="DataStructures.DoublyLinkedListTest" name="insertSingleElementToAnEmptyListMinMax" time="0.001" />
-  <testcase classname="DataStructures.DoublyLinkedListTest" name="insertAddsAtTheBeginningOfList" time="0.0" />
-  <testcase classname="DataStructures.DoublyLinkedListTest" name="MinMaxWithMultipleInserts" time="0.001" />
-  <testcase classname="DataStructures.DoublyLinkedListTest" name="containsReturnsCorrectly" time="0.001" />
   <testcase classname="DataStructures.DoublyLinkedListTest" name="emptyListReturnsCorrectValues" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

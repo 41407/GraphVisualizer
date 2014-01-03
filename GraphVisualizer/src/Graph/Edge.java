@@ -4,8 +4,6 @@
  */
 package Graph;
 
-import DataStructures.Element;
-
 /**
  * Edge between two vertices. Can be weighted and/or directional
  *
@@ -13,7 +11,7 @@ import DataStructures.Element;
  *
  * @author 41407
  */
-public class Edge implements Element, Comparable<Element> {
+public class Edge implements Comparable<Edge> {
 
     private int weight;
     private Vertex start;
@@ -58,13 +56,8 @@ public class Edge implements Element, Comparable<Element> {
     }
 
     @Override
-    public int getKey() {
-        return weight;
-    }
-
-    @Override
-    public int compareTo(Element o) {
-        return this.weight - o.getKey();
+    public int compareTo(Edge e) {
+        return this.weight - e.getWeight();
     }
 
     public boolean equals(Edge o) {
@@ -89,10 +82,5 @@ public class Edge implements Element, Comparable<Element> {
         Vertex temporary = this.start;
         this.start = end;
         this.end = temporary;
-    }
-
-    @Override
-    public int getId() {
-        return 0;
     }
 }

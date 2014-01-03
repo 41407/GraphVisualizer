@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
  */
 public class BinaryHeapTest {
 
-    private BinaryHeap<Element> h;
+    private BinaryHeap<Vertex> h;
     private Vertex v;
 
     @Before
@@ -83,7 +83,7 @@ public class BinaryHeapTest {
             h.insert(new Vertex(0, i));
         }
         for (int i = 0; i < 10; i++) {
-            assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getKey());
+            assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getDistance());
         }
     }
 
@@ -93,7 +93,7 @@ public class BinaryHeapTest {
             h.insert(new Vertex(0, i));
         }
         for (int i = 1; i < 10; i++) {
-            assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getKey());
+            assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getDistance());
         }
     }
 
@@ -103,9 +103,9 @@ public class BinaryHeapTest {
         for (int i = 0; i < 100; i++) {
             h.insert(new Vertex(0, r.nextInt(5000)));
         }
-        int lastValue = h.min().getKey();
+        int lastValue = h.min().getDistance();
         for (int i = 0; i < 100; i++) {
-            int currentValue = h.delMin().getKey();
+            int currentValue = h.delMin().getDistance();
             assertTrue(lastValue <= currentValue);
             lastValue = currentValue;
         }
@@ -117,9 +117,9 @@ public class BinaryHeapTest {
         for (int i = 0; i < 100; i++) {
             h.insert(new Vertex(0, r.nextInt(5000) - 10000));
         }
-        int lastValue = h.min().getKey();
+        int lastValue = h.min().getDistance();
         for (int i = 0; i < 100; i++) {
-            int currentValue = h.delMin().getKey();
+            int currentValue = h.delMin().getDistance();
             assertTrue(lastValue <= currentValue);
             lastValue = currentValue;
         }
@@ -131,9 +131,9 @@ public class BinaryHeapTest {
         for (int i = 0; i < 100; i++) {
             h.insert(new Vertex(0, r.nextInt(2)));
         }
-        int lastValue = h.min().getKey();
+        int lastValue = h.min().getDistance();
         for (int i = 0; i < 100; i++) {
-            int currentValue = h.delMin().getKey();
+            int currentValue = h.delMin().getDistance();
             assertTrue(lastValue <= currentValue);
             lastValue = currentValue;
         }
