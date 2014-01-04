@@ -17,7 +17,7 @@ public class DynamicArray<E> {
     private int size;
 
     public DynamicArray() {
-        this.l = new ArrayList();
+        this.l = new ArrayList(10);
         this.size = 0;
     }
 
@@ -49,6 +49,18 @@ public class DynamicArray<E> {
     }
 
     /**
+     * Removes element from list by index and shifts remaining elements left.
+     *
+     * @param index index to delete from
+     */
+    public void delete(int index) {
+        if (size > index && index >= 0) {
+            l.remove(index);
+            size--;
+        }
+    }
+
+    /**
      * Replace element at index with another element.
      *
      * Not quite sure how to react to index out of bounds yet. Should the list
@@ -66,10 +78,8 @@ public class DynamicArray<E> {
     }
 
     public E get(int index) {
-        if (index >= 0) {
-            if (index < size) {
-                return l.get(index);
-            }
+        if (index >= 0 && index < size) {
+            return l.get(index);
         }
         return null;
     }

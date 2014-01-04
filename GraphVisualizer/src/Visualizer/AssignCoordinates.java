@@ -24,7 +24,7 @@ public class AssignCoordinates {
         int vertices = g.getVertices().getSize();
         int verticesPerRow = (int) Math.sqrt(vertices);
         for (int i = 0; i < vertices; i++) {
-            Vertex v = (Vertex) g.getVertices().get(i);
+            Vertex v = g.getVertices().get(i);
             v.setLocation(i % verticesPerRow, i / verticesPerRow);
         }
     }

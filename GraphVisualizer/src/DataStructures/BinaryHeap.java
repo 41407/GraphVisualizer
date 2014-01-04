@@ -25,8 +25,8 @@ public class BinaryHeap<E> {
         return heap.isEmpty();
     }
 
-    public void insert(E n) {
-        heap.add(n);
+    public void insert(E e) {
+        heap.add(e);
     }
 
     public E min() {

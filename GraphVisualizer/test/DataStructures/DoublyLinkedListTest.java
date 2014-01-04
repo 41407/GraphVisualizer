@@ -53,6 +53,13 @@ public class DoublyLinkedListTest {
     }
 
     @Test
+    public void insertLastAddsAtTheEndOfList() {
+        l.insertLast(a);
+        l.insertLast(b);
+        assertEquals(b, l.max());
+    }
+
+    @Test
     public void MinMaxWithMultipleInserts() {
         l.insert(b);
         for (int i = 0; i < 10; i++) {

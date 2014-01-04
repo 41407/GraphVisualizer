@@ -39,6 +39,14 @@ public class DynamicArrayTest {
     }
 
     @Test
+    public void singleDeleteByIndexSizeAndContent() {
+        a.insert(v);
+        a.delete(0);
+     //   assertNull(a.get(0));
+        assertEquals(0, a.getSize());
+    }
+
+    @Test
     public void deletingFromEmptyListDoesntAffectSize() {
         a.delete(v);
         assertEquals(0, a.getSize());

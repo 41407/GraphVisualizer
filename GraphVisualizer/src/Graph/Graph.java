@@ -4,6 +4,7 @@
  */
 package Graph;
 
+import DataStructures.DoublyLinkedList;
 import DataStructures.DynamicArray;
 
 /**
@@ -12,12 +13,14 @@ import DataStructures.DynamicArray;
  */
 public class Graph {
 
-    private DynamicArray edges;
-    private DynamicArray vertices;
-    
+    private DynamicArray<Vertex> vertices;
+    private DynamicArray<Edge> edges;
+    private DynamicArray<DoublyLinkedList<Vertex>> adjacencyList;
+
     public Graph() {
         edges = new DynamicArray();
         vertices = new DynamicArray();
+        adjacencyList = new DynamicArray();
     }
 
     /**
@@ -26,7 +29,10 @@ public class Graph {
      * @param v vertex to be added
      */
     public void addVertex(Vertex v) {
+        DoublyLinkedList<Vertex> vList = new DoublyLinkedList();
+        vList.insert(v);
         vertices.insert(v);
+        adjacencyList.insert(vList);
     }
 
     /**
@@ -48,7 +54,7 @@ public class Graph {
         int i = 0;
         boolean reverseFound = false;
         while (edges.get(i) != null) {
-            Edge w = (Edge) edges.get(i);
+            Edge w = edges.get(i);
             if (w.isReverseOf(e)) {
                 w.setDirected(false);
                 edges.set(i, w);
@@ -62,11 +68,11 @@ public class Graph {
         }
     }
 
-    public DynamicArray getEdges() {
+    public DynamicArray<Edge> getEdges() {
         return edges;
     }
 
-    public DynamicArray getVertices() {
+    public DynamicArray<Vertex> getVertices() {
         return vertices;
     }
 }

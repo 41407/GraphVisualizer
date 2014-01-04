@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 /**
  * Simple doubly linked list
- * 
+ *
  * @author 41407
  */
 public class DoublyLinkedList<E> {
@@ -22,6 +22,10 @@ public class DoublyLinkedList<E> {
     public void insert(E e) {
         l.addFirst(e);
     }
+    
+    public void insertLast(E e) {
+        l.addLast(e);
+    }
 
     public void delete(E e) {
         l.remove(e);
@@ -34,6 +38,11 @@ public class DoublyLinkedList<E> {
         return l.contains(e);
     }
 
+    /**
+     * Returns the first element of the list.
+     *
+     * @return
+     */
     public E min() {
         if (l.isEmpty()) {
             return null;
@@ -41,6 +50,11 @@ public class DoublyLinkedList<E> {
         return l.element();
     }
 
+    /**
+     * Returns the last element of the list.
+     *
+     * @return
+     */
     public E max() {
         if (l.isEmpty()) {
             return null;
