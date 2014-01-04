@@ -16,7 +16,8 @@ import Graph.Vertex;
 public class AssignCoordinates {
 
     /**
-     * Assign starting coordinates for each vertex in graph.
+     * Assign starting coordinates for each vertex in graph using a very
+     * simple algorithm.
      *
      * @param g
      */
@@ -25,7 +26,7 @@ public class AssignCoordinates {
         int verticesPerRow = (int) Math.sqrt(vertices);
         for (int i = 0; i < vertices; i++) {
             Vertex v = g.getVertices().get(i);
-            v.setLocation(i % verticesPerRow, i / verticesPerRow);
+            v.setLocation((i % verticesPerRow)*100, (i / verticesPerRow)*100);
         }
     }
 

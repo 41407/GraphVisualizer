@@ -9,7 +9,8 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
- *
+ * UI element on which to draw graphs
+ * 
  * @author 41407
  */
 public class GraphCanvas extends JPanel {
@@ -18,6 +19,10 @@ public class GraphCanvas extends JPanel {
     public GraphCanvas(GraphDrawer drawer) {
         super.setBackground(Color.WHITE);
         this.drawer = drawer;
+    }
+
+    public GraphDrawer getDrawer() {
+        return drawer;
     }
     
     @Override

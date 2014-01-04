@@ -4,10 +4,12 @@
  */
 package graphvisualizer;
 
-
 import Graph.Graph;
+import Graph.GraphParser;
 import UserInterface.UILogic;
 import UserInterface.Window;
+import Visualizer.AssignCoordinates;
+import Visualizer.GraphLoader;
 import javax.swing.SwingUtilities;
 
 /**
@@ -20,6 +22,14 @@ public class GraphVisualizer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String[] graphString = {"0 1 0 1 0",
+                              "1 0 0 0 1",
+                            "1 0 0 0 0",
+                            "0 0 1 0 0",
+                              "1 0 1 0 0"};
+        Graph g = GraphParser.initialize(graphString);
+        AssignCoordinates.initialize(g);
+        GraphLoader.setGraph(g);
         UILogic.start();
     }
 }

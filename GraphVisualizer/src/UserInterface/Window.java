@@ -5,8 +5,10 @@
 package UserInterface;
 
 import Graph.Graph;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
@@ -39,7 +41,11 @@ public class Window implements Runnable {
     }
 
     private void initializeComponents(Container contentPane) {
+        JButton button = new JButton("Stop the annoying rectangle");
+        button.addActionListener(new ButtonListener(canvas.getDrawer()));
         contentPane.add(canvas);
+        contentPane.add(button, BorderLayout.SOUTH);
+        
     }
     
     public JFrame getFrame() {
