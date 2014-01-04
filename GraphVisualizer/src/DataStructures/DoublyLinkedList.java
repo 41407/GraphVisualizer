@@ -19,10 +19,20 @@ public class DoublyLinkedList<E> {
         this.l = new LinkedList();
     }
 
+    /**
+     * Inserts parameter element as the first (head) element of the list.
+     *
+     * @param e Element to be inserted
+     */
     public void insert(E e) {
         l.addFirst(e);
     }
-    
+
+    /**
+     * Inserts parameter element as the last (tail) element of the list.
+     *
+     * @param e Element to be inserted
+     */
     public void insertLast(E e) {
         l.addLast(e);
     }
@@ -39,7 +49,7 @@ public class DoublyLinkedList<E> {
     }
 
     /**
-     * Returns the first element of the list.
+     * Returns the first (head) element of the list.
      *
      * @return
      */
@@ -51,7 +61,7 @@ public class DoublyLinkedList<E> {
     }
 
     /**
-     * Returns the last element of the list.
+     * Returns the last (tail) element of the list.
      *
      * @return
      */
@@ -62,6 +72,12 @@ public class DoublyLinkedList<E> {
         return l.peekLast();
     }
 
+    /**
+     * Returns the element that succeeds the parameter element in the list.
+     *
+     * @param e Element of whose successor is to be returned
+     * @return Successor to parameter element
+     */
     public E succ(E e) {
         if (l.isEmpty()) {
             return null;
@@ -73,6 +89,12 @@ public class DoublyLinkedList<E> {
         return null;
     }
 
+    /**
+     * Returns the element that precedes the parameter element in the list.
+     *
+     * @param e Element of whose precedent is to be returned
+     * @return Precedent to parameter element
+     */
     public E pred(E e) {
         if (l.isEmpty()) {
             return null;

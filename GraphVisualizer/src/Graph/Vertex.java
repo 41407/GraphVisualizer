@@ -37,6 +37,10 @@ public class Vertex implements Comparable<Vertex> {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setLocation(int x, int y) {
         this.x = x;
         this.y = y;

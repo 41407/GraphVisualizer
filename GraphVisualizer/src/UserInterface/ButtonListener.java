@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * ActionListener for a UI button
  *
  * @author 41407
  */

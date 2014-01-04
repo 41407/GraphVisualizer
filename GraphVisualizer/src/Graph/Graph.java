@@ -8,7 +8,8 @@ import DataStructures.DoublyLinkedList;
 import DataStructures.DynamicArray;
 
 /**
- *
+ * Graph that contains vertices and edges.
+ * 
  * @author 41407
  */
 public class Graph {
@@ -36,8 +37,10 @@ public class Graph {
     }
 
     /**
-     * Remove vertex from graph
+     * Remove vertex from graph.
      *
+     * TODO handle adjacencyList
+     * 
      * @param v vertex to be removed
      */
     public void removeVertex(Vertex v) {
@@ -48,6 +51,8 @@ public class Graph {
      * Add edge into graph. Tests to see if the reversed version of the
      * parameter edge already exists. If it does, sets the edge undirected.
      *
+     * TODO handle adjacencyList
+     * 
      * @param e edge to be added
      */
     public void addEdge(Edge e) {

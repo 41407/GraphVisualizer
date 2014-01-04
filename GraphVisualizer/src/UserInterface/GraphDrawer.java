@@ -20,6 +20,10 @@ public class GraphDrawer {
     private Graph graph;
 
     public void draw(Graphics graphics) {
+        /**
+         * A simple test to see if I succeeded in making a self refreshing
+         * drawing surface :)
+         */
         if (graph == null) {
             graphics.fillRect((int) (System.currentTimeMillis() % 200), 10, 200, 200);
         } else {
@@ -38,10 +42,22 @@ public class GraphDrawer {
         this.graph = g;
     }
 
+    /**
+     * Draws parameter vertex on canvas
+     * 
+     * @param g
+     * @param v Vertex to be drawn
+     */
     private void drawVertex(Graphics g, Vertex v) {
         g.fillRect(v.getX(), v.getY(), 20, 20);
     }
 
+    /**
+     * Draws parameter edge on canvas
+     * 
+     * @param g
+     * @param e  Edge to be drawn
+     */
     private void drawEdge(Graphics g, Edge e) {
         int x1 = e.getStart().getX();
         int y1 = e.getStart().getY();

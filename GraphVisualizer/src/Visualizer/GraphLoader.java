@@ -5,10 +5,11 @@
 package Visualizer;
 
 import Graph.Graph;
-import java.util.logging.Logger;
 
 /**
- *
+ * Static class to store a graph. Used as an interface between UI elements and
+ * graph logic to reduce complexity.
+ * 
  * @author 41407
  */
 public class GraphLoader {

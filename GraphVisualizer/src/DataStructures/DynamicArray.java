@@ -7,7 +7,8 @@ package DataStructures;
 import java.util.ArrayList;
 
 /**
- * Array that aspires to dynamically adjust its size when necessary.
+ * Array that aspires to dynamically adjust its size when necessary. Starts off
+ * with size of 10, doubling its size whenever it gets full.
  *
  * @author 41407
  */
@@ -21,6 +22,11 @@ public class DynamicArray<E> {
         this.size = 0;
     }
 
+    /**
+     * Inserts parameter object after the last entry in list.
+     *
+     * @param e Object to be inserted
+     */
     public void insert(E e) {
         l.add(e);
         size++;
@@ -77,6 +83,11 @@ public class DynamicArray<E> {
         }
     }
 
+    /**
+     *
+     * @param index index of the object to be returned
+     * @return object at specified index
+     */
     public E get(int index) {
         if (index >= 0 && index < size) {
             return l.get(index);
@@ -84,6 +95,11 @@ public class DynamicArray<E> {
         return null;
     }
 
+    /**
+     * Returns the current number of elements in list.
+     * 
+     * @return 
+     */
     public int getSize() {
         return size;
     }
