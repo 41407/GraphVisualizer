@@ -4,6 +4,12 @@
  */
 package graphvisualizer;
 
+
+import Graph.Graph;
+import UserInterface.UILogic;
+import UserInterface.Window;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author 41407
@@ -14,5 +20,6 @@ public class GraphVisualizer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        UILogic.start();
     }
 }
