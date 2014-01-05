@@ -28,6 +28,13 @@ public class DynamicArray<E> {
      * @param e Object to be inserted
      */
     public void insert(E e) {
+        if(size == array.length) {
+            Object[] newArray = new Object[size*2];
+            for (int i = 0; i < array.length; i++) {
+                newArray[i] = array[i];
+            }
+            this.array = newArray;
+        }
         array[size] = e;
         size++;
     }

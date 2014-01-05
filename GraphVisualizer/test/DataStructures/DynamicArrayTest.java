@@ -91,4 +91,18 @@ public class DynamicArrayTest {
         a.insert(new Vertex(493));
         assertFalse(a.contains(v));
     }
+    
+    @Test
+    public void manyInsertsResizesArray() {
+        String expected = "";
+        for (int i = 0; i < 100; i++) {
+            a.insert(new Vertex(i));
+            expected += i + " ";
+        }
+        String actual = "";
+        for (int i = 0; i < 100; i++) {
+            actual += a.get(i).getId() + " ";
+        }
+        assertEquals(expected, actual);
+    }
 }
