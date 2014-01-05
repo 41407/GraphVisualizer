@@ -4,8 +4,6 @@
  */
 package DataStructures;
 
-import java.util.LinkedList;
-
 /**
  * Simple doubly linked list
  *
@@ -13,10 +11,12 @@ import java.util.LinkedList;
  */
 public class DoublyLinkedList<E> {
 
-    private LinkedList<E> l;
+    private DoublyLinkedNode head;
+    private DoublyLinkedNode tail;
 
     public DoublyLinkedList() {
-        this.l = new LinkedList();
+        this.head = null;
+        this.tail = null;
     }
 
     /**
@@ -25,7 +25,17 @@ public class DoublyLinkedList<E> {
      * @param e Element to be inserted
      */
     public void insert(E e) {
-        l.addFirst(e);
+        DoublyLinkedNode n = new DoublyLinkedNode();
+        n.setData(e);
+        n.setSucc(head);
+        n.setPred(null);
+        if (head != null) {
+            head.setPred(n);
+        }
+        head = n;
+        if (tail == null) {
+            tail = n;
+        }
     }
 
     /**
@@ -34,57 +44,87 @@ public class DoublyLinkedList<E> {
      * @param e Element to be inserted
      */
     public void insertLast(E e) {
-        l.addLast(e);
+        if (head == null) {
+            this.insert(e);
+        } else {
+            DoublyLinkedNode n = new DoublyLinkedNode();
+            n.setData(e);
+            n.setSucc(null);
+            n.setPred(tail);
+            if (tail != null) {
+                tail.setSucc(n);
+            }
+            tail = n;
+        }
     }
 
     public void delete(E e) {
-        l.remove(e);
+        DoublyLinkedNode delNode = this.search(e);
+        DoublyLinkedNode succNode = delNode.getSucc();
+        DoublyLinkedNode predNode = delNode.getPred();
+        if (succNode != null) {
+            succNode.setPred(predNode);
+        } else {
+            tail = predNode;
+            predNode.setSucc(null);
+        }
+        if (predNode != null) {
+            predNode.setSucc(succNode);
+        } else {
+            head = succNode;
+            succNode.setPred(null);
+        }
     }
 
     public boolean contains(E e) {
-        if (l.isEmpty()) {
-            return false;
+        if (search(e) != null) {
+            return true;
         }
-        return l.contains(e);
+        return false;
     }
 
     /**
      * Returns the first (head) element of the list.
      *
-     * @return
+     * @return head if list is not empty, null if empty
      */
     public E min() {
-        if (l.isEmpty()) {
+        if (tail != null) {
+            final E e = (E) head.getData();
+            return e;
+        } else {
             return null;
         }
-        return l.element();
     }
 
     /**
      * Returns the last (tail) element of the list.
      *
-     * @return
+     * @return tail if list is not empty, null if empty
      */
     public E max() {
-        if (l.isEmpty()) {
+        if (tail != null) {
+            final E returnValue = (E) tail.getData();
+            return returnValue;
+        } else {
             return null;
         }
-        return l.peekLast();
     }
 
     /**
      * Returns the element that succeeds the parameter element in the list.
      *
      * @param e Element of whose successor is to be returned
-     * @return Successor to parameter element
+     * @return Successor to parameter element, or one closer to the tail. If
+     * parameter element does not exist, returns null.
      */
     public E succ(E e) {
-        if (l.isEmpty()) {
-            return null;
-        }
-        int succIndex = l.indexOf(e) + 1;
-        if (succIndex < l.size()) {
-            return l.get(succIndex);
+        DoublyLinkedNode node = search(e);
+        if (node != null) {
+            if (node.getSucc() != null) {
+                final E returnValue = (E) node.getSucc().getData();
+                return returnValue;
+            }
         }
         return null;
     }
@@ -93,15 +133,26 @@ public class DoublyLinkedList<E> {
      * Returns the element that precedes the parameter element in the list.
      *
      * @param e Element of whose precedent is to be returned
-     * @return Precedent to parameter element
+     * @return Precedent to parameter element, or one closer to the head
      */
     public E pred(E e) {
-        if (l.isEmpty()) {
-            return null;
+        DoublyLinkedNode node = search(e);
+        if (node != null) {
+            if (node.getPred() != null) {
+                final E returnValue = (E) node.getPred().getData();
+                return returnValue;
+            }
         }
-        int predIndex = l.indexOf(e) - 1;
-        if (predIndex >= 0) {
-            return l.get(predIndex);
+        return null;
+    }
+
+    private DoublyLinkedNode search(E e) {
+        DoublyLinkedNode n = head;
+        while (n != null) {
+            if (n.getData().equals(e)) {
+                return n;
+            }
+            n = n.getSucc();
         }
         return null;
     }
