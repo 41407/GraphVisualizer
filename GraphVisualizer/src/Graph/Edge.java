@@ -67,6 +67,12 @@ public class Edge implements Comparable<Edge> {
         return false;
     }
 
+    /**
+     * Checks if this edge is a reversed version of parameter edge
+     *
+     * @param o Edge to be checked against
+     * @return true if edges are reversed versions of each other, false if not
+     */
     public boolean isReverseOf(Edge o) {
         if (o.start == this.end && o.end == this.start) {
             return true;

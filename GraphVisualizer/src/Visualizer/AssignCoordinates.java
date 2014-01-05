@@ -16,8 +16,8 @@ import Graph.Vertex;
 public class AssignCoordinates {
 
     /**
-     * Assign starting coordinates for each vertex in graph using a very
-     * simple algorithm.
+     * Assign starting coordinates for each vertex in graph using a very simple
+     * algorithm.
      *
      * @param g
      */
@@ -26,10 +26,16 @@ public class AssignCoordinates {
         int verticesPerRow = (int) Math.sqrt(vertices);
         for (int i = 0; i < vertices; i++) {
             Vertex v = g.getVertices().get(i);
-            v.setLocation((i % verticesPerRow)*100, (i / verticesPerRow)*100);
+            v.setLocation((i % verticesPerRow) * 100, (i / verticesPerRow) * 100);
         }
     }
 
+    /**
+     * Goes through the vertices of the graph to find one with largest x value
+     *
+     * @param g Graph to be assessed
+     * @return Largest x value in graph
+     */
     private static int findGreatestX(Graph g) {
         DynamicArray vertices = g.getVertices();
         Vertex v = (Vertex) vertices.get(0);
@@ -43,6 +49,12 @@ public class AssignCoordinates {
         return greatest;
     }
 
+    /**
+     * Goes through the vertices of the graph to find one with largest y value
+     *
+     * @param g Graph to be assessed
+     * @return Largest y value in graph
+     */
     private static int findGreatestY(Graph g) {
         DynamicArray vertices = g.getVertices();
         Vertex v = (Vertex) vertices.get(0);

@@ -23,6 +23,9 @@ public class ButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        /**
+         * Retrieves a graph from GraphLoader
+         */
         d.setGraph(GraphLoader.getGraph());
     }
 }

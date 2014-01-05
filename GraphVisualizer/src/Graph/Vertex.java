@@ -41,6 +41,12 @@ public class Vertex implements Comparable<Vertex> {
         return id;
     }
 
+    /**
+     * Sets the x and y coordinates of the vertex
+     * 
+     * @param x X coordinate
+     * @param y Y coordinate
+     */
     public void setLocation(int x, int y) {
         this.x = x;
         this.y = y;

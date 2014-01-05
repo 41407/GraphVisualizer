@@ -7,10 +7,8 @@ package graphvisualizer;
 import Graph.Graph;
 import Graph.GraphParser;
 import UserInterface.UILogic;
-import UserInterface.Window;
 import Visualizer.AssignCoordinates;
 import Visualizer.GraphLoader;
-import javax.swing.SwingUtilities;
 
 /**
  *
