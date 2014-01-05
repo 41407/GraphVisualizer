@@ -93,6 +93,7 @@ public class BinaryHeapTest {
             h.insert(new Vertex(0, i));
         }
         for (int i = 1; i < 10; i++) {
+            
             assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getDistance());
         }
     }

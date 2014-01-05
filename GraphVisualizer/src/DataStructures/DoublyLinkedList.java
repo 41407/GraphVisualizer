@@ -5,7 +5,7 @@
 package DataStructures;
 
 /**
- * Simple doubly linked list
+ * Simple doubly linked list. Knows its head and tail.
  *
  * @author 41407
  */
@@ -26,7 +26,7 @@ public class DoublyLinkedList<E> {
      */
     public void insert(E e) {
         DoublyLinkedNode n = new DoublyLinkedNode();
-        n.setData(e);
+        n.setKey(e);
         n.setSucc(head);
         n.setPred(null);
         if (head != null) {
@@ -48,7 +48,7 @@ public class DoublyLinkedList<E> {
             this.insert(e);
         } else {
             DoublyLinkedNode n = new DoublyLinkedNode();
-            n.setData(e);
+            n.setKey(e);
             n.setSucc(null);
             n.setPred(tail);
             if (tail != null) {
@@ -90,7 +90,7 @@ public class DoublyLinkedList<E> {
      */
     public E min() {
         if (tail != null) {
-            final E e = (E) head.getData();
+            final E e = (E) head.getKey();
             return e;
         } else {
             return null;
@@ -104,7 +104,7 @@ public class DoublyLinkedList<E> {
      */
     public E max() {
         if (tail != null) {
-            final E returnValue = (E) tail.getData();
+            final E returnValue = (E) tail.getKey();
             return returnValue;
         } else {
             return null;
@@ -122,7 +122,7 @@ public class DoublyLinkedList<E> {
         DoublyLinkedNode node = search(e);
         if (node != null) {
             if (node.getSucc() != null) {
-                final E returnValue = (E) node.getSucc().getData();
+                final E returnValue = (E) node.getSucc().getKey();
                 return returnValue;
             }
         }
@@ -139,17 +139,23 @@ public class DoublyLinkedList<E> {
         DoublyLinkedNode node = search(e);
         if (node != null) {
             if (node.getPred() != null) {
-                final E returnValue = (E) node.getPred().getData();
+                final E returnValue = (E) node.getPred().getKey();
                 return returnValue;
             }
         }
         return null;
     }
 
+    /**
+     * Returns the node that contains the parameter element
+     * 
+     * @param e element node of which is to be searched
+     * @return corresponding node, or null if not found
+     */
     private DoublyLinkedNode search(E e) {
         DoublyLinkedNode n = head;
         while (n != null) {
-            if (n.getData().equals(e)) {
+            if (n.getKey().equals(e)) {
                 return n;
             }
             n = n.getSucc();

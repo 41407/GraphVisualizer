@@ -5,25 +5,34 @@
 package DataStructures;
 
 /**
- * Node in DoublyLinkedList
+ * Node element of DoublyLinkedList
  *
  * @author 41407
  */
 public class DoublyLinkedNode {
 
+    /**
+     * Node previous to this node: one closer to head
+     */
     private DoublyLinkedNode pred;
+    /**
+     * Node next to this node: one closer to tail
+     */
     private DoublyLinkedNode succ;
-    private Object data;
+    /**
+     * Object contained within this node
+     */
+    private Object key;
 
     public DoublyLinkedNode() {
         this.pred = null;
         this.succ = null;
-        this.data = null;
+        this.key = null;
     }
 
-    public DoublyLinkedNode(Object data) {
+    public DoublyLinkedNode(Object key) {
         this();
-        this.data = data;
+        this.key = key;
     }
 
     public DoublyLinkedNode getPred() {
@@ -42,11 +51,11 @@ public class DoublyLinkedNode {
         this.succ = succ;
     }
 
-    public Object getData() {
-        return data;
+    public Object getKey() {
+        return key;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setKey(Object key) {
+        this.key = key;
     }
 }

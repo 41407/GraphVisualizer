@@ -28,8 +28,8 @@ public class DynamicArray<E> {
      * @param e Object to be inserted
      */
     public void insert(E e) {
-        if(size == array.length) {
-            Object[] newArray = new Object[size*2];
+        if (size == array.length) {
+            Object[] newArray = new Object[size * 2];
             for (int i = 0; i < array.length; i++) {
                 newArray[i] = array[i];
             }
@@ -53,21 +53,21 @@ public class DynamicArray<E> {
         }
         return false;
     }
-    
+
     /**
      * Removes element from list by index and shifts remaining elements left.
      *
      * @param index index to delete from
      */
     public void delete(int index) {
-        if(index < size) {
-            for (int i = index+1; i < size; i++) {
-                array[i-1] = array[i];
+        if (index < size) {
+            for (int i = index + 1; i < size; i++) {
+                array[i - 1] = array[i];
             }
             size--;
         }
     }
-    
+
     /**
      * Removes element from list and shifts remaining elements left.
      *
@@ -77,10 +77,10 @@ public class DynamicArray<E> {
         int index = indexOf(e);
         this.delete(index);
     }
-   
+
     /**
      * Returns the index of element e.
-     * 
+     *
      * @param e Element to be found
      * @return Index of element, or this.size if element not found
      */
@@ -127,5 +127,14 @@ public class DynamicArray<E> {
      */
     public int getSize() {
         return size;
+    }
+
+    /**
+     * Returns a boolean depending on if array is empty or not
+     * 
+     * @return true if empty, false if not
+     */
+    public boolean isEmpty() {
+        return (size == 0);
     }
 }
