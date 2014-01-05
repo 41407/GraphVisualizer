@@ -14,11 +14,11 @@ import java.util.ArrayList;
  */
 public class DynamicArray<E> {
 
-    private ArrayList<E> l;
+    private Object[] array;
     private int size;
 
     public DynamicArray() {
-        this.l = new ArrayList(10);
+        this.array = new Object[10];
         this.size = 0;
     }
 
@@ -28,7 +28,7 @@ public class DynamicArray<E> {
      * @param e Object to be inserted
      */
     public void insert(E e) {
-        l.add(e);
+        array[size] = e;
         size++;
     }
 
@@ -39,38 +39,55 @@ public class DynamicArray<E> {
      * @return true if element is contained within array, false if not
      */
     public boolean contains(E e) {
-        return l.contains(e);
-    }
-
-    /**
-     * Removes element from list and shifts remaining elements left.
-     *
-     * @param e element to be deleted
-     */
-    public void delete(E e) {
-        if (l.contains(e)) {
-            l.remove(e);
-            size--;
+        for (int i = 0; i < this.size; i++) {
+            if (array[i].equals(e)) {
+                return true;
+            }
         }
+        return false;
     }
-
+    
     /**
      * Removes element from list by index and shifts remaining elements left.
      *
      * @param index index to delete from
      */
     public void delete(int index) {
-        if (size > index && index >= 0) {
-            l.remove(index);
+        if(index < size) {
+            for (int i = index+1; i < size; i++) {
+                array[i-1] = array[i];
+            }
             size--;
         }
+    }
+    
+    /**
+     * Removes element from list and shifts remaining elements left.
+     *
+     * @param e element to be deleted
+     */
+    public void delete(E e) {
+        int index = indexOf(e);
+        this.delete(index);
+    }
+   
+    /**
+     * Returns the index of element e.
+     * 
+     * @param e Element to be found
+     * @return Index of element, or this.size if element not found
+     */
+    private int indexOf(E e) {
+        for (int i = 0; i < size; i++) {
+            if (array[i].equals(e)) {
+                return i;
+            }
+        }
+        return size;
     }
 
     /**
      * Replace element at index with another element.
-     *
-     * Not quite sure how to react to index out of bounds yet. Should the list
-     * just be resized to allow new value to be inserted?
      *
      * @param index index of element to be replaced
      * @param e replacing element
@@ -78,7 +95,7 @@ public class DynamicArray<E> {
     public void set(int index, E e) {
         if (index >= 0) {
             if (index < size) {
-                l.set(index, e);
+                array[index] = e;
             }
         }
     }
@@ -90,15 +107,16 @@ public class DynamicArray<E> {
      */
     public E get(int index) {
         if (index >= 0 && index < size) {
-            return l.get(index);
+            final E e = (E) array[index];
+            return e;
         }
         return null;
     }
 
     /**
      * Returns the current number of elements in list.
-     * 
-     * @return 
+     *
+     * @return
      */
     public int getSize() {
         return size;

@@ -25,7 +25,8 @@ public class GraphDrawer {
          * drawing surface :)
          */
         if (graph == null) {
-            graphics.fillRect((int) (System.currentTimeMillis() % 200), 10, 200, 200);
+            graphics.fillRect((int) (System.currentTimeMillis() % 1000)-200, 10,
+                    200, 200);
         } else {
             DynamicArray<Vertex> vertices = graph.getVertices();
             DynamicArray<Edge> edges = graph.getEdges();

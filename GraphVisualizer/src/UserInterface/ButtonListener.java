@@ -4,7 +4,6 @@
  */
 package UserInterface;
 
-import Graph.Graph;
 import Visualizer.GraphLoader;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
