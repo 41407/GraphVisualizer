@@ -5,6 +5,7 @@
 package DataStructures;
 
 import Graph.Vertex;
+import java.util.Arrays;
 import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
@@ -57,6 +58,20 @@ public class BinaryHeapTest {
     }
 
     @Test
+    public void insertKeepsMinimumValueAtTop() {
+        int minimumValue = Integer.MAX_VALUE;
+        Random r = new Random();
+        for (int i = 0; i < 100; i++) {
+            int thisValue = r.nextInt(5000);
+            h.insert(new Vertex(0, thisValue));
+            if(thisValue < minimumValue) {
+                minimumValue = thisValue;
+            }
+            assertEquals(minimumValue, h.min().getDistance());
+        }
+    }
+
+    @Test
     public void delMinReturnsCorrectValueAfterSingleInsert() {
         h.insert(v);
         assertEquals(v, h.delMin());
@@ -79,64 +94,82 @@ public class BinaryHeapTest {
 
     @Test
     public void delMinReturnsValuesInCorrectOrderWhenInputIsGivenInAscendingOrder() {
-        for (int i = 0; i < 10; i++) {
+        int[] expected = new int[100];
+        for (int i = 0; i < 100; i++) {
             h.insert(new Vertex(0, i));
+            expected[i] = i;
         }
-        for (int i = 0; i < 10; i++) {
-            assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getDistance());
+        Arrays.sort(expected);
+        int[] actual = new int[100];
+        for (int i = 0; i < 100; i++) {
+            actual[i] = h.delMin().getDistance();
         }
+        assertArrayEquals(expected, actual);
     }
 
     @Test
     public void delMinReturnsValuesInCorrectOrderWhenInputIsGivenInDescendingOrder() {
-        for (int i = 10; i > 0; i--) {
+        int[] expected = new int[100];
+        for (int i = 99; i >= 0; i--) {
             h.insert(new Vertex(0, i));
+            expected[i] = i;
         }
-        for (int i = 1; i < 10; i++) {
-            
-            assertEquals("Value retrieved " + i + "th wrong", i, h.delMin().getDistance());
+        Arrays.sort(expected);
+        int[] actual = new int[100];
+        for (int i = 0; i < 100; i++) {
+            actual[i] = h.delMin().getDistance();
         }
+        assertArrayEquals(expected, actual);
     }
 
     @Test
     public void delMinReturnsCorrectOrderWithRandomInput() {
         Random r = new Random();
+        int[] expected = new int[100];
         for (int i = 0; i < 100; i++) {
-            h.insert(new Vertex(0, r.nextInt(5000)));
+            int randomInteger = r.nextInt(5000);
+            h.insert(new Vertex(0, randomInteger));
+            expected[i] = randomInteger;
         }
-        int lastValue = h.min().getDistance();
+        Arrays.sort(expected);
+        int[] actual = new int[100];
         for (int i = 0; i < 100; i++) {
-            int currentValue = h.delMin().getDistance();
-            assertTrue(lastValue <= currentValue);
-            lastValue = currentValue;
+            actual[i] = h.delMin().getDistance();
         }
+        assertArrayEquals(expected, actual);
     }
 
     @Test
     public void delMinReturnsCorrectOrderWithRandomNegativeInput() {
         Random r = new Random();
+        int[] expected = new int[100];
         for (int i = 0; i < 100; i++) {
-            h.insert(new Vertex(0, r.nextInt(5000) - 10000));
+            int randomInteger = r.nextInt(5000) - 10000;
+            h.insert(new Vertex(0, randomInteger));
+            expected[i] = randomInteger;
         }
-        int lastValue = h.min().getDistance();
+        Arrays.sort(expected);
+        int[] actual = new int[100];
         for (int i = 0; i < 100; i++) {
-            int currentValue = h.delMin().getDistance();
-            assertTrue(lastValue <= currentValue);
-            lastValue = currentValue;
+            actual[i] = h.delMin().getDistance();
         }
+        assertArrayEquals(expected, actual);
     }
 
     @Test
     public void delMinReturnsCorrectOrderWithManyIdenticalElements() {
         Random r = new Random();
+        int[] expected = new int[100];
         for (int i = 0; i < 100; i++) {
-            h.insert(new Vertex(0, r.nextInt(2)));
+            int randomInteger = r.nextInt(4);
+            h.insert(new Vertex(0, randomInteger));
+            expected[i] = randomInteger;
         }
-        int lastValue = h.min().getDistance();
+        Arrays.sort(expected);
+        int[] actual = new int[100];
         for (int i = 0; i < 100; i++) {
-            int currentValue = h.delMin().getDistance();
-            assertTrue(lastValue <= currentValue);
-            lastValue = currentValue;
+            actual[i] = h.delMin().getDistance();
         }
+        assertArrayEquals(expected, actual);
     }
 }

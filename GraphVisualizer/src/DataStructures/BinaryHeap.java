@@ -4,6 +4,8 @@
  */
 package DataStructures;
 
+import Graph.Vertex;
+
 /**
  * Binary heap
  *
@@ -39,8 +41,7 @@ public class BinaryHeap<E extends Comparable<E>> {
         heap.insert(e);
         heapSize++;
         int i = heapSize;
-        while (i > 0
-                && heap.get(parent(i)).compareTo(e) < 0) {
+        while (i > 0 && heap.get(parent(i)).compareTo(e) > 0) {
             heap.set(i, heap.get(parent(i)));
             i = parent(i);
         }
@@ -68,7 +69,6 @@ public class BinaryHeap<E extends Comparable<E>> {
         final E returnValue = (E) heap.get(0);
         heap.delete(0);
         heapSize--;
-
         heapify(0);
         return returnValue;
     }
@@ -102,47 +102,50 @@ public class BinaryHeap<E extends Comparable<E>> {
      * @return index of its right child
      */
     private int right(int i) {
-        i += 1;
-        return 2 * i - 1 + 1;
+        return left(i) + 1;
     }
 
     /**
      * Creates a heap out of given array of elements
-     * 
-     * @param index From which index to start heapifyin'
+     *
+     * @param indexOfParent From which index to start heapifyin'
      */
-    private void heapify(int index) {
-        int leftChild = left(index);
-        int rightChild = right(index);
-        E indexElement = heap.get(index);
-        E leftElement = heap.get(leftChild);
-        E rightElement = heap.get(rightChild);
-        int smallerChild;
-        if (rightChild < heapSize) {
-            if (leftElement.compareTo(rightElement) < 0) {
-                smallerChild = leftChild;
+    private void heapify(int indexOfParent) {
+        int indexOfLeftChild = left(indexOfParent);
+        int indexOfRightChild = right(indexOfParent);
+        int indexOfSmallerChild;
+        E parent = heap.get(indexOfParent);
+        E leftChild = heap.get(indexOfLeftChild);
+        E rightChild = heap.get(indexOfRightChild);
+        E smallerChild;
+        if (leftChild != null) {
+            if (rightChild != null) {
+                if (leftChild.compareTo(rightChild) < 0) {
+                    indexOfSmallerChild = indexOfLeftChild;
+                } else {
+                    indexOfSmallerChild = indexOfRightChild;
+                }
             } else {
-                smallerChild = rightChild;
+                indexOfSmallerChild = indexOfLeftChild;
             }
-            E smallerElement = heap.get(smallerChild);
-            if (indexElement.compareTo(smallerElement) > 0) {
-                swapElementsAtIndices(index, smallerChild);
-                heapify(smallerChild);
+            smallerChild = heap.get(indexOfSmallerChild);
+            if (parent.compareTo(smallerChild) > 0) {
+                swapElementsAtIndices(indexOfParent, indexOfSmallerChild);
+                heapify(indexOfSmallerChild);
             }
-        } else if (leftChild == heapSize - 1 && indexElement.compareTo(leftElement) < 0) {
-            swapElementsAtIndices(index, leftChild);
         }
     }
 
     /**
-     * Swaps places of contents in parameter indices
-     * @param index
-     * @param smallest 
+     * Swaps elements in parameter indices
+     *
+     * @param firstIndex
+     * @param secondIndex
      */
-    private void swapElementsAtIndices(int index, int smallest) {
-        E atIndex = heap.get(index);
-        E atSmallest = heap.get(smallest);
-        heap.set(index, atSmallest);
-        heap.set(smallest, atIndex);
+    private void swapElementsAtIndices(int firstIndex, int secondIndex) {
+        E firstKey = heap.get(firstIndex);
+        E secondKey = heap.get(secondIndex);
+        heap.set(firstIndex, secondKey);
+        heap.set(secondIndex, firstKey);
     }
 }

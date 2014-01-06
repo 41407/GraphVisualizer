@@ -4,6 +4,7 @@
  */
 package graphvisualizer;
 
+import DataStructures.BinaryHeap;
 import Graph.Graph;
 import Graph.GraphParser;
 import UserInterface.UILogic;
