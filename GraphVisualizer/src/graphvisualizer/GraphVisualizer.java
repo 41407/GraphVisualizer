@@ -6,7 +6,8 @@ package graphvisualizer;
 
 import DataStructures.BinaryHeap;
 import Graph.Graph;
-import Graph.GraphParser;
+import GraphDataHandler.FileLoader;
+import GraphDataHandler.GraphParser;
 import UserInterface.UILogic;
 import Visualizer.AssignCoordinates;
 import Visualizer.GraphLoader;
@@ -26,7 +27,7 @@ public class GraphVisualizer {
             "1 0 0 0 0",
             "0 0 1 0 0",
             "1 0 1 0 0"};
-        Graph g = GraphParser.initialize(graphString);
+        Graph g = GraphParser.initialize(FileLoader.loadFile("src/graph.txt"));
         AssignCoordinates.initialize(g);
         GraphLoader.setGraph(g);
         UILogic.start();

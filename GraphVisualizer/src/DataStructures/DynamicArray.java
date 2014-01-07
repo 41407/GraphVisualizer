@@ -4,8 +4,6 @@
  */
 package DataStructures;
 
-import java.util.ArrayList;
-
 /**
  * Array that aspires to dynamically adjust its size when necessary. Starts off
  * with size of 10, doubling its size whenever it gets full.

@@ -5,7 +5,7 @@
 package Visualizer;
 
 import Graph.Graph;
-import Graph.GraphParser;
+import GraphDataHandler.GraphParser;
 import Graph.Vertex;
 import org.junit.After;
 import org.junit.AfterClass;
