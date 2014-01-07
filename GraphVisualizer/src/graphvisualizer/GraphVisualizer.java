@@ -22,10 +22,10 @@ public class GraphVisualizer {
      */
     public static void main(String[] args) {
         String[] graphString = {"0 1 0 1 0",
-                              "1 0 0 0 1",
-                            "1 0 0 0 0",
-                            "0 0 1 0 0",
-                              "1 0 1 0 0"};
+            "1 0 0 0 1",
+            "1 0 0 0 0",
+            "0 0 1 0 0",
+            "1 0 1 0 0"};
         Graph g = GraphParser.initialize(graphString);
         AssignCoordinates.initialize(g);
         GraphLoader.setGraph(g);

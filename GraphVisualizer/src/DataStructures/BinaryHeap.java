@@ -37,13 +37,13 @@ public class BinaryHeap<E extends Comparable<E>> {
      */
     public void insert(E e) {
         heap.insert(e);
-        heapSize++;
         int i = heapSize;
         while (i > 0 && heap.get(parent(i)).compareTo(e) > 0) {
             swapElementsByIndex(i, parent(i));
             i = parent(i);
         }
         heap.set(i, e);
+        heapSize++;
     }
 
     /**
@@ -65,8 +65,9 @@ public class BinaryHeap<E extends Comparable<E>> {
      */
     public E delMin() {
         final E returnValue = (E) heap.get(0);
-        heap.delete(0);
         heapSize--;
+        heap.set(0, heap.get(heapSize));
+        heap.delete(heapSize);
         heapify(0);
         return returnValue;
     }
