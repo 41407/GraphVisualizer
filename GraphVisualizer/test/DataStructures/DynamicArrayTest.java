@@ -42,8 +42,44 @@ public class DynamicArrayTest {
     public void singleDeleteByIndexSizeAndContent() {
         a.insert(v);
         a.delete(0);
-     //   assertNull(a.get(0));
+        //   assertNull(a.get(0));
         assertEquals(0, a.getSize());
+    }
+
+    @Test
+    public void deleteKeepsCorrectOrder() {
+        DynamicArray<Integer> arr = new DynamicArray();
+        int[] expected = new int[10];
+        for (int i = 0; i < 10; i++) {
+            arr.insert(i);
+            if (i > 0) {
+                expected[i - 1] = i;
+            }
+        }
+        arr.delete(0);
+        int[] actual = new int[10];
+        for (int i = 0; i < arr.getSize(); i++) {
+            actual[i] = arr.get(i);
+        }
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void deleteKeepsCorrectOrderLastEntry() {
+        DynamicArray<Integer> arr = new DynamicArray();
+        int[] expected = new int[10];
+        for (int i = 0; i < 10; i++) {
+            arr.insert(i);
+            if (i < 9) {
+                expected[i] = i;
+            }
+        }
+        arr.delete(arr.getSize()-1);
+        int[] actual = new int[10];
+        for (int i = 0; i < arr.getSize(); i++) {
+            actual[i] = arr.get(i);
+        }
+        assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -91,7 +127,7 @@ public class DynamicArrayTest {
         a.insert(new Vertex(493));
         assertFalse(a.contains(v));
     }
-    
+
     @Test
     public void manyInsertsResizesArray() {
         String expected = "";

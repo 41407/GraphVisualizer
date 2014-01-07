@@ -4,8 +4,6 @@
  */
 package DataStructures;
 
-import Graph.Vertex;
-
 /**
  * Binary heap
  *
@@ -42,7 +40,7 @@ public class BinaryHeap<E extends Comparable<E>> {
         heapSize++;
         int i = heapSize;
         while (i > 0 && heap.get(parent(i)).compareTo(e) > 0) {
-            heap.set(i, heap.get(parent(i)));
+            swapElementsByIndex(i, parent(i));
             i = parent(i);
         }
         heap.set(i, e);
@@ -130,7 +128,7 @@ public class BinaryHeap<E extends Comparable<E>> {
             }
             smallerChild = heap.get(indexOfSmallerChild);
             if (parent.compareTo(smallerChild) > 0) {
-                swapElementsAtIndices(indexOfParent, indexOfSmallerChild);
+                swapElementsByIndex(indexOfParent, indexOfSmallerChild);
                 heapify(indexOfSmallerChild);
             }
         }
@@ -142,7 +140,7 @@ public class BinaryHeap<E extends Comparable<E>> {
      * @param firstIndex
      * @param secondIndex
      */
-    private void swapElementsAtIndices(int firstIndex, int secondIndex) {
+    private void swapElementsByIndex(int firstIndex, int secondIndex) {
         E firstKey = heap.get(firstIndex);
         E secondKey = heap.get(secondIndex);
         heap.set(firstIndex, secondKey);
