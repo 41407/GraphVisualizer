@@ -58,6 +58,11 @@ public class DoublyLinkedList<E> {
         }
     }
 
+    /**
+     * Finds parameter entry and deletes it.
+     *
+     * @param e Entry to be deleted
+     */
     public void delete(E e) {
         DoublyLinkedNode delNode = this.search(e);
         DoublyLinkedNode succNode = delNode.getSucc();
@@ -81,6 +86,23 @@ public class DoublyLinkedList<E> {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Deletes first entry of list.
+     */
+    void deleteMin() {
+        if (head != null) {
+            if (head.equals(tail)) {
+                head = null;
+                tail = null;
+            } else {
+                if (head.getSucc() != null) {
+                    head.getSucc().setPred(null);
+                }
+                head = head.getSucc();
+            }
+        }
     }
 
     /**
@@ -148,7 +170,7 @@ public class DoublyLinkedList<E> {
 
     /**
      * Returns the node that contains the parameter element
-     * 
+     *
      * @param e element node of which is to be searched
      * @return corresponding node, or null if not found
      */

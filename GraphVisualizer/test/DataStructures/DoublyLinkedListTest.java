@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.omg.CORBA.INITIALIZE;
 
 /**
  *
@@ -111,7 +112,7 @@ public class DoublyLinkedListTest {
         assertEquals(null, l.pred(a));
     }
 
-    private void intializeWithABC() {
+    private void initializeWithABC() {
         l.insert(c);
         l.insert(b);
         l.insert(a);
@@ -119,7 +120,7 @@ public class DoublyLinkedListTest {
 
     @Test
     public void deleteWorksAtBeginning() {
-        intializeWithABC();
+        initializeWithABC();
         l.delete(a);
         assertEquals(b, l.min());
         assertEquals(null, l.pred(b));
@@ -127,7 +128,7 @@ public class DoublyLinkedListTest {
 
     @Test
     public void deleteWorksAtEnd() {
-        intializeWithABC();
+        initializeWithABC();
         l.delete(c);
         assertEquals(b, l.max());
         assertEquals(null, l.succ(b));
@@ -135,9 +136,24 @@ public class DoublyLinkedListTest {
 
     @Test
     public void deleteWorksAtMiddle() {
-        intializeWithABC();
+        initializeWithABC();
         l.delete(b);
         assertEquals(a, l.pred(c));
         assertEquals(c, l.succ(a));
+    }
+
+    @Test
+    public void deleteMinSingleEntry() {
+        l.insert(v);
+        l.deleteMin();
+        assertEquals(null, l.min());
+        assertEquals(null, l.max());
+    }
+
+    @Test
+    public void deleteMinMultipleEntries() {
+        initializeWithABC();
+        l.deleteMin();
+        assertEquals(b, l.min());
     }
 }

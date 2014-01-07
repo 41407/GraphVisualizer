@@ -35,6 +35,10 @@ public class DoublyLinkedNode {
         this.key = key;
     }
 
+    /**
+     *
+     * @return Returns the node next to this one, closer to head
+     */
     public DoublyLinkedNode getPred() {
         return pred;
     }
@@ -43,6 +47,10 @@ public class DoublyLinkedNode {
         this.pred = pred;
     }
 
+    /**
+     *
+     * @return Returns the node next to this one, closer to tail
+     */
     public DoublyLinkedNode getSucc() {
         return succ;
     }
