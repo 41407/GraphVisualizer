@@ -5,7 +5,9 @@
 package DataStructures;
 
 /**
- * Simple doubly linked list. Knows its head and tail.
+ * Simple doubly linked list. Knows its head and tail. In addition to methods
+ * included in tira.pdf, this one has deleteMin() and insertLast() to facilitate
+ * implementation of queues and stacks.
  *
  * @author 41407
  */
@@ -81,6 +83,12 @@ public class DoublyLinkedList<E> {
         }
     }
 
+    /**
+     * Check if list contains parameter object
+     *
+     * @param e object to be searched for
+     * @return True if object is found within list, false if not
+     */
     public boolean contains(E e) {
         if (search(e) != null) {
             return true;

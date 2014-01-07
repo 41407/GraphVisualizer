@@ -4,6 +4,7 @@
  */
 package Visualizer;
 
+import DataStructures.DynamicArray;
 import Graph.Graph;
 import GraphDataHandler.GraphParser;
 import Graph.Vertex;
@@ -33,7 +34,11 @@ public class AssignCoordinatesTest {
                       "0 0 0 0",
                       "0 0 0 0",
                       "0 0 0 0"};
-        Graph g = GraphParser.initialize(s);
+        DynamicArray<String> d = new DynamicArray();
+        for (int i = 0; i < s.length; i++) {
+            d.insert(s[i]);
+        }
+        Graph g = GraphParser.initialize(d);
         AssignCoordinates.initialize(g);
         Vertex v;
         for (int i = 0; i < g.getVertices().getSize(); i++) {

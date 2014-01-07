@@ -20,10 +20,10 @@ public class Stack<E> {
     /**
      * Inserts parameter object in stack
      * 
-     * @param e Object to be inserted
+     * @param element Object to be inserted
      */
-    public void push(E e) {
-        stack.insert(e);
+    public void push(E element) {
+        stack.insert(element);
     }
 
     /**
@@ -32,9 +32,9 @@ public class Stack<E> {
      * @return last object that was inserted in stack
      */
     public E pop() {
-        final E e = (E) stack.get(stack.getSize()-1);
+        final E returnValue = (E) stack.get(stack.getSize()-1);
         stack.delete(stack.getSize()-1);
-        return e;
+        return returnValue;
     }
 
     /**

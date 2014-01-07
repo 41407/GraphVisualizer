@@ -6,7 +6,6 @@ package Graph;
 
 import DataStructures.DoublyLinkedList;
 import DataStructures.DynamicArray;
-import Graph.Vertex;
 
 /**
  * An adjacency list. Not really in use at the moment

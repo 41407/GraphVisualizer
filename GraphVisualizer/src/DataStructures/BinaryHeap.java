@@ -33,16 +33,16 @@ public class BinaryHeap<E extends Comparable<E>> {
     /**
      * Inserts an element into binary heap and positions it correctly.
      *
-     * @param e element to be inserted
+     * @param element element to be inserted
      */
-    public void insert(E e) {
-        heap.insert(e);
+    public void insert(E element) {
+        heap.insert(element);
         int i = heapSize;
-        while (i > 0 && heap.get(parent(i)).compareTo(e) > 0) {
+        while (i > 0 && heap.get(parent(i)).compareTo(element) > 0) {
             swapElementsByIndex(i, parent(i));
             i = parent(i);
         }
-        heap.set(i, e);
+        heap.set(i, element);
         heapSize++;
     }
 
@@ -110,6 +110,9 @@ public class BinaryHeap<E extends Comparable<E>> {
      * @param indexOfParent From which index to start heapifyin'
      */
     private void heapify(int indexOfParent) {
+        /**
+         * First declare all relevant variables for clarity
+         */
         int indexOfLeftChild = left(indexOfParent);
         int indexOfRightChild = right(indexOfParent);
         int indexOfSmallerChild;
@@ -117,6 +120,10 @@ public class BinaryHeap<E extends Comparable<E>> {
         E leftChild = heap.get(indexOfLeftChild);
         E rightChild = heap.get(indexOfRightChild);
         E smallerChild;
+        /**
+         * Due to the way DynamicArray is implemented, it is known that if
+         * an index i is out of bounds, get(i) returns null.
+         */
         if (leftChild != null) {
             if (rightChild != null) {
                 if (leftChild.compareTo(rightChild) < 0) {

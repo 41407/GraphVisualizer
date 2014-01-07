@@ -32,10 +32,10 @@ public class Queue<E> {
     /**
      * Adds parameter element at the end of the queue
      * 
-     * @param e Element to be added
+     * @param element Element to be added
      */
-    public void enqueue(E e) {
-        queue.insertLast(e);
+    public void enqueue(E element) {
+        queue.insertLast(element);
     }
 
     /**
@@ -44,8 +44,8 @@ public class Queue<E> {
      * @return Element that was inserted into queue first.
      */
     public E dequeue() {
-        final E e = (E) queue.min();
+        final E returnValue = (E) queue.min();
         queue.deleteMin();
-        return e;
+        return returnValue;
     }
 }

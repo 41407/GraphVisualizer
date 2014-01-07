@@ -5,7 +5,8 @@
 package DataStructures;
 
 /**
- * Node element of DoublyLinkedList
+ * Node element of DoublyLinkedList. Knows its preceding and succeeding
+ * neighbours.
  *
  * @author 41407
  */
@@ -24,12 +25,22 @@ public class DoublyLinkedNode {
      */
     private Object key;
 
+    /**
+     * This constructor initializes all fields as null.
+     */
     public DoublyLinkedNode() {
         this.pred = null;
         this.succ = null;
         this.key = null;
     }
 
+    /**
+     *
+     * This constructor initializes all fields except key (contained object) as
+     * null.
+     *
+     * @param key Object to be contained within node
+     */
     public DoublyLinkedNode(Object key) {
         this();
         this.key = key;
@@ -37,12 +48,18 @@ public class DoublyLinkedNode {
 
     /**
      *
-     * @return Returns the node next to this one, closer to head
+     * @return Returns the node previous to this one, closer to head
      */
     public DoublyLinkedNode getPred() {
         return pred;
     }
 
+    /**
+     * Assigns parameter node as predecessor to this one, ie as one closer to
+     * head
+     *
+     * @param pred Node to be set as predecessor
+     */
     public void setPred(DoublyLinkedNode pred) {
         this.pred = pred;
     }
@@ -55,6 +72,11 @@ public class DoublyLinkedNode {
         return succ;
     }
 
+    /**
+     * Assigns parameter node as successor to this one, ie as one closer to tail
+     *
+     * @param succ Node to be set as successor
+     */
     public void setSucc(DoublyLinkedNode succ) {
         this.succ = succ;
     }

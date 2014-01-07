@@ -22,11 +22,6 @@ public class GraphVisualizer {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String[] graphString = {"0 1 0 1 0",
-            "1 0 0 0 1",
-            "1 0 0 0 0",
-            "0 0 1 0 0",
-            "1 0 1 0 0"};
         Graph g = GraphParser.initialize(FileLoader.loadFile("src/graph.txt"));
         AssignCoordinates.initialize(g);
         GraphLoader.setGraph(g);

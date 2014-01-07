@@ -4,6 +4,7 @@
  */
 package Graph;
 
+import DataStructures.DynamicArray;
 import GraphDataHandler.GraphParser;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,13 +20,21 @@ import static org.junit.Assert.*;
 public class GraphParserTest {
 
     private String[] test1 = {"0 1",
-                              "0 0"};
+        "0 0"};
     private String[] test2 = {"0 1 0",
-                              "0 0 1",
-                              "1 0 0"};
+        "0 0 1",
+        "1 0 0"};
+    private DynamicArray<String> t1 = new DynamicArray();
+    private DynamicArray<String> t2 = new DynamicArray();
 
     @Before
     public void setUp() {
+        for (int i = 0; i < test1.length; i++) {
+            t1.insert(test1[i]);
+        }
+        for (int i = 0; i < test2.length; i++) {
+            t2.insert(test2[i]);
+        }
     }
 
     @After
@@ -62,14 +71,14 @@ public class GraphParserTest {
 
     @Test
     public void smallGraphTestAddedTwoVerticesAndOneEdge() {
-        Graph g = GraphParser.initialize(test1);
+        Graph g = GraphParser.initialize(t1);
         assertEquals(2, countVertices(g));
         assertEquals(1, countEdges(g));
     }
 
     @Test
     public void anotherSmallGraphAddedCorrectly() {
-        Graph g = GraphParser.initialize(test2);
+        Graph g = GraphParser.initialize(t2);
         assertEquals(3, countVertices(g));
         assertEquals(3, countEdges(g));
     }
@@ -78,7 +87,10 @@ public class GraphParserTest {
     public void bidirectionalEdgesAreNotAddedMultipleTimes() {
         String[] b = {"0 1",
             "1 0"};
-        Graph g = GraphParser.initialize(b);
+        DynamicArray<String> best = new DynamicArray();
+        best.insert(b[0]);
+        best.insert(b[1]);
+        Graph g = GraphParser.initialize(best);
         assertEquals(2, countVertices(g));
         assertEquals(1, countEdges(g));
     }

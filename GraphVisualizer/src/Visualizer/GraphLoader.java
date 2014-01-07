@@ -22,5 +22,4 @@ public class GraphLoader {
     public static Graph getGraph() {
         return g;
     }
-    
 }
