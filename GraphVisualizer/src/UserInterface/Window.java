@@ -30,7 +30,7 @@ public class Window implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Graph Visualizer");
-        frame.setPreferredSize(new Dimension(800, 600));
+        frame.setPreferredSize(new Dimension(1024, 768));
         
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         

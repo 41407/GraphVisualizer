@@ -7,6 +7,7 @@ package Visualizer;
 import DataStructures.DynamicArray;
 import Graph.Graph;
 import Graph.Vertex;
+import java.util.Random;
 
 /**
  * Assigns coordinates for each vertex in graph in order to draw them on screen.
@@ -22,12 +23,15 @@ public class AssignCoordinates {
      * @param g
      */
     public static void initialize(Graph g) {
+        Random r = new Random();
         int vertices = g.getVertices().getSize();
         int verticesPerRow = (int) Math.sqrt(vertices);
         for (int i = 0; i < vertices; i++) {
             Vertex v = g.getVertices().get(i);
-            v.setLocation((i % verticesPerRow) * 100, (i / verticesPerRow) * 100);
+            v.setLocation((i % verticesPerRow) * 100 + r.nextInt(50),
+                    (i / verticesPerRow) * 100 + r.nextInt(50));
         }
+        fitToSize(g, 1024, 768, 200);
     }
 
     /**
@@ -66,5 +70,16 @@ public class AssignCoordinates {
             }
         }
         return greatest;
+    }
+
+    private static void fitToSize(Graph g, int xSize, int ySize, int padding) {
+        int xMax = findGreatestX(g);
+        int yMax = findGreatestY(g);
+        int xCoefficient = (xSize - padding) / xMax;
+        int yCoefficient = (ySize - padding) / yMax;
+        for (int i = 0; i < g.getVertices().getSize(); i++) {
+            Vertex v = g.getVertices().get(i);
+            v.setLocation(v.getX() * xCoefficient + padding / 2, v.getY() * yCoefficient + padding / 2);
+        }
     }
 }
