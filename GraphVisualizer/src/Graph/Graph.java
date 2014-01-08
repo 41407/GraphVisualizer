@@ -9,7 +9,7 @@ import DataStructures.DynamicArray;
 
 /**
  * Graph that contains vertices and edges.
- * 
+ *
  * @author 41407
  */
 public class Graph {
@@ -40,7 +40,7 @@ public class Graph {
      * Remove vertex from graph.
      *
      * TODO handle adjacencyList
-     * 
+     *
      * @param v vertex to be removed
      */
     public void removeVertex(Vertex v) {
@@ -48,28 +48,29 @@ public class Graph {
     }
 
     /**
-     * Add edge into graph. Tests to see if the reversed version of the
-     * parameter edge already exists. If it does, sets the edge undirected.
+     * Add edge between two vertices in graph.
      *
-     * TODO handle adjacencyList
-     * 
-     * @param e edge to be added
+     * @param start Start vertex of edge
+     * @param end End vertex of edge
      */
-    public void addEdge(Edge e) {
-        int i = 0;
-        boolean reverseFound = false;
-        while (edges.get(i) != null) {
-            Edge w = edges.get(i);
-            if (w.isReverseOf(e)) {
-                w.setDirected(false);
-                edges.set(i, w);
-                edges.delete(e);
-                reverseFound = true;
+    public void addEdge(Vertex start, Vertex end) {
+        if (graphContainsVertex(start) && graphContainsVertex(end)) {
+            
+            /**
+             * Insert edge into list of edges
+             */
+            edges.insert(new Edge(start, end));
+            
+            /**
+             * Insert edge into adjacency list
+             */
+            for (int i = 0; i < adjacencyList.getSize(); i++) {
+                Vertex v = adjacencyList.get(i).min();
+                if(v.equals(start)) {
+                    adjacencyList.get(i).insertLast(end);
+                    break;
+                }
             }
-            i++;
-        }
-        if (!reverseFound) {
-            edges.insert(e);
         }
     }
 
@@ -79,5 +80,13 @@ public class Graph {
 
     public DynamicArray<Vertex> getVertices() {
         return vertices;
+    }
+
+    private boolean graphContainsVertex(Vertex vertex) {
+        return vertices.contains(vertex);
+    }
+
+    private boolean graphContainsEdge(Edge edge) {
+        return edges.contains(edge);
     }
 }

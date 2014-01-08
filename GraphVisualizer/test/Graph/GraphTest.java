@@ -43,8 +43,12 @@ public class GraphTest {
     
     @Test
     public void addingEdgesWorks() {
-        g.addEdge(e);
-        DynamicArray a = g.getEdges();
-        assertTrue(a.contains(e));
+        Vertex a = new Vertex(0);
+        Vertex b = new Vertex(1);
+        Edge e = new Edge(a, b);
+        g.addVertex(a);
+        g.addVertex(b);
+        g.addEdge(a, b);
+        assertTrue(g.getEdges().get(0).equals(e));
     }
 }

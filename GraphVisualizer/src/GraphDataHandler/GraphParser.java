@@ -5,27 +5,33 @@
 package GraphDataHandler;
 
 import DataStructures.DynamicArray;
-import Graph.Edge;
 import Graph.Graph;
 import Graph.Vertex;
 
 /**
- * Takes a text input of an adjacency matrix where entries are separated with a
- * whitespace and rows with enter.
- *
- * e.g. 10 4 9 2 0 3 0 3 0
- *
- * Returns a new Graph based on input.
- *
- * For now, we'll interpret weight of 0 as no edge between vertices.
+ * Parser to transform an adjacency matrix into a Graph object
  *
  * @author 41407
  */
 public class GraphParser {
 
+    /**
+     * Takes a text input of an adjacency matrix where entries are separated
+     * with a whitespace and rows with enter. Any non-integer entry means that
+     * there is no edge between those vertices.
+     *
+     * e.g. 
+     *      10 4 9
+     *      2 x 3
+     *      x 3 x
+     *
+     * @param matrix String array to be interpreted.
+     * @return Graph based on input.
+     * 
+     */
     public static Graph initialize(DynamicArray<String> matrix) {
         Graph g = new Graph();
-        int[][] adjacencyMatrix = parseStringArray(matrix);
+        String[][] adjacencyMatrix = parseStringArray(matrix);
         Vertex[] vertices = new Vertex[matrix.getSize()];
         for (int i = 0; i < vertices.length; i++) {
             vertices[i] = new Vertex(i);
@@ -33,21 +39,21 @@ public class GraphParser {
         }
         for (int i = 0; i < adjacencyMatrix.length; i++) {
             for (int j = 0; j < adjacencyMatrix[0].length; j++) {
-                if (adjacencyMatrix[i][j] != 0) {
-                    Edge e = new Edge(vertices[i], vertices[j]);
-                    g.addEdge(e);
+                if (adjacencyMatrix[i][j].matches("^[0-9]{1,9}$")) {
+                    int element = Integer.parseInt(adjacencyMatrix[i][j]);
+                    g.addEdge(vertices[i], vertices[j]);
                 }
             }
         }
         return g;
     }
 
-    private static int[][] parseStringArray(DynamicArray<String> matrix) {
-        int[][] adjacencyMatrix = new int[matrix.getSize()][matrix.getSize()];
+    private static String[][] parseStringArray(DynamicArray<String> matrix) {
+        String[][] adjacencyMatrix = new String[matrix.getSize()][matrix.getSize()];
         for (int i = 0; i < matrix.getSize(); i++) {
             String[] parsedString = matrix.get(i).split("\\s+");
             for (int j = 0; j < parsedString.length; j++) {
-                adjacencyMatrix[i][j] = Integer.parseInt(parsedString[j]);
+                adjacencyMatrix[i][j] = parsedString[j];
             }
         }
         return adjacencyMatrix;

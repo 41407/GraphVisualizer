@@ -23,6 +23,13 @@ public class Edge implements Comparable<Edge> {
         this.end = end;
     }
 
+    public Edge(Vertex start, Vertex end, int weight, boolean directed) {
+        this.start = start;
+        this.end = end;
+        this.weight = weight;
+        this.directed = directed;
+    }
+
     public int getWeight() {
         return weight;
     }
@@ -78,6 +85,17 @@ public class Edge implements Comparable<Edge> {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Returns a reversed version of parameter edge without modifying original
+     * edge.
+     *
+     * @param edge Edge, reverse of which will be returned
+     * @return Reverse of parameter edge
+     */
+    public static Edge reverse(Edge edge) {
+        return new Edge(edge.end, edge.start, edge.weight, edge.directed);
     }
 
     /**
