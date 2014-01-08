@@ -43,6 +43,7 @@ public class Window implements Runnable {
     private void initializeComponents(Container contentPane) {
         JButton button = new JButton("Stop the annoying rectangle and draw a graph");
         button.addActionListener(new ButtonListener(canvas.getDrawer()));
+        canvas.addMouseListener(new GraphCanvasListener(canvas.getDrawer()));
         contentPane.add(canvas);
         contentPane.add(button, BorderLayout.SOUTH);
         

@@ -62,7 +62,7 @@ public class GraphDrawer {
         } else {
             distanceString = "" + distance;
         }
-        g.fillOval(v.getX(), v.getY(), 20, 20);
+        g.fillOval(v.getX()-10, v.getY()-10, 20, 20);
         g.drawString(distanceString, v.getX(), v.getY());
     }
 
@@ -79,7 +79,7 @@ public class GraphDrawer {
         int y1 = e.getStart().getY();
         int x2 = e.getEnd().getX();
         int y2 = e.getEnd().getY();
-        g.drawLine(x1 + 10, y1 + 10, x2 + 10, y2 + 10);
+        g.drawLine(x1, y1, x2, y2);
         g.setFont(new Font("Sans", 1, 10));
         g.drawString(weight, (x1 + x2) / 2, (y1 + y2) / 2);
 
