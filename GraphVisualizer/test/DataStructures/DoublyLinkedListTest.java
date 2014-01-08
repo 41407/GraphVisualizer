@@ -105,11 +105,47 @@ public class DoublyLinkedListTest {
     }
 
     @Test
+    public void insertLastHandlesTailCorrectly() {
+        l.insertLast(a);
+        for (int i = 1; i < 10; i++) {
+            l.insertLast(new Vertex(i));
+        }
+        int i = 0;
+        Vertex test = l.min();
+        while (test != null) {
+            test = l.succ(test);
+            i++;
+            if (i > 300) {
+                break;
+            }
+        }
+        assertTrue("Endless loop!", i < 300);
+    }
+
+    @Test
     public void predReturnsCorrectValue() {
         l.insert(b);
         l.insert(a);
         assertEquals(a, l.pred(b));
         assertEquals(null, l.pred(a));
+    }
+
+    @Test
+    public void insertHandlesHeadCorrectly() {
+        l.insert(a);
+        for (int i = 1; i < 10; i++) {
+            l.insert(new Vertex(i));
+        }
+        int i = 0;
+        Vertex test = l.max();
+        while (test != null) {
+            test = l.pred(test);
+            i++;
+            if (i > 300) {
+                break;
+            }
+        }
+        assertTrue("Endless loop!", i < 300);
     }
 
     private void initializeWithABC() {

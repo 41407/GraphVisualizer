@@ -63,10 +63,12 @@ public class Graph {
      * @param start Start vertex of edge
      * @param end End vertex of edge
      */
-    public void addEdge(Vertex start, Vertex end) {
+    public void addEdge(Vertex start, Vertex end, int weight) {
         if (graphContainsVertex(start) && graphContainsVertex(end)) {
-            edges.insert(new Edge(start, end));
-            adjacencyList.addEdge(start, end);
+            edges.insert(new Edge(start, end, weight));
+            if (start != end) {
+                adjacencyList.addEdge(start, end);
+            }
         }
     }
 

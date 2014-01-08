@@ -29,15 +29,17 @@ public class DoublyLinkedList<E> {
     public void insert(E e) {
         DoublyLinkedNode n = new DoublyLinkedNode();
         n.setKey(e);
-        n.setSucc(head);
-        n.setPred(null);
-        if (head != null) {
-            head.setPred(n);
-        }
-        head = n;
-        if (tail == null) {
+        if (head == null) {
+            head = n;
             tail = n;
+        } else {
+            if (head != null) {
+                head.setPred(n);
+                n.setSucc(head);
+                head = n;
+            }
         }
+
     }
 
     /**
@@ -46,17 +48,17 @@ public class DoublyLinkedList<E> {
      * @param e Element to be inserted
      */
     public void insertLast(E e) {
+        DoublyLinkedNode n = new DoublyLinkedNode();
+        n.setKey(e);
         if (head == null) {
-            this.insert(e);
+            head = n;
+            tail = n;
         } else {
-            DoublyLinkedNode n = new DoublyLinkedNode();
-            n.setKey(e);
-            n.setSucc(null);
-            n.setPred(tail);
             if (tail != null) {
                 tail.setSucc(n);
+                n.setPred(tail);
+                tail = n;
             }
-            tail = n;
         }
     }
 

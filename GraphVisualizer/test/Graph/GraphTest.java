@@ -48,8 +48,19 @@ public class GraphTest {
         Edge e = new Edge(a, b);
         g.addVertex(a);
         g.addVertex(b);
-        g.addEdge(a, b);
+        g.addEdge(a, b, 1);
         assertTrue(g.getEdges().get(0).equals(e));
+    }
+
+    @Test
+    public void addingEdgeBetweenVerticesOnlyAddsOneEdge() {
+        Vertex a = new Vertex(0);
+        Vertex b = new Vertex(1);
+        Edge e = new Edge(a, b);
+        g.addVertex(a);
+        g.addVertex(b);
+        g.addEdge(a, b, 1);
+        assertEquals(1, g.getEdges().getSize());
     }
 
     @Test
@@ -59,7 +70,7 @@ public class GraphTest {
         Edge e = new Edge(a, b);
         g.addVertex(a);
         g.addVertex(b);
-        g.addEdge(a, b);
+        g.addEdge(a, b, 1);
         assertTrue(g.getEdgeByVertices(a, b).equals(e));
     }
 

@@ -41,14 +41,14 @@ public class Dijkstra {
     /**
      * Slow single step version of the algorithm to be used during graphical
      * presentation.
-     * 
+     *
      * Does one iteration of Dijkstra's algorithm.
      */
     public void singleStep() {
         if (!heap.isEmpty()) {
             Vertex u = heap.delMin();
             DoublyLinkedList<Vertex> neighbours = adjacency.getNeighbours(u);
-            Vertex v = neighbours.succ(u);
+            Vertex v = neighbours.succ(neighbours.min());
             while (v != null) {
                 relax(u, v, graph.getEdgeByVertices(u, v));
                 v = neighbours.succ(v);

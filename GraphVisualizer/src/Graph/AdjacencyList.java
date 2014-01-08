@@ -26,9 +26,9 @@ public class AdjacencyList {
      * @param v Vertex to be added
      */
     public void addVertex(Vertex v) {
-        DoublyLinkedList<Vertex> vertexList = new DoublyLinkedList();
-        vertexList.insert(v);
-        this.adjacencyList.insert(vertexList);
+        DoublyLinkedList<Vertex> neighbours = new DoublyLinkedList();
+        neighbours.insertLast(v);
+        this.adjacencyList.insert(neighbours);
     }
 
     /**
@@ -60,21 +60,8 @@ public class AdjacencyList {
      * @param end End vertex
      */
     public void addEdge(Vertex start, Vertex end) {
-        addEdge(indexOf(start), indexOf(end));
-    }
-
-    /**
-     * Adds an edge between two vertices in adjacency list
-     *
-     * @param start index of first vertex
-     * @param end index of neighbouring vertex
-     */
-    public void addEdge(int start, int end) {
-        if (end < adjacencyList.getSize() && start < adjacencyList.getSize()
-                && end >= 0 && start >= 0) {
-            Vertex v = adjacencyList.get(end).min();
-            adjacencyList.get(start).insertLast(v);
-        }
+//        addEdge(indexOf(start), indexOf(end));
+        adjacencyList.get(indexOf(start)).insertLast(end);
     }
 
     /**
@@ -107,7 +94,7 @@ public class AdjacencyList {
     }
 
     private int indexOf(Vertex v) {
-        Vertex r = adjacencyList.get(0).min();
+        Vertex r;
         for (int i = 0; i < adjacencyList.getSize(); i++) {
             r = adjacencyList.get(i).min();
             if (r.equals(v)) {
