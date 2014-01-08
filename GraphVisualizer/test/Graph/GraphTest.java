@@ -40,7 +40,7 @@ public class GraphTest {
         DynamicArray a = g.getVertices();
         assertTrue(a.contains(v));
     }
-    
+
     @Test
     public void addingEdgesWorks() {
         Vertex a = new Vertex(0);
@@ -50,5 +50,23 @@ public class GraphTest {
         g.addVertex(b);
         g.addEdge(a, b);
         assertTrue(g.getEdges().get(0).equals(e));
+    }
+
+    @Test
+    public void getEdgeByVertices() {
+        Vertex a = new Vertex(0);
+        Vertex b = new Vertex(1);
+        Edge e = new Edge(a, b);
+        g.addVertex(a);
+        g.addVertex(b);
+        g.addEdge(a, b);
+        assertTrue(g.getEdgeByVertices(a, b).equals(e));
+    }
+
+    @Test
+    public void vertexListAndAdjacencyListContainSameObjects() {
+        Vertex a = new Vertex(0);
+        g.addVertex(a);
+        assertEquals(a, g.getAdjacencyList().getNeighbours(0).min());
     }
 }

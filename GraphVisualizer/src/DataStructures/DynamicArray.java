@@ -82,7 +82,7 @@ public class DynamicArray<E> {
      * @param element Element to be searched for
      * @return Index of element, or this.size if element not found
      */
-    private int indexOf(E element) {
+    public int indexOf(E element) {
         for (int indexOfElement = 0; indexOfElement < size; indexOfElement++) {
             if (array[indexOfElement].equals(element)) {
                 return indexOfElement;

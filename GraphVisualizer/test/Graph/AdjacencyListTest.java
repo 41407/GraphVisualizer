@@ -4,13 +4,9 @@
  */
 package Graph;
 
-import DataStructures.DoublyLinkedList;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
@@ -54,14 +50,23 @@ public class AdjacencyListTest {
     }
 
     @Test
-    public void addingSingleNeighbourToVertex() {
+    public void addingSingleNeighbourToVertexByIndex() {
         l.addVertex(v);
         l.addVertex(k);
         l.addEdge(0, 1);
         assertTrue(l.getNeighbours(0).contains(v)
                 && l.getNeighbours(0).contains(k));
     }
-    
+
+    @Test
+    public void addingSingleNeighbourToVertexByVertex() {
+        l.addVertex(v);
+        l.addVertex(k);
+        l.addEdge(v, k);
+        assertTrue(l.getNeighbours(0).contains(v)
+                && l.getNeighbours(0).contains(k));
+    }
+
     @Test
     public void removingSingleVertexThatIsANeighbour() {
         l.addVertex(v);
@@ -71,7 +76,7 @@ public class AdjacencyListTest {
         assertTrue(l.getNeighbours(0).contains(v)
                 && !l.getNeighbours(0).contains(k));
     }
-    
+
     @Test
     public void removingSingleVertexThatHasNeighbours() {
         l.addVertex(v);

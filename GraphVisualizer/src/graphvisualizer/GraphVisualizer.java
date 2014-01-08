@@ -4,13 +4,14 @@
  */
 package graphvisualizer;
 
-import DataStructures.BinaryHeap;
+import Algorithms.Dijkstra;
 import Graph.Graph;
 import GraphDataHandler.FileLoader;
 import GraphDataHandler.GraphParser;
 import UserInterface.UILogic;
+import Visualizer.AlgorithmInterface;
 import Visualizer.AssignCoordinates;
-import Visualizer.GraphLoader;
+import Visualizer.GraphInterface;
 
 /**
  *
@@ -24,7 +25,8 @@ public class GraphVisualizer {
     public static void main(String[] args) {
         Graph g = GraphParser.initialize(FileLoader.loadFile("src/graph.txt"));
         AssignCoordinates.initialize(g);
-        GraphLoader.setGraph(g);
+        GraphInterface.setGraph(g);
+        AlgorithmInterface.setDijkstra(new Dijkstra(g, g.getVertices().get(0)));
         UILogic.start();
     }
 }

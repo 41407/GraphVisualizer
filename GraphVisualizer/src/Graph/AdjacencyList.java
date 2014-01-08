@@ -9,7 +9,7 @@ import DataStructures.DynamicArray;
 
 /**
  * An adjacency list. Not really in use at the moment
- * 
+ *
  * @author 41407
  */
 public class AdjacencyList {
@@ -43,23 +43,53 @@ public class AdjacencyList {
     }
 
     /**
+     * Returns a DoublyLinkedList containing the neighbours of a vertex, first
+     * of which is the vertex itself
+     *
+     * @param vertex vertex whose neighbours are to be returned
+     * @return list of parameter vertex and its neighbours
+     */
+    public DoublyLinkedList<Vertex> getNeighbours(Vertex vertex) {
+        return adjacencyList.get(indexOf(vertex));
+    }
+
+    /**
      * Adds an edge between two vertices in adjacency list
      *
-     * @param uVertex index of first vertex
-     * @param vVertex index of neighbouring vertex
+     * @param start Start vertex
+     * @param end End vertex
      */
-    public void addEdge(int uVertex, int vVertex) {
-        if (vVertex < adjacencyList.getSize() && uVertex < adjacencyList.getSize()
-                && vVertex >= 0 && uVertex >= 0) {
-            Vertex v = adjacencyList.get(vVertex).min();
-            adjacencyList.get(uVertex).insertLast(v);
+    public void addEdge(Vertex start, Vertex end) {
+        addEdge(indexOf(start), indexOf(end));
+    }
+
+    /**
+     * Adds an edge between two vertices in adjacency list
+     *
+     * @param start index of first vertex
+     * @param end index of neighbouring vertex
+     */
+    public void addEdge(int start, int end) {
+        if (end < adjacencyList.getSize() && start < adjacencyList.getSize()
+                && end >= 0 && start >= 0) {
+            Vertex v = adjacencyList.get(end).min();
+            adjacencyList.get(start).insertLast(v);
         }
     }
 
     /**
      * Removes the specified vertex from the adjacency list.
      *
-     * @param index
+     * @param v Vertex to be removed
+     */
+    public void removeVertex(Vertex v) {
+        removeVertex(indexOf(v));
+    }
+
+    /**
+     * Removes the vertex at specified index from the adjacency list.
+     *
+     * @param index Index of vertex to be removed
      */
     public void removeVertex(int index) {
         Vertex toBeRemoved = adjacencyList.get(index).min();
@@ -74,5 +104,16 @@ public class AdjacencyList {
             }
         }
         adjacencyList.delete(index);
+    }
+
+    private int indexOf(Vertex v) {
+        Vertex r = adjacencyList.get(0).min();
+        for (int i = 0; i < adjacencyList.getSize(); i++) {
+            r = adjacencyList.get(i).min();
+            if (r.equals(v)) {
+                return i;
+            }
+        }
+        return adjacencyList.getSize();
     }
 }

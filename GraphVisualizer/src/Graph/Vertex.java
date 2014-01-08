@@ -4,18 +4,22 @@
  */
 package Graph;
 
+import Algorithms.VertexColor;
+
 /**
  * Vertex in graph.
  *
  * @author 41407
  */
 public class Vertex implements Comparable<Vertex> {
-
+    
     private int distance;
     private int id;
     private int x;
     private int y;
-
+    private VertexColor color;
+    private Vertex path;
+    
     public Vertex(int id) {
         this.id = id;
     }
@@ -63,5 +67,21 @@ public class Vertex implements Comparable<Vertex> {
     @Override
     public int compareTo(Vertex o) {
         return this.distance - o.getDistance();
+    }
+
+    public VertexColor getColor() {
+        return color;
+    }
+
+    public void setColor(VertexColor color) {
+        this.color = color;
+    }
+
+    public Vertex getPath() {
+        return path;
+    }
+
+    public void setPath(Vertex path) {
+        this.path = path;
     }
 }

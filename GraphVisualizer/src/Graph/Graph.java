@@ -14,14 +14,23 @@ import DataStructures.DynamicArray;
  */
 public class Graph {
 
+    private boolean directed;
     private DynamicArray<Vertex> vertices;
     private DynamicArray<Edge> edges;
-    private DynamicArray<DoublyLinkedList<Vertex>> adjacencyList;
+    private AdjacencyList adjacencyList;
 
     public Graph() {
         edges = new DynamicArray();
         vertices = new DynamicArray();
-        adjacencyList = new DynamicArray();
+        adjacencyList = new AdjacencyList();
+    }
+
+    public boolean isDirected() {
+        return directed;
+    }
+
+    public void setDirected(boolean directed) {
+        this.directed = directed;
     }
 
     /**
@@ -33,7 +42,7 @@ public class Graph {
         DoublyLinkedList<Vertex> vList = new DoublyLinkedList();
         vList.insert(v);
         vertices.insert(v);
-        adjacencyList.insert(vList);
+        adjacencyList.addVertex(v);
     }
 
     /**
@@ -45,6 +54,7 @@ public class Graph {
      */
     public void removeVertex(Vertex v) {
         vertices.delete(v);
+        adjacencyList.removeVertex(v);
     }
 
     /**
@@ -55,23 +65,27 @@ public class Graph {
      */
     public void addEdge(Vertex start, Vertex end) {
         if (graphContainsVertex(start) && graphContainsVertex(end)) {
-            
-            /**
-             * Insert edge into list of edges
-             */
             edges.insert(new Edge(start, end));
-            
-            /**
-             * Insert edge into adjacency list
-             */
-            for (int i = 0; i < adjacencyList.getSize(); i++) {
-                Vertex v = adjacencyList.get(i).min();
-                if(v.equals(start)) {
-                    adjacencyList.get(i).insertLast(end);
-                    break;
+            adjacencyList.addEdge(start, end);
+        }
+    }
+
+    /**
+     * Finds the edge with parameter start and end vertices if it exists.
+     *
+     * @param start Start vertex
+     * @param end End vertex
+     * @return Edge between parameter vertices if it exists, null if not
+     */
+    public Edge getEdgeByVertices(Vertex start, Vertex end) {
+        for (int i = 0; i < edges.getSize(); i++) {
+            if (edges.get(i).getStart() == start) {
+                if (edges.get(i).getEnd() == end) {
+                    return edges.get(i);
                 }
             }
         }
+        return null;
     }
 
     public DynamicArray<Edge> getEdges() {
@@ -88,5 +102,9 @@ public class Graph {
 
     private boolean graphContainsEdge(Edge edge) {
         return edges.contains(edge);
+    }
+
+    public AdjacencyList getAdjacencyList() {
+        return adjacencyList;
     }
 }

@@ -12,11 +12,11 @@ import Graph.Graph;
  * 
  * @author 41407
  */
-public class GraphLoader {
+public class GraphInterface {
     private static Graph g;
 
     public static void setGraph(Graph g) {
-        GraphLoader.g = g;
+        GraphInterface.g = g;
     }
 
     public static Graph getGraph() {

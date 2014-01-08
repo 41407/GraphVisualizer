@@ -16,18 +16,16 @@ public class Edge implements Comparable<Edge> {
     private int weight;
     private Vertex start;
     private Vertex end;
-    private boolean directed;
 
     public Edge(Vertex start, Vertex end) {
         this.start = start;
         this.end = end;
     }
 
-    public Edge(Vertex start, Vertex end, int weight, boolean directed) {
+    public Edge(Vertex start, Vertex end, int weight) {
         this.start = start;
         this.end = end;
         this.weight = weight;
-        this.directed = directed;
     }
 
     public int getWeight() {
@@ -52,14 +50,6 @@ public class Edge implements Comparable<Edge> {
 
     public void setEnd(Vertex end) {
         this.end = end;
-    }
-
-    public boolean isDirected() {
-        return directed;
-    }
-
-    public void setDirected(boolean directional) {
-        this.directed = directional;
     }
 
     @Override
@@ -95,7 +85,7 @@ public class Edge implements Comparable<Edge> {
      * @return Reverse of parameter edge
      */
     public static Edge reverse(Edge edge) {
-        return new Edge(edge.end, edge.start, edge.weight, edge.directed);
+        return new Edge(edge.end, edge.start, edge.weight);
     }
 
     /**

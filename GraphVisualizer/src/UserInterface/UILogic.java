@@ -4,6 +4,7 @@
  */
 package UserInterface;
 
+import Visualizer.GraphInterface;
 import javax.swing.SwingUtilities;
 
 /**
@@ -18,6 +19,7 @@ public class UILogic {
      */
     public static void start() {
         GraphDrawer drawer = new GraphDrawer();
+        drawer.setGraph(GraphInterface.getGraph());
         GraphCanvas canvas = new GraphCanvas(drawer);
         Window w = new Window(canvas);
         SwingUtilities.invokeLater(w);
