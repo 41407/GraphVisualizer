@@ -4,6 +4,8 @@
  */
 package DataStructures;
 
+import Graph.Vertex;
+
 /**
  * Binary heap
  *
@@ -153,5 +155,13 @@ public class BinaryHeap<E extends Comparable<E>> {
         E secondKey = heap.get(secondIndex);
         heap.set(firstIndex, secondKey);
         heap.set(secondIndex, firstKey);
+    }
+
+    public void updateDecreasedElement(E element) {
+        int i = heap.indexOf(element);
+        while (i > 0 && heap.get(parent(i)).compareTo(element) > 0) {
+            swapElementsByIndex(i, parent(i));
+            i = parent(i);
+        }
     }
 }

@@ -4,10 +4,12 @@
  */
 package UserInterface;
 
+import Algorithms.VertexColor;
 import DataStructures.DynamicArray;
 import Graph.Edge;
 import Graph.Graph;
 import Graph.Vertex;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
@@ -55,6 +57,13 @@ public class GraphDrawer {
      * @param v Vertex to be drawn
      */
     private void drawVertex(Graphics g, Vertex v) {
+        if (v.getColor() == VertexColor.BLACK) {
+            g.setColor(Color.BLACK);
+        } else if (v.getColor() == VertexColor.GRAY) {
+            g.setColor(Color.YELLOW);
+        } else if (v.getColor() == VertexColor.WHITE) {
+            g.setColor(Color.red);
+        }
         int distance = v.getDistance();
         String distanceString = "";
         if (distance >= Integer.MAX_VALUE - 100000) {
@@ -62,8 +71,10 @@ public class GraphDrawer {
         } else {
             distanceString = "" + distance;
         }
-        g.fillOval(v.getX()-10, v.getY()-10, 20, 20);
-        g.drawString(distanceString, v.getX(), v.getY());
+        g.fillOval(v.getX() - 10, v.getY() - 10, 20, 20);
+        g.setColor(Color.BLACK);
+        g.drawOval(v.getX() - 10, v.getY() - 10, 20, 20);
+        g.drawString(distanceString, v.getX(), v.getY() - 20);
     }
 
     /**
@@ -81,7 +92,13 @@ public class GraphDrawer {
         int y2 = e.getEnd().getY();
         g.drawLine(x1, y1, x2, y2);
         g.setFont(new Font("Sans", 1, 10));
-        g.drawString(weight, (x1 + x2) / 2, (y1 + y2) / 2);
+        int yModifier = 10;
+        int xModifier = -10;
+        if ((x1 > x2 && y1 > y2) || (x1 < x2 && y1 < y2)) {
+            yModifier = -10;
+            xModifier = 10;
+        }
+        g.drawString(weight, ((x1+20 + x2+20)) / 2 + xModifier, ((y1+20 + y2+20)) / 2);
 
     }
 }

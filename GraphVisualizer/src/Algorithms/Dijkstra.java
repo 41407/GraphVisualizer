@@ -47,28 +47,34 @@ public class Dijkstra {
     public void singleStep() {
         if (!heap.isEmpty()) {
             Vertex u = heap.delMin();
+            u.setColor(VertexColor.GRAY);
             DoublyLinkedList<Vertex> neighbours = adjacency.getNeighbours(u);
             Vertex v = neighbours.succ(neighbours.min());
             while (v != null) {
                 relax(u, v, graph.getEdgeByVertices(u, v));
                 v = neighbours.succ(v);
             }
+            u.setColor(VertexColor.BLACK);
         }
     }
 
     private void initializeSingleSource(Vertex start) {
         for (int i = 0; i < vertices.getSize(); i++) {
+            vertices.get(i).setColor(VertexColor.WHITE);
             vertices.get(i).setDistance(Integer.MAX_VALUE);
             vertices.get(i).setPath(null);
         }
         int indexOfStart = vertices.indexOf(start);
         vertices.get(indexOfStart).setDistance(0);
+        vertices.get(indexOfStart).setColor(VertexColor.GRAY);
     }
 
     private void relax(Vertex u, Vertex v, Edge uv) {
         if (v.getDistance() > u.getDistance() + uv.getWeight()) {
             v.setDistance(u.getDistance() + uv.getWeight());
             v.setPath(u);
+            heap.updateDecreasedElement(v);
+            v.setColor(VertexColor.GRAY);
         }
     }
 }

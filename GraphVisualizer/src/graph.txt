@@ -1,5 +1,6 @@
-x   1   6   x   x
-x   x   x   3   11
-x   x   x   1   7
-x   x   x   x   x
-x   x   x   x   x
+x   1   7   x   x   x
+x   x   1   3   x   x  
+x   x   x   8   1   x  
+x   x   x   x   2   3
+x   x   x   x   x   1
+x   x   19424  x   x   x
