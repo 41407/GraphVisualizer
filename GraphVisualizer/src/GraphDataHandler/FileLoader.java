@@ -35,17 +35,13 @@ public class FileLoader {
      * @param path file to load the graph from
      * @return DynamicAray of Strings
      */
-    public static DynamicArray<String> loadFile(String path) {
-        try {
-            graphFile = new File(path);
-            scanner = new Scanner(graphFile);
-            lines = new DynamicArray();
-            readFile();
-            return lines;
-        } catch (FileNotFoundException ex) {
-            System.out.println("File not found.");
-        }
-        return null;
+    public static DynamicArray<String> loadFile(String path) throws FileNotFoundException {
+
+        graphFile = new File(path);
+        scanner = new Scanner(graphFile);
+        lines = new DynamicArray();
+        readFile();
+        return lines;
     }
 
     /**

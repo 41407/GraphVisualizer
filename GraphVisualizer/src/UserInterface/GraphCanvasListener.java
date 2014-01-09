@@ -35,7 +35,9 @@ class GraphCanvasListener implements MouseInputListener {
         int x = e.getX();
         int y = e.getY();
         Vertex v = FindNearestVertex.at(GraphInterface.getGraph(), x, y);
-        AlgorithmInterface.startDijkstra(v);
+        if (v != null) {
+            AlgorithmInterface.startDijkstra(v);
+        }
     }
 
     @Override

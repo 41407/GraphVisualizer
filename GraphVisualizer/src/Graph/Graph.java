@@ -23,6 +23,7 @@ public class Graph {
         edges = new DynamicArray();
         vertices = new DynamicArray();
         adjacencyList = new AdjacencyList();
+        this.directed = false;
     }
 
     public boolean isDirected() {
@@ -31,6 +32,9 @@ public class Graph {
 
     public void setDirected(boolean directed) {
         this.directed = directed;
+        for (int i = 0; i < edges.getSize(); i++) {
+            edges.get(i).setDirected(directed);
+        }
     }
 
     /**
@@ -65,7 +69,7 @@ public class Graph {
      */
     public void addEdge(Vertex start, Vertex end, int weight) {
         if (graphContainsVertex(start) && graphContainsVertex(end)) {
-            edges.insert(new Edge(start, end, weight, directed));
+            edges.insert(new Edge(start, end, weight, this.directed));
             if (start != end) {
                 adjacencyList.addEdge(start, end);
             }

@@ -58,6 +58,7 @@ public class GraphParser {
                 }
             }
         }
+        g.setDirected(directed);
         return g;
     }
 
