@@ -30,6 +30,14 @@ class GraphCanvasListener implements MouseInputListener {
     public void mouseClicked(MouseEvent e) {
     }
 
+    /**
+     * Activates when mouse button is pressed. Finds the vertex that is closest
+     * to mouse cursor and passes that vertex as a parameter to
+     * algorithmInterface, which in turn starts its specified algorithm from the
+     * vertex that was clicked.
+     *
+     * @param e
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         int x = e.getX();

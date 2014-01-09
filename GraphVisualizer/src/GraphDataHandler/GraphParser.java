@@ -55,6 +55,9 @@ public class GraphParser {
                 if (adjacencyMatrix[i][j].matches("^[0-9]{1,9}$")) {
                     int weight = Integer.parseInt(adjacencyMatrix[i][j]);
                     g.addEdge(vertices[i], vertices[j], weight);
+                    if(!directed) {
+                        g.addEdge(vertices[j], vertices[i], weight);
+                    }
                 }
             }
         }

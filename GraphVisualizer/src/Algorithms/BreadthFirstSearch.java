@@ -4,7 +4,6 @@
  */
 package Algorithms;
 
-import DataStructures.BinaryHeap;
 import DataStructures.DoublyLinkedList;
 import DataStructures.DynamicArray;
 import DataStructures.Queue;
@@ -14,10 +13,11 @@ import Graph.Graph;
 import Graph.Vertex;
 
 /**
+ * Simple breadth-first search algorithm.
  *
  * @author 41407
  */
-public class BreadthFirstSearch implements Algorithm{
+public class BreadthFirstSearch implements Algorithm {
 
     private Graph graph;
     private AdjacencyList adjacency;
@@ -33,6 +33,11 @@ public class BreadthFirstSearch implements Algorithm{
         this.queue = new Queue();
     }
 
+    /**
+     * Initializes algorithm to start from specified vertex.
+     *
+     * @param start Vertex to start from.
+     */
     @Override
     public void initialize(Vertex start) {
         for (int i = 0; i < vertices.getSize(); i++) {
@@ -44,18 +49,22 @@ public class BreadthFirstSearch implements Algorithm{
         start.setDistance(0);
         queue.enqueue(start);
     }
-    
+
+    /**
+     * Advances the algorithm by one step.
+     */
     @Override
     public void singleStep() {
-        if(!queue.isEmpty()) {
+        if (!queue.isEmpty()) {
             Vertex u = queue.dequeue();
             DoublyLinkedList<Vertex> neighbours = adjacency.getNeighbours(u);
             Vertex v = neighbours.succ(neighbours.min());
             while (v != null) {
-                if(v.getColor() == VertexColor.WHITE) {
+                if (v.getColor() == VertexColor.WHITE) {
                     v.setColor(VertexColor.GRAY);
-                    v.setDistance(u.getDistance()+1);
+                    v.setDistance(u.getDistance() + 1);
                     v.setPath(u);
+                    graph.getEdgeByVertices(u, v).setVisited(true);
                     queue.enqueue(v);
                 }
                 v = neighbours.succ(v);

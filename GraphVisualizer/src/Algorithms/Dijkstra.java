@@ -13,11 +13,11 @@ import Graph.Graph;
 import Graph.Vertex;
 
 /**
- * Dijkstra's algorithm.
+ * Dijkstra's algorithm that uses a BinaryHeap
  *
  * @author 41407
  */
-public class Dijkstra implements Algorithm{
+public class Dijkstra implements Algorithm {
 
     private Graph graph;
     private AdjacencyList adjacency;
@@ -50,7 +50,7 @@ public class Dijkstra implements Algorithm{
     }
 
     /**
-     * Slow single step version of the algorithm to be used during graphical
+     * Single step version of the algorithm to be used during graphical
      * presentation.
      *
      * Does one iteration of Dijkstra's algorithm.
@@ -72,6 +72,11 @@ public class Dijkstra implements Algorithm{
         }
     }
 
+    /**
+     * Initializes the algorithm so it starts from a single vertex
+     * 
+     * @param start Vertex to start from
+     */
     private void initializeSingleSource(Vertex start) {
         for (int i = 0; i < vertices.getSize(); i++) {
             vertices.get(i).setColor(VertexColor.WHITE);
@@ -83,6 +88,13 @@ public class Dijkstra implements Algorithm{
         vertices.get(indexOfStart).setColor(VertexColor.GRAY);
     }
 
+    /**
+     * Updates the distance of vertex being processed
+     *
+     * @param u Starting vertex
+     * @param v End vertex
+     * @param uv Edge between these two
+     */
     private void relax(Vertex u, Vertex v, Edge uv) {
         if (u.getDistance() < Integer.MAX_VALUE) {
             if (v.getDistance() > u.getDistance() + uv.getWeight()) {

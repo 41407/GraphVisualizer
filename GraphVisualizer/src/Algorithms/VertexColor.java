@@ -5,7 +5,8 @@
 package Algorithms;
 
 /**
- *
+ * Color of vertex, for both bling and utility.
+ * 
  * @author 41407
  */
 public enum VertexColor {

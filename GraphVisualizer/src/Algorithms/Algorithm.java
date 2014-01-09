@@ -7,7 +7,8 @@ package Algorithms;
 import Graph.Vertex;
 
 /**
- *
+ * Interface for algorithms.
+ * 
  * @author 41407
  */
 public interface Algorithm {

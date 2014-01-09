@@ -15,8 +15,6 @@ import Visualizer.AssignCoordinates;
 import Visualizer.GraphInterface;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -43,6 +41,11 @@ public class GraphVisualizer {
         }
         if (algorithm.equals("d")) {
             AlgorithmInterface.setAlgorithm(new Dijkstra(GraphInterface.getGraph()));
+            if (!GraphInterface.getGraph().isDirected()) {
+                System.out.println("Seems like you've chosen to run Dijkstra's\n"
+                        + "algorithm on an undirected graph. It might not give\n"
+                        + "expected results.");
+            }
         } else {
             AlgorithmInterface.setAlgorithm(new BreadthFirstSearch(GraphInterface.getGraph()));
         }
@@ -65,8 +68,6 @@ public class GraphVisualizer {
                 file = s.nextLine();;
                 cheesyPrompt = "File not found, try again. \nWhich file to read graph from?";
             }
-
         }
-
     }
 }

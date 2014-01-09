@@ -41,7 +41,6 @@ public class FindNearestVertex {
                 closestVertex = v;
             }
         }
-        System.out.println(closest);
         if (closest < thresholdValue) {
             return closestVertex;
         } else {
