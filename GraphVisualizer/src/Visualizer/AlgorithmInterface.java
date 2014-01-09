@@ -5,6 +5,7 @@
 package Visualizer;
 
 import Algorithms.Dijkstra;
+import Graph.Vertex;
 
 /**
  * Static class to store an algorithm. Used as an interface between UI elements
@@ -18,6 +19,10 @@ public class AlgorithmInterface {
 
     public static void setDijkstra(Dijkstra d) {
         AlgorithmInterface.d = d;
+    }
+    
+    public static void startDijkstra(Vertex start) {
+        d.initialize(start);
     }
 
     public static Dijkstra getDijkstra() {

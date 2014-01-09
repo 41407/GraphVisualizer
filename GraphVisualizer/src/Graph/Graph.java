@@ -65,7 +65,7 @@ public class Graph {
      */
     public void addEdge(Vertex start, Vertex end, int weight) {
         if (graphContainsVertex(start) && graphContainsVertex(end)) {
-            edges.insert(new Edge(start, end, weight));
+            edges.insert(new Edge(start, end, weight, directed));
             if (start != end) {
                 adjacencyList.addEdge(start, end);
             }

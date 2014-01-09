@@ -26,7 +26,7 @@ public class GraphVisualizer {
         Graph g = GraphParser.initialize(FileLoader.loadFile("src/graph.txt"));
         AssignCoordinates.initialize(g);
         GraphInterface.setGraph(g);
-        AlgorithmInterface.setDijkstra(new Dijkstra(g, g.getVertices().get(0)));
+        AlgorithmInterface.setDijkstra(new Dijkstra(g));
         UILogic.start();
     }
 }

@@ -16,6 +16,8 @@ public class Edge implements Comparable<Edge> {
     private int weight;
     private Vertex start;
     private Vertex end;
+    private boolean visited;
+    private boolean directed = false;
 
     public Edge(Vertex start, Vertex end) {
         this.start = start;
@@ -26,6 +28,13 @@ public class Edge implements Comparable<Edge> {
         this.start = start;
         this.end = end;
         this.weight = weight;
+    }
+
+    public Edge(Vertex start, Vertex end, int weight, boolean directed) {
+        this.start = start;
+        this.end = end;
+        this.weight = weight;
+        this.directed = true;
     }
 
     public int getWeight() {
@@ -96,5 +105,21 @@ public class Edge implements Comparable<Edge> {
         Vertex temporary = this.start;
         this.start = end;
         this.end = temporary;
+    }
+
+    public void setVisited(boolean b) {
+        this.visited = b;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public boolean isDirected() {
+        return directed;
+    }
+
+    public void setDirected(boolean directed) {
+        this.directed = directed;
     }
 }

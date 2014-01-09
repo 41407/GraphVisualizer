@@ -5,6 +5,7 @@
 package UserInterface;
 
 import Graph.Vertex;
+import Visualizer.AlgorithmInterface;
 import Visualizer.GraphInterface;
 import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputListener;
@@ -34,9 +35,7 @@ class GraphCanvasListener implements MouseInputListener {
         int x = e.getX();
         int y = e.getY();
         Vertex v = FindNearestVertex.at(GraphInterface.getGraph(), x, y);
-        if (v != null) {
-            System.out.println(v.getPath());
-        }
+        AlgorithmInterface.startDijkstra(v);
     }
 
     @Override

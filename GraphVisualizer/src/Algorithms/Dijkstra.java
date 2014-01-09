@@ -22,20 +22,30 @@ public class Dijkstra {
     private Graph graph;
     private AdjacencyList adjacency;
     private DynamicArray<Vertex> vertices;
-    private Vertex start;
+    private DynamicArray<Edge> edges;
     private BinaryHeap<Vertex> heap;
 
-    public Dijkstra(Graph graph, Vertex start) {
+    public Dijkstra(Graph graph) {
         this.graph = graph;
         this.adjacency = graph.getAdjacencyList();
         this.vertices = graph.getVertices();
-        this.start = start;
+        this.edges = graph.getEdges();
         this.heap = new BinaryHeap();
-        initializeSingleSource(start);
-        for (int i = 0; i < graph.getVertices().getSize(); i++) {
-            heap.insert(graph.getVertices().get(i));
-        }
+    }
 
+    /**
+     * Initializes the algorithm to start from parameter vertex
+     *
+     * @param start Vertex to start from
+     */
+    public void initialize(Vertex start) {
+        initializeSingleSource(start);
+        for (int i = 0; i < vertices.getSize(); i++) {
+            heap.insert(vertices.get(i));
+        }
+        for (int i = 0; i < edges.getSize(); i++) {
+            edges.get(i).setVisited(false);
+        }
     }
 
     /**
@@ -51,8 +61,10 @@ public class Dijkstra {
             DoublyLinkedList<Vertex> neighbours = adjacency.getNeighbours(u);
             Vertex v = neighbours.succ(neighbours.min());
             while (v != null) {
+
                 relax(u, v, graph.getEdgeByVertices(u, v));
                 v = neighbours.succ(v);
+
             }
             u.setColor(VertexColor.BLACK);
         }
@@ -70,11 +82,14 @@ public class Dijkstra {
     }
 
     private void relax(Vertex u, Vertex v, Edge uv) {
-        if (v.getDistance() > u.getDistance() + uv.getWeight()) {
-            v.setDistance(u.getDistance() + uv.getWeight());
-            v.setPath(u);
-            heap.updateDecreasedElement(v);
-            v.setColor(VertexColor.GRAY);
+        if (u.getDistance() < Integer.MAX_VALUE) {
+            if (v.getDistance() > u.getDistance() + uv.getWeight()) {
+                v.setDistance(u.getDistance() + uv.getWeight());
+                v.setPath(u);
+                heap.updateDecreasedElement(v);
+                v.setColor(VertexColor.GRAY);
+                uv.setVisited(true);
+            }
         }
     }
 }
