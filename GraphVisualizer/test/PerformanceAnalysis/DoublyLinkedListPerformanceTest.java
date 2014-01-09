@@ -4,8 +4,8 @@
  */
 package PerformanceAnalysis;
 
-import DataStructures.DynamicArray;
-import java.util.ArrayList;
+import DataStructures.DoublyLinkedList;
+import java.util.LinkedList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,22 +17,31 @@ import static org.junit.Assert.*;
  *
  * @author 41407
  */
-public class DynamicArrayPerformanceTest {
+public class DoublyLinkedListPerformanceTest {
 
-    private DynamicArray<Integer> dynamicArray;
-    private ArrayList<Integer> arrayList;
+    private LinkedList<Integer> linkedList;
+    private DoublyLinkedList<Integer> doublyLinkedList;
+
+    public DoublyLinkedListPerformanceTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() {
+    }
+
+    @AfterClass
+    public static void tearDownClass() {
+    }
 
     @Before
     public void setUp() {
-        dynamicArray = new DynamicArray();
-        arrayList = new ArrayList();
     }
 
     @Test
     public void insertTest() {
-        for (int i = 1; i < 7; i++) {
-            printTime(testArrayListInserts(100000 * (int) Math.pow(2, i)));
-            printTime(testDynamicArrayInserts(100000 * (int) Math.pow(2, i)));
+        for (int i = 1; i < 8; i++) {
+            printTime(testJavaLinkedListInserts(10000 * (int) Math.pow(2, i)));
+            printTime(testDoublyLinkedListInserts(10000 * (int) Math.pow(2, i)));
         }
     }
 
@@ -40,18 +49,18 @@ public class DynamicArrayPerformanceTest {
         System.out.println("Average time taken: " + time + " ms");
     }
 
-    private double testArrayListInserts(int inserts) {
-        System.out.println("Testing arrayList with " + inserts + " inserts");
+    private double testJavaLinkedListInserts(int inserts) {
+        System.out.println("Testing LinkedList with " + inserts + " inserts");
 
         long[] times = new long[20];
         long startTime;
         long endTime;
 
         for (int i = 0; i < 20; i++) {
-            arrayList = new ArrayList();
+            linkedList = new LinkedList();
             startTime = System.currentTimeMillis();
             for (int j = 0; j < inserts; j++) {
-                arrayList.add(null);
+                linkedList.add(null);
             }
             endTime = System.currentTimeMillis();
             times[i] = endTime - startTime;
@@ -64,18 +73,18 @@ public class DynamicArrayPerformanceTest {
         return returnValue / 20.0;
     }
 
-    private double testDynamicArrayInserts(int inserts) {
-        System.out.println("Testing dynamicArray with " + inserts + " inserts");
+    private double testDoublyLinkedListInserts(int inserts) {
+        System.out.println("Testing DoublyLinkedList with " + inserts + " inserts");
 
         long[] times = new long[20];
         long startTime;
         long endTime;
 
         for (int i = 0; i < 20; i++) {
-            dynamicArray = new DynamicArray();
+            doublyLinkedList = new DoublyLinkedList();
             startTime = System.currentTimeMillis();
             for (int j = 0; j < inserts; j++) {
-                dynamicArray.insert(null);
+                doublyLinkedList.insert(null);
             }
             endTime = System.currentTimeMillis();
             times[i] = endTime - startTime;
