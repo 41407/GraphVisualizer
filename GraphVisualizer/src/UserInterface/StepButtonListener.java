@@ -5,7 +5,6 @@
 package UserInterface;
 
 import Visualizer.AlgorithmInterface;
-import Visualizer.GraphInterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

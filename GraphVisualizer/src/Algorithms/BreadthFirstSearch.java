@@ -30,7 +30,6 @@ public class BreadthFirstSearch implements Algorithm {
         this.adjacency = graph.getAdjacencyList();
         this.vertices = graph.getVertices();
         this.edges = graph.getEdges();
-        this.queue = new Queue();
     }
 
     /**
@@ -40,6 +39,7 @@ public class BreadthFirstSearch implements Algorithm {
      */
     @Override
     public void initialize(Vertex start) {
+        this.queue = new Queue();
         for (int i = 0; i < edges.getSize(); i++) {
             edges.get(i).setVisited(false);
         }

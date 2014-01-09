@@ -27,15 +27,26 @@ public class AssignCoordinates {
     public static void initialize(Graph g) {
         Random r = new Random();
         int vertices = g.getVertices().getSize();
-        int verticesPerRow = (int) Math.sqrt(vertices);
+        int verticesPerRow = (int) Math.sqrt(vertices)+1;
         BinaryHeap<DoublyLinkedList<Vertex>> neighbours = new BinaryHeap();
         for (int i = 0; i < g.getVertices().getSize(); i++) {
             neighbours.insert(g.getAdjacencyList().getNeighbours(i));
         }
-        for (int i = 0; i < vertices; i++) {
-            Vertex v = neighbours.delMin().min();
-            v.setLocation((i / verticesPerRow) * 100 + r.nextInt(50),
-                    (i % verticesPerRow) * 100 + r.nextInt(50) - 25);
+        DynamicArray<Vertex> doneVertices = new DynamicArray();
+        int i = 0;
+        while (!neighbours.isEmpty()) {
+            DoublyLinkedList<Vertex> neighboursToV = neighbours.delMin();
+            Vertex v = neighboursToV.min();
+            while (v != null) {
+                if (!doneVertices.contains(v)) {
+                    doneVertices.insert(v);
+                    v.setLocation((i % verticesPerRow) * 100 + r.nextInt(30),
+                            (i / verticesPerRow) * 100 + r.nextInt(30));
+                    i++;
+
+                }
+                v = neighboursToV.succ(v);
+            }
         }
         fitToSize(g, 1024, 768, 250);
     }

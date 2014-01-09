@@ -24,28 +24,20 @@ public class GraphDrawer {
     private Graph graph;
 
     public void draw(Graphics graphics) {
-        /**
-         * A simple test to see if I succeeded in making a self refreshing
-         * drawing surface :)
-         */
-        if (graph == null) {
-            graphics.fillRect((int) (System.currentTimeMillis() % 1000) - 200, 10,
-                    200, 200);
-        } else {
-            DynamicArray<Edge> drawnEdges = new DynamicArray();
-            DynamicArray<Edge> edges = graph.getEdges();
-            for (int i = 0; i < edges.getSize(); i++) {
-                if (!drawnEdges.contains(edges.get(i)) && !drawnEdges.contains(Edge.reverse(edges.get(i)))) {
-                    drawEdge(graphics, edges.get(i));
-                    drawnEdges.insert(edges.get(i));
-                }
+        DynamicArray<Edge> drawnEdges = new DynamicArray();
+        DynamicArray<Edge> edges = graph.getEdges();
+        for (int i = 0; i < edges.getSize(); i++) {
+            if (!drawnEdges.contains(edges.get(i)) || !drawnEdges.contains(Edge.reverse(edges.get(i)))) {
+                drawEdge(graphics, edges.get(i));
+                drawnEdges.insert(edges.get(i));
             }
-            DynamicArray<Vertex> vertices = graph.getVertices();
-            for (int i = 0; i < vertices.getSize(); i++) {
-                drawVertex(graphics, vertices.get(i));
-            }
-
         }
+        DynamicArray<Vertex> vertices = graph.getVertices();
+        for (int i = 0; i < vertices.getSize(); i++) {
+            drawVertex(graphics, vertices.get(i));
+        }
+
+
     }
 
     public void setGraph(Graph g) {

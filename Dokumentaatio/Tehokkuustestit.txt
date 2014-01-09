@@ -1,0 +1,313 @@
+Testsuite: PerformanceAnalysis.BinaryHeapPerformanceTest
+
+Generating random input...
+Testing PriorityQueue with 20000 inserts
+Average time taken: 2.7 ms
+Testing BinaryHeap with 20000 inserts
+Average time taken: 2.3 ms
+
+Generating random input...
+Testing PriorityQueue with 40000 inserts
+Average time taken: 2.1 ms
+Testing BinaryHeap with 40000 inserts
+Average time taken: 2.7 ms
+
+Generating random input...
+Testing PriorityQueue with 80000 inserts
+Average time taken: 4.4 ms
+Testing BinaryHeap with 80000 inserts
+Average time taken: 8.4 ms
+
+Generating random input...
+Testing PriorityQueue with 160000 inserts
+Average time taken: 30.0 ms
+Testing BinaryHeap with 160000 inserts
+Average time taken: 24.05 ms
+
+Generating random input...
+Testing PriorityQueue with 320000 inserts
+Average time taken: 49.9 ms
+Testing BinaryHeap with 320000 inserts
+Average time taken: 64.8 ms
+
+Generating random input...
+Testing PriorityQueue with 640000 inserts
+Average time taken: 117.65 ms
+Testing BinaryHeap with 640000 inserts
+Average time taken: 47.0 ms
+
+Generating random input...
+Testing PriorityQueue with 1280000 inserts
+Average time taken: 244.75 ms
+Testing BinaryHeap with 1280000 inserts
+Average time taken: 211.9 ms
+
+Generating random input...
+Testing PriorityQueue with 20000 polls
+Average time taken: 4.8 ms
+Testing BinaryHeap with 20000 delMins
+Average time taken: 9.5 ms
+
+Generating random input...
+Testing PriorityQueue with 40000 polls
+Average time taken: 12.05 ms
+Testing BinaryHeap with 40000 delMins
+Average time taken: 30.95 ms
+
+Generating random input...
+Testing PriorityQueue with 80000 polls
+Average time taken: 28.75 ms
+Testing BinaryHeap with 80000 delMins
+Average time taken: 58.15 ms
+
+Generating random input...
+Testing PriorityQueue with 160000 polls
+Average time taken: 102.8 ms
+Testing BinaryHeap with 160000 delMins
+Average time taken: 179.65 ms
+
+Generating random input...
+Testing PriorityQueue with 320000 polls
+Average time taken: 275.05 ms
+Testing BinaryHeap with 320000 delMins
+Average time taken: 284.4 ms
+
+Generating random input...
+Testing PriorityQueue with 640000 polls
+Average time taken: 441.05 ms
+Testing BinaryHeap with 640000 delMins
+Average time taken: 656.05 ms
+
+Generating random input...
+Testing PriorityQueue with 1280000 polls
+Average time taken: 980.15 ms
+Testing BinaryHeap with 1280000 delMins
+Average time taken: 1398.95 ms
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 113,623 sec
+
+------------- Standard Output ---------------
+
+Generating random input...
+Testing PriorityQueue with 20000 inserts
+Average time taken: 2.7 ms
+Testing BinaryHeap with 20000 inserts
+Average time taken: 2.3 ms
+
+Generating random input...
+Testing PriorityQueue with 40000 inserts
+Average time taken: 2.1 ms
+Testing BinaryHeap with 40000 inserts
+Average time taken: 2.7 ms
+
+Generating random input...
+Testing PriorityQueue with 80000 inserts
+Average time taken: 4.4 ms
+Testing BinaryHeap with 80000 inserts
+Average time taken: 8.4 ms
+
+Generating random input...
+Testing PriorityQueue with 160000 inserts
+Average time taken: 30.0 ms
+Testing BinaryHeap with 160000 inserts
+Average time taken: 24.05 ms
+
+Generating random input...
+Testing PriorityQueue with 320000 inserts
+Average time taken: 49.9 ms
+Testing BinaryHeap with 320000 inserts
+Average time taken: 64.8 ms
+
+Generating random input...
+Testing PriorityQueue with 640000 inserts
+Average time taken: 117.65 ms
+Testing BinaryHeap with 640000 inserts
+Average time taken: 47.0 ms
+
+Generating random input...
+Testing PriorityQueue with 1280000 inserts
+Average time taken: 244.75 ms
+Testing BinaryHeap with 1280000 inserts
+Average time taken: 211.9 ms
+
+Generating random input...
+Testing PriorityQueue with 20000 polls
+Average time taken: 4.8 ms
+Testing BinaryHeap with 20000 delMins
+Average time taken: 9.5 ms
+
+Generating random input...
+Testing PriorityQueue with 40000 polls
+Average time taken: 12.05 ms
+Testing BinaryHeap with 40000 delMins
+Average time taken: 30.95 ms
+
+Generating random input...
+Testing PriorityQueue with 80000 polls
+Average time taken: 28.75 ms
+Testing BinaryHeap with 80000 delMins
+Average time taken: 58.15 ms
+
+Generating random input...
+Testing PriorityQueue with 160000 polls
+Average time taken: 102.8 ms
+Testing BinaryHeap with 160000 delMins
+Average time taken: 179.65 ms
+
+Generating random input...
+Testing PriorityQueue with 320000 polls
+Average time taken: 275.05 ms
+Testing BinaryHeap with 320000 delMins
+Average time taken: 284.4 ms
+
+Generating random input...
+Testing PriorityQueue with 640000 polls
+Average time taken: 441.05 ms
+Testing BinaryHeap with 640000 delMins
+Average time taken: 656.05 ms
+
+Generating random input...
+Testing PriorityQueue with 1280000 polls
+Average time taken: 980.15 ms
+Testing BinaryHeap with 1280000 delMins
+Average time taken: 1398.95 ms
+------------- ---------------- ---------------
+Testsuite: PerformanceAnalysis.DoublyLinkedListPerformanceTest
+
+Testing LinkedList with 20000 inserts
+Average time taken: 1.4 ms
+Testing DoublyLinkedList with 20000 inserts
+Average time taken: 1.2 ms
+
+Testing LinkedList with 40000 inserts
+Average time taken: 1.5 ms
+Testing DoublyLinkedList with 40000 inserts
+Average time taken: 1.4 ms
+
+Testing LinkedList with 80000 inserts
+Average time taken: 6.4 ms
+Testing DoublyLinkedList with 80000 inserts
+Average time taken: 7.45 ms
+
+Testing LinkedList with 160000 inserts
+Average time taken: 23.0 ms
+Testing DoublyLinkedList with 160000 inserts
+Average time taken: 32.55 ms
+
+Testing LinkedList with 320000 inserts
+Average time taken: 53.4 ms
+Testing DoublyLinkedList with 320000 inserts
+Average time taken: 41.25 ms
+
+Testing LinkedList with 640000 inserts
+Average time taken: 89.95 ms
+Testing DoublyLinkedList with 640000 inserts
+Average time taken: 119.95 ms
+
+Testing LinkedList with 1280000 inserts
+Average time taken: 234.0 ms
+Testing DoublyLinkedList with 1280000 inserts
+Average time taken: 202.75 ms
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 16,406 sec
+
+------------- Standard Output ---------------
+
+Testing LinkedList with 20000 inserts
+Average time taken: 1.4 ms
+Testing DoublyLinkedList with 20000 inserts
+Average time taken: 1.2 ms
+
+Testing LinkedList with 40000 inserts
+Average time taken: 1.5 ms
+Testing DoublyLinkedList with 40000 inserts
+Average time taken: 1.4 ms
+
+Testing LinkedList with 80000 inserts
+Average time taken: 6.4 ms
+Testing DoublyLinkedList with 80000 inserts
+Average time taken: 7.45 ms
+
+Testing LinkedList with 160000 inserts
+Average time taken: 23.0 ms
+Testing DoublyLinkedList with 160000 inserts
+Average time taken: 32.55 ms
+
+Testing LinkedList with 320000 inserts
+Average time taken: 53.4 ms
+Testing DoublyLinkedList with 320000 inserts
+Average time taken: 41.25 ms
+
+Testing LinkedList with 640000 inserts
+Average time taken: 89.95 ms
+Testing DoublyLinkedList with 640000 inserts
+Average time taken: 119.95 ms
+
+Testing LinkedList with 1280000 inserts
+Average time taken: 234.0 ms
+Testing DoublyLinkedList with 1280000 inserts
+Average time taken: 202.75 ms
+------------- ---------------- ---------------
+Testsuite: PerformanceAnalysis.DynamicArrayPerformanceTest
+
+Testing arrayList with 200000 inserts
+Average time taken: 3.15 ms
+Testing dynamicArray with 200000 inserts
+Average time taken: 2.8 ms
+
+Testing arrayList with 400000 inserts
+Average time taken: 14.45 ms
+Testing dynamicArray with 400000 inserts
+Average time taken: 8.75 ms
+
+Testing arrayList with 800000 inserts
+Average time taken: 32.7 ms
+Testing dynamicArray with 800000 inserts
+Average time taken: 29.0 ms
+
+Testing arrayList with 1600000 inserts
+Average time taken: 51.3 ms
+Testing dynamicArray with 1600000 inserts
+Average time taken: 40.75 ms
+
+Testing arrayList with 3200000 inserts
+Average time taken: 118.5 ms
+Testing dynamicArray with 3200000 inserts
+Average time taken: 105.85 ms
+
+Testing arrayList with 6400000 inserts
+Average time taken: 225.9 ms
+Testing dynamicArray with 6400000 inserts
+Average time taken: 201.55 ms
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 16,79 sec
+
+------------- Standard Output ---------------
+
+Testing arrayList with 200000 inserts
+Average time taken: 3.15 ms
+Testing dynamicArray with 200000 inserts
+Average time taken: 2.8 ms
+
+Testing arrayList with 400000 inserts
+Average time taken: 14.45 ms
+Testing dynamicArray with 400000 inserts
+Average time taken: 8.75 ms
+
+Testing arrayList with 800000 inserts
+Average time taken: 32.7 ms
+Testing dynamicArray with 800000 inserts
+Average time taken: 29.0 ms
+
+Testing arrayList with 1600000 inserts
+Average time taken: 51.3 ms
+Testing dynamicArray with 1600000 inserts
+Average time taken: 40.75 ms
+
+Testing arrayList with 3200000 inserts
+Average time taken: 118.5 ms
+Testing dynamicArray with 3200000 inserts
+Average time taken: 105.85 ms
+
+Testing arrayList with 6400000 inserts
+Average time taken: 225.9 ms
+Testing dynamicArray with 6400000 inserts
+Average time taken: 201.55 ms
+------------- ---------------- ---------------

@@ -48,8 +48,7 @@ public class Window implements Runnable {
         canvas.addMouseListener(new GraphCanvasListener(canvas.getDrawer()));
         contentPane.add(canvas);
         contentPane.add(step, BorderLayout.SOUTH);
-        contentPane.add(redraw, BorderLayout.NORTH);
-        
+        contentPane.add(redraw, BorderLayout.NORTH);  
     }
     
     public JFrame getFrame() {
