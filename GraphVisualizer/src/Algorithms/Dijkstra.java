@@ -17,7 +17,7 @@ import Graph.Vertex;
  *
  * @author 41407
  */
-public class Dijkstra {
+public class Dijkstra implements Algorithm{
 
     private Graph graph;
     private AdjacencyList adjacency;
@@ -38,6 +38,7 @@ public class Dijkstra {
      *
      * @param start Vertex to start from
      */
+    @Override
     public void initialize(Vertex start) {
         initializeSingleSource(start);
         for (int i = 0; i < vertices.getSize(); i++) {
@@ -54,6 +55,7 @@ public class Dijkstra {
      *
      * Does one iteration of Dijkstra's algorithm.
      */
+    @Override
     public void singleStep() {
         if (!heap.isEmpty()) {
             Vertex u = heap.delMin();

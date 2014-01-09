@@ -24,6 +24,6 @@ public class ButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        AlgorithmInterface.getDijkstra().singleStep();
+        AlgorithmInterface.getAlgorithm().singleStep();
     }
 }

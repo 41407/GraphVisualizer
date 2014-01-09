@@ -41,7 +41,7 @@ public class Window implements Runnable {
     }
 
     private void initializeComponents(Container contentPane) {
-        JButton button = new JButton("Advance Dijkstra");
+        JButton button = new JButton("Advance algorithm");
         button.addActionListener(new ButtonListener(canvas.getDrawer()));
         canvas.addMouseListener(new GraphCanvasListener(canvas.getDrawer()));
         contentPane.add(canvas);

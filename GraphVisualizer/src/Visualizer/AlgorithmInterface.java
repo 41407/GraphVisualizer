@@ -4,7 +4,7 @@
  */
 package Visualizer;
 
-import Algorithms.Dijkstra;
+import Algorithms.Algorithm;
 import Graph.Vertex;
 
 /**
@@ -15,17 +15,17 @@ import Graph.Vertex;
  */
 public class AlgorithmInterface {
 
-    private static Dijkstra d;
+    private static Algorithm algorithm;
 
-    public static void setDijkstra(Dijkstra d) {
-        AlgorithmInterface.d = d;
+    public static void setAlgorithm(Algorithm a) {
+        AlgorithmInterface.algorithm = a;
     }
     
-    public static void startDijkstra(Vertex start) {
-        d.initialize(start);
+    public static void startAlgorithm(Vertex start) {
+        algorithm.initialize(start);
     }
 
-    public static Dijkstra getDijkstra() {
-        return d;
+    public static Algorithm getAlgorithm() {
+        return algorithm;
     }
 }

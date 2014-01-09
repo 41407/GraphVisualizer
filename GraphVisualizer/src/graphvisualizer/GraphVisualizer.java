@@ -4,6 +4,7 @@
  */
 package graphvisualizer;
 
+import Algorithms.BreadthFirstSearch;
 import Algorithms.Dijkstra;
 import Graph.Graph;
 import GraphDataHandler.FileLoader;
@@ -23,11 +24,31 @@ import java.util.logging.Logger;
  */
 public class GraphVisualizer {
 
+    private static Scanner s = new Scanner(System.in);
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        filePrompt();
+    }
+
+    private static void algorithmPrompt() {
+        String algorithm = "";
+        while (!algorithm.equals("d") && !algorithm.equals("b")) {
+            System.out.println("Which algorithm to use?");
+            System.out.println("  b - Breadth-first search");
+            System.out.println("  d - Dijkstra");
+            algorithm = s.nextLine();
+        }
+        if (algorithm.equals("d")) {
+            AlgorithmInterface.setAlgorithm(new Dijkstra(GraphInterface.getGraph()));
+        } else {
+            AlgorithmInterface.setAlgorithm(new BreadthFirstSearch(GraphInterface.getGraph()));
+        }
+    }
+
+    private static void filePrompt() {
         String file = "Don't judge me!";
         String cheesyPrompt = "Which file to read graph from?";
         Graph g;
@@ -36,7 +57,7 @@ public class GraphVisualizer {
                 g = GraphParser.initialize(FileLoader.loadFile("src/" + file + ".txt"));
                 AssignCoordinates.initialize(g);
                 GraphInterface.setGraph(g);
-                AlgorithmInterface.setDijkstra(new Dijkstra(g));
+                algorithmPrompt();
                 UILogic.start();
                 break;
             } catch (FileNotFoundException ex) {
@@ -46,5 +67,6 @@ public class GraphVisualizer {
             }
 
         }
+
     }
 }
