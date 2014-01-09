@@ -19,9 +19,9 @@ import static org.junit.Assert.*;
  */
 public class GraphParserTest {
 
-    private String[] test1 = {"x 1",
+    private String[] test1 = {"Directed", "x 1",
         "x x"};
-    private String[] test2 = {"x 1 x",
+    private String[] test2 = {"DIrected", "x 1 x",
         "x x 1",
         "1 x x"};
     private DynamicArray<String> t1 = new DynamicArray();
