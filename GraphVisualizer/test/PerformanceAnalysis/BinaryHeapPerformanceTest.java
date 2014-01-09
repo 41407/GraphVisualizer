@@ -33,11 +33,20 @@ public class BinaryHeapPerformanceTest {
     }
 
     @Test
-    public void hello() {
+    public void insertTest() {
         for (int i = 1; i < 8; i++) {
             int[] inserts = initializeRandomTable(10000 * (int) Math.pow(2, i));
             printTime(testPriorityQueueInserts(inserts));
             printTime(testBinaryHeapInserts(inserts));
+        }
+    }
+
+    @Test
+    public void delMaxTest() {
+        for (int i = 1; i < 8; i++) {
+            int[] inserts = initializeRandomTable(10000 * (int) Math.pow(2, i));
+            printTime(testPriorityQueuePoll(inserts));
+            printTime(testBinaryHeapDelMin(inserts));
         }
     }
 
@@ -101,5 +110,60 @@ public class BinaryHeapPerformanceTest {
 
     private void printTime(double time) {
         System.out.println("Average time taken: " + time + " ms");
+    }
+
+    private double testPriorityQueuePoll(int[] inserts) {
+        System.out.println("Testing PriorityQueue with " + inserts.length + " polls");
+
+        long[] times = new long[20];
+        long startTime;
+        long endTime;
+
+        for (int i = 0; i < 20; i++) {
+            priorityQueue = new PriorityQueue();
+            for (int j = 0; j < inserts.length; j++) {
+                priorityQueue.add(inserts[j]);
+            }
+            startTime = System.currentTimeMillis();
+            for (int j = 0; j < inserts.length; j++) {
+                priorityQueue.poll();
+            }
+            endTime = System.currentTimeMillis();
+            times[i] = endTime - startTime;
+        }
+
+        double returnValue = 0;
+        for (int i = 0; i < times.length; i++) {
+            returnValue += times[i];
+        }
+        return returnValue / 20.0;
+    }
+
+    private double testBinaryHeapDelMin(int[] inserts) {
+        System.out.println("Testing BinaryHeap with " + inserts.length + " delMins");
+
+        long[] times = new long[20];
+        long startTime;
+        long endTime;
+
+        for (int i = 0; i < 20; i++) {
+            binaryHeap = new BinaryHeap();
+
+            for (int j = 0; j < inserts.length; j++) {
+                binaryHeap.insert(inserts[j]);
+            }
+            startTime = System.currentTimeMillis();
+            for (int j = 0; j < inserts.length; j++) {
+                binaryHeap.delMin();
+            }
+            endTime = System.currentTimeMillis();
+            times[i] = endTime - startTime;
+        }
+
+        double returnValue = 0;
+        for (int i = 0; i < times.length; i++) {
+            returnValue += times[i];
+        }
+        return returnValue / 20.0;
     }
 }
