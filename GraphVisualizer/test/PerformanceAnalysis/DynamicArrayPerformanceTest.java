@@ -31,6 +31,7 @@ public class DynamicArrayPerformanceTest {
     @Test
     public void insertTest() {
         for (int i = 1; i < 7; i++) {
+            System.out.println("");
             printTime(testArrayListInserts(100000 * (int) Math.pow(2, i)));
             printTime(testDynamicArrayInserts(100000 * (int) Math.pow(2, i)));
         }

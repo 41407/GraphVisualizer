@@ -19,32 +19,87 @@ import static org.junit.Assert.*;
  * @author 41407
  */
 public class BinaryHeapPerformanceTest {
-    
+
     private Random r;
     private BinaryHeap<Integer> binaryHeap;
     private PriorityQueue<Integer> priorityQueue;
-    
-    public BinaryHeapPerformanceTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+
+    @Test
+    public void hello() {
+        for (int i = 1; i < 8; i++) {
+            int[] inserts = initializeRandomTable(10000 * (int) Math.pow(2, i));
+            printTime(testPriorityQueueInserts(inserts));
+            printTime(testBinaryHeapInserts(inserts));
+        }
+    }
+
+    private double testPriorityQueueInserts(int[] inserts) {
+        System.out.println("Testing PriorityQueue with " + inserts.length + " inserts");
+
+        long[] times = new long[20];
+        long startTime;
+        long endTime;
+
+        for (int i = 0; i < 20; i++) {
+            priorityQueue = new PriorityQueue();
+            startTime = System.currentTimeMillis();
+            for (int j = 0; j < inserts.length; j++) {
+                priorityQueue.add(inserts[j]);
+            }
+            endTime = System.currentTimeMillis();
+            times[i] = endTime - startTime;
+        }
+
+        double returnValue = 0;
+        for (int i = 0; i < times.length; i++) {
+            returnValue += times[i];
+        }
+        return returnValue / 20.0;
+    }
+
+    private double testBinaryHeapInserts(int[] inserts) {
+        System.out.println("Testing BinaryHeap with " + inserts.length + " inserts");
+
+        long[] times = new long[20];
+        long startTime;
+        long endTime;
+
+        for (int i = 0; i < 20; i++) {
+            binaryHeap = new BinaryHeap();
+            startTime = System.currentTimeMillis();
+            for (int j = 0; j < inserts.length; j++) {
+                binaryHeap.insert(inserts[j]);
+            }
+            endTime = System.currentTimeMillis();
+            times[i] = endTime - startTime;
+        }
+
+        double returnValue = 0;
+        for (int i = 0; i < times.length; i++) {
+            returnValue += times[i];
+        }
+        return returnValue / 20.0;
+    }
+
+    private int[] initializeRandomTable(int size) {
+        r = new Random();
+        System.out.println("\nGenerating random input...");
+        int[] randomTable = new int[size];
+        for (int i = 0; i < randomTable.length; i++) {
+            randomTable[i] = r.nextInt(size);
+        }
+        return randomTable;
+    }
+
+    private void printTime(double time) {
+        System.out.println("Average time taken: " + time + " ms");
+    }
 }
