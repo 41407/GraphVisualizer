@@ -11,7 +11,7 @@ package DataStructures;
  *
  * @author 41407
  */
-public class DoublyLinkedList<E> {
+public class DoublyLinkedList<E> implements Comparable<DoublyLinkedList<E>> {
 
     private DoublyLinkedNode head;
     private DoublyLinkedNode tail;
@@ -79,13 +79,17 @@ public class DoublyLinkedList<E> {
                 succNode.setPred(predNode);
             } else {
                 tail = predNode;
-                predNode.setSucc(null);
+                if (predNode != null) {
+                    predNode.setSucc(null);
+                }
             }
             if (predNode != null) {
                 predNode.setSucc(succNode);
             } else {
                 head = succNode;
-                succNode.setPred(null);
+                if (succNode != null) {
+                    succNode.setPred(null);
+                }
             }
             size--;
         }
@@ -204,5 +208,10 @@ public class DoublyLinkedList<E> {
 
     public int getSize() {
         return size;
+    }
+
+    @Override
+    public int compareTo(DoublyLinkedList<E> o) {
+        return this.size - o.getSize();
     }
 }

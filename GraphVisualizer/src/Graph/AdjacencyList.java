@@ -36,7 +36,8 @@ public class AdjacencyList {
      * of which is the vertex itself
      *
      * @param index index of vertex
-     * @return list of parameter vertex and its neighbours
+     * @return list of parameter vertex and its neighbours, or null if out of
+     * bounds
      */
     public DoublyLinkedList<Vertex> getNeighbours(int index) {
         return adjacencyList.get(index);
@@ -95,10 +96,14 @@ public class AdjacencyList {
 
     private int indexOf(Vertex v) {
         Vertex r;
-        for (int i = 0; i < adjacencyList.getSize(); i++) {
-            r = adjacencyList.get(i).min();
-            if (r.equals(v)) {
-                return i;
+        if (v != null) {
+            for (int i = 0; i < adjacencyList.getSize(); i++) {
+                r = adjacencyList.get(i).min();
+                if (r != null) {
+                    if (r.equals(v)) {
+                        return i;
+                    }
+                }
             }
         }
         return adjacencyList.getSize();

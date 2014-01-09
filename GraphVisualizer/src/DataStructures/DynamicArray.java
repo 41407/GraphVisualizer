@@ -58,11 +58,13 @@ public class DynamicArray<E> {
      * @param index index to delete from
      */
     public void delete(int index) {
-        if (index < size) {
-            for (int i = index + 1; i < size; i++) {
-                array[i - 1] = array[i];
+        if (index >= 0) {
+            if (index < size) {
+                for (int i = index + 1; i < size; i++) {
+                    array[i - 1] = array[i];
+                }
+                size--;
             }
-            size--;
         }
     }
 

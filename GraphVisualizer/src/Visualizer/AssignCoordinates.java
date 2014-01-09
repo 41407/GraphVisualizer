@@ -4,6 +4,8 @@
  */
 package Visualizer;
 
+import DataStructures.BinaryHeap;
+import DataStructures.DoublyLinkedList;
 import DataStructures.DynamicArray;
 import Graph.Graph;
 import Graph.Vertex;
@@ -26,12 +28,16 @@ public class AssignCoordinates {
         Random r = new Random();
         int vertices = g.getVertices().getSize();
         int verticesPerRow = (int) Math.sqrt(vertices);
-        for (int i = 0; i < vertices; i++) {
-            Vertex v = g.getVertices().get(i);
-            v.setLocation((i % verticesPerRow) * 100 + r.nextInt(50),
-                    (i / verticesPerRow) * 100 + r.nextInt(50));
+        BinaryHeap<DoublyLinkedList<Vertex>> neighbours = new BinaryHeap();
+        for (int i = 0; i < g.getVertices().getSize(); i++) {
+            neighbours.insert(g.getAdjacencyList().getNeighbours(i));
         }
-        fitToSize(g, 1024, 768, 200);
+        for (int i = 0; i < vertices; i++) {
+            Vertex v = neighbours.delMin().min();
+            v.setLocation((i / verticesPerRow) * 100 + r.nextInt(50),
+                    (i % verticesPerRow) * 100 + r.nextInt(50) - 25);
+        }
+        fitToSize(g, 1024, 768, 250);
     }
 
     /**
@@ -73,13 +79,14 @@ public class AssignCoordinates {
     }
 
     private static void fitToSize(Graph g, int xSize, int ySize, int padding) {
-        int xMax = findGreatestX(g);
-        int yMax = findGreatestY(g);
-        int xCoefficient = (xSize - padding) / xMax;
-        int yCoefficient = (ySize - padding) / yMax;
+        double xMax = findGreatestX(g);
+        double yMax = findGreatestY(g);
+        double xCoefficient = (xSize - padding) / xMax;
+        double yCoefficient = (ySize - padding) / yMax;
         for (int i = 0; i < g.getVertices().getSize(); i++) {
             Vertex v = g.getVertices().get(i);
-            v.setLocation(v.getX() * xCoefficient + padding / 2, v.getY() * yCoefficient + padding / 2);
+            v.setLocation((int) (v.getX() * xCoefficient + padding / 2.0),
+                    (int) (v.getY() * yCoefficient + padding / 2.0));
         }
     }
 }
