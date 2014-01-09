@@ -41,11 +41,14 @@ public class Window implements Runnable {
     }
 
     private void initializeComponents(Container contentPane) {
-        JButton button = new JButton("Advance algorithm");
-        button.addActionListener(new ButtonListener(canvas.getDrawer()));
+        JButton step = new JButton("Advance algorithm");
+        JButton redraw = new JButton("Redraw graph");
+        step.addActionListener(new StepButtonListener(canvas.getDrawer()));
+        redraw.addActionListener(new RedrawButtonListener(canvas.getDrawer()));
         canvas.addMouseListener(new GraphCanvasListener(canvas.getDrawer()));
         contentPane.add(canvas);
-        contentPane.add(button, BorderLayout.SOUTH);
+        contentPane.add(step, BorderLayout.SOUTH);
+        contentPane.add(redraw, BorderLayout.NORTH);
         
     }
     

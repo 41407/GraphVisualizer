@@ -9,6 +9,7 @@ import Algorithms.Dijkstra;
 import Graph.Graph;
 import GraphDataHandler.FileLoader;
 import GraphDataHandler.GraphParser;
+import GraphDataHandler.RandomGraph;
 import UserInterface.UILogic;
 import Visualizer.AlgorithmInterface;
 import Visualizer.AssignCoordinates;
@@ -53,7 +54,9 @@ public class GraphVisualizer {
 
     private static void filePrompt() {
         String file = "Don't judge me!";
-        String cheesyPrompt = "Which file to read graph from?";
+        String cheesyPrompt = "Which file to read graph from? \n"
+                + "Or alternatively type 'random size' for randomly generated\n"
+                + "graph, eg. 'random 4'";
         Graph g;
         while (!file.equals("quit")) {
             try {
@@ -67,6 +70,15 @@ public class GraphVisualizer {
                 System.out.println(cheesyPrompt);
                 file = s.nextLine();;
                 cheesyPrompt = "File not found, try again. \nWhich file to read graph from?";
+                if (file.startsWith("random ")) {
+                    int size = Integer.parseInt(file.substring(7));
+                    g = GraphParser.initialize(RandomGraph.generate(size));
+                    AssignCoordinates.initialize(g);
+                    GraphInterface.setGraph(g);
+                    algorithmPrompt();
+                    UILogic.start();
+                    break;
+                }
             }
         }
     }

@@ -5,25 +5,25 @@
 package UserInterface;
 
 import Visualizer.AlgorithmInterface;
+import Visualizer.AssignCoordinates;
 import Visualizer.GraphInterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * ActionListener for a UI button
  *
  * @author 41407
  */
-public class ButtonListener implements ActionListener {
+class RedrawButtonListener implements ActionListener {
 
     private GraphDrawer d;
 
-    public ButtonListener(GraphDrawer d) {
+    public RedrawButtonListener(GraphDrawer d) {
         this.d = d;
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        AlgorithmInterface.getAlgorithm().singleStep();
+        AssignCoordinates.initialize(GraphInterface.getGraph());
     }
 }

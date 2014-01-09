@@ -40,6 +40,9 @@ public class BreadthFirstSearch implements Algorithm {
      */
     @Override
     public void initialize(Vertex start) {
+        for (int i = 0; i < edges.getSize(); i++) {
+            edges.get(i).setVisited(false);
+        }
         for (int i = 0; i < vertices.getSize(); i++) {
             vertices.get(i).setColor(VertexColor.WHITE);
             vertices.get(i).setDistance(Integer.MAX_VALUE);

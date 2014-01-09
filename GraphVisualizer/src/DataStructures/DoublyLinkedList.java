@@ -15,10 +15,12 @@ public class DoublyLinkedList<E> {
 
     private DoublyLinkedNode head;
     private DoublyLinkedNode tail;
+    private int size;
 
     public DoublyLinkedList() {
         this.head = null;
         this.tail = null;
+        this.size = 0;
     }
 
     /**
@@ -39,7 +41,7 @@ public class DoublyLinkedList<E> {
                 head = n;
             }
         }
-
+        size++;
     }
 
     /**
@@ -60,6 +62,7 @@ public class DoublyLinkedList<E> {
                 tail = n;
             }
         }
+        size++;
     }
 
     /**
@@ -69,19 +72,22 @@ public class DoublyLinkedList<E> {
      */
     public void delete(E e) {
         DoublyLinkedNode delNode = this.search(e);
-        DoublyLinkedNode succNode = delNode.getSucc();
-        DoublyLinkedNode predNode = delNode.getPred();
-        if (succNode != null) {
-            succNode.setPred(predNode);
-        } else {
-            tail = predNode;
-            predNode.setSucc(null);
-        }
-        if (predNode != null) {
-            predNode.setSucc(succNode);
-        } else {
-            head = succNode;
-            succNode.setPred(null);
+        if (delNode != null) {
+            DoublyLinkedNode succNode = delNode.getSucc();
+            DoublyLinkedNode predNode = delNode.getPred();
+            if (succNode != null) {
+                succNode.setPred(predNode);
+            } else {
+                tail = predNode;
+                predNode.setSucc(null);
+            }
+            if (predNode != null) {
+                predNode.setSucc(succNode);
+            } else {
+                head = succNode;
+                succNode.setPred(null);
+            }
+            size--;
         }
     }
 
@@ -112,6 +118,7 @@ public class DoublyLinkedList<E> {
                 }
                 head = head.getSucc();
             }
+            size--;
         }
     }
 
@@ -193,5 +200,9 @@ public class DoublyLinkedList<E> {
             n = n.getSucc();
         }
         return null;
+    }
+
+    public int getSize() {
+        return size;
     }
 }
