@@ -39,7 +39,7 @@ public class FileLoader {
    //     String filePath = FileLoader.class.getResource(path).getPath();
         String filePath = System.getProperty("user.dir");
         filePath += "/" + path;
-        System.out.println(filePath);
+ //       System.out.println(filePath);
         graphFile = new File(filePath);
         scanner = new Scanner(graphFile);
         lines = new DynamicArray();
