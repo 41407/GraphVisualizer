@@ -22,7 +22,7 @@ public class RandomGraph {
             for (int j = 0; j < size; j++) {
                 if (j > i) {
                     int random = r.nextInt(100);
-                    if (random < r.nextInt(20)+70) {
+                    if (random < 85) {
                         line += "x ";
                     } else {
                         line += 1 + " ";

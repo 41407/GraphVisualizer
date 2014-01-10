@@ -4,6 +4,8 @@
  */
 package Visualizer;
 
+import Algorithms.BreadthFirstSearch;
+import Algorithms.ResetGraphState;
 import DataStructures.BinaryHeap;
 import DataStructures.DoublyLinkedList;
 import DataStructures.DynamicArray;
@@ -27,27 +29,60 @@ public class AssignCoordinates {
     public static void initialize(Graph g) {
         Random r = new Random();
         int vertices = g.getVertices().getSize();
-        int verticesPerRow = (int) Math.sqrt(vertices)+1;
+        int verticesPerRow = (int) Math.sqrt(vertices) + 1;
+        BinaryHeap<Vertex> verticesInOrder = new BinaryHeap();
         BinaryHeap<DoublyLinkedList<Vertex>> neighbours = new BinaryHeap();
         for (int i = 0; i < g.getVertices().getSize(); i++) {
             neighbours.insert(g.getAdjacencyList().getNeighbours(i));
         }
-        DynamicArray<Vertex> doneVertices = new DynamicArray();
+        BreadthFirstSearch bfs = new BreadthFirstSearch(g);
+        for (int i = 0; i < vertices; i++) {
+            bfs.initialize(neighbours.delMin().min());
+        }
+        for (int i = 0; i < g.getEdges().getSize(); i++) {
+            bfs.singleStep();
+        }
+        for (int i = 0; i < g.getVertices().getSize(); i++) {
+            verticesInOrder.insert(g.getVertices().get(i));
+        }
         int i = 0;
-        while (!neighbours.isEmpty()) {
-            DoublyLinkedList<Vertex> neighboursToV = neighbours.delMin();
-            Vertex v = neighboursToV.min();
-            while (v != null) {
-                if (!doneVertices.contains(v)) {
-                    doneVertices.insert(v);
-                    v.setLocation((i % verticesPerRow) * 100 + r.nextInt(30),
-                            (i / verticesPerRow) * 100 + r.nextInt(30));
-                    i++;
-
-                }
-                v = neighboursToV.succ(v);
+        int x = 0;
+        int y = 0;
+        int xStart = 0;
+        int yCeiling = 0;
+        while (!verticesInOrder.isEmpty()) {
+            Vertex v = verticesInOrder.delMin();
+            v.setLocation((x) * (100) + r.nextInt(50),
+                    (y) * (100+(i%2*50)) + r.nextInt(50));
+            x--;
+            y++;
+            i++;
+            if (x < 0) {
+                xStart++;
+                x = xStart;
+            }
+            if (y > yCeiling) {
+                yCeiling++;
+                y = 0;
             }
         }
+        /*        DynamicArray<Vertex> doneVertices = new DynamicArray();
+         int i = 0;
+         while (!neighbours.isEmpty()) {
+         DoublyLinkedList<Vertex> neighboursToV = neighbours.delMin();
+         Vertex v = neighboursToV.min();
+         while (v != null) {
+         if (!doneVertices.contains(v)) {
+         doneVertices.insert(v);
+         v.setLocation((i % verticesPerRow) * 100 + r.nextInt(50),
+         (i / verticesPerRow) * 100 + r.nextInt(50));
+         i++;
+
+         }
+         v = neighboursToV.succ(v);
+         }
+         }*/
+        ResetGraphState reset = new ResetGraphState(g);
         fitToSize(g, 1024, 768, 250);
     }
 

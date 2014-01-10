@@ -68,13 +68,16 @@ public class Dijkstra implements Algorithm {
                 v = neighbours.succ(v);
 
             }
+            if (u.getPath() != null) {
+                graph.getEdgeByVertices(u.getPath(), u).setVisited(true);
+            }
             u.setColor(VertexColor.BLACK);
         }
     }
 
     /**
      * Initializes the algorithm so it starts from a single vertex
-     * 
+     *
      * @param start Vertex to start from
      */
     private void initializeSingleSource(Vertex start) {
@@ -102,7 +105,6 @@ public class Dijkstra implements Algorithm {
                 v.setPath(u);
                 heap.updateDecreasedElement(v);
                 v.setColor(VertexColor.GRAY);
-                uv.setVisited(true);
             }
         }
     }

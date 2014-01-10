@@ -68,6 +68,9 @@ public class BreadthFirstSearch implements Algorithm {
                     v.setDistance(u.getDistance() + 1);
                     v.setPath(u);
                     graph.getEdgeByVertices(u, v).setVisited(true);
+                    if (graph.getEdgeByVertices(v, u) != null) {
+                        graph.getEdgeByVertices(v, u).setVisited(true);
+                    }
                     queue.enqueue(v);
                 }
                 v = neighbours.succ(v);

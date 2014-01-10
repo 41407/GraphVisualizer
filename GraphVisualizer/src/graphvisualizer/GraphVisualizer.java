@@ -34,22 +34,23 @@ public class GraphVisualizer {
 
     private static void algorithmPrompt() {
         String algorithm = "";
-        while (!algorithm.equals("d") && !algorithm.equals("b")) {
-            System.out.println("Which algorithm to use?");
-            System.out.println("  b - Breadth-first search");
-            System.out.println("  d - Dijkstra");
-            algorithm = s.nextLine();
-        }
-        if (algorithm.equals("d")) {
-            AlgorithmInterface.setAlgorithm(new Dijkstra(GraphInterface.getGraph()));
-            if (!GraphInterface.getGraph().isDirected()) {
-                System.out.println("Seems like you've chosen to run Dijkstra's\n"
-                        + "algorithm on an undirected graph. It might not give\n"
-                        + "expected results.");
+        if (GraphInterface.getGraph().isDirected()) {
+            while (!algorithm.equals("d") && !algorithm.equals("b")) {
+                System.out.println("Which algorithm to use?");
+                System.out.println("  b - Breadth-first search");
+                System.out.println("  d - Dijkstra");
+                algorithm = s.nextLine();
             }
-        } else {
-            AlgorithmInterface.setAlgorithm(new BreadthFirstSearch(GraphInterface.getGraph()));
+            if (algorithm.equals("d")) {
+                AlgorithmInterface.setAlgorithm(new Dijkstra(GraphInterface.getGraph()));
+                if (!GraphInterface.getGraph().isDirected()) {
+                    System.out.println("Seems like you've chosen to run Dijkstra's\n"
+                            + "algorithm on an undirected graph. It might not give\n"
+                            + "expected results.");
+                }
+            }
         }
+        AlgorithmInterface.setAlgorithm(new BreadthFirstSearch(GraphInterface.getGraph()));
     }
 
     private static void filePrompt() {
