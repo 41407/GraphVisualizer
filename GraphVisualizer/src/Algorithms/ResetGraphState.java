@@ -20,7 +20,7 @@ public class ResetGraphState implements Algorithm{
             g.getEdges().get(i).setVisited(false);
         }
         for (int i = 0; i < g.getVertices().getSize(); i++) {
-            g.getVertices().get(i).setColor(VertexColor.BLACK);
+            g.getVertices().get(i).setColor(null);
             g.getVertices().get(i).setDistance(0);
         }
     }

@@ -16,6 +16,7 @@ import Visualizer.AssignCoordinates;
 import Visualizer.GraphInterface;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
 /**
  *
  * @author 41407
@@ -32,9 +33,9 @@ public class FilePrompt {
         Graph g;
         while (!file.equals("quit")) {
             try {
-       //         String path = FilePrompt.class.getResource("src/" + file + ".txt").getPath(); 
-              
-                
+                //         String path = FilePrompt.class.getResource("src/" + file + ".txt").getPath(); 
+
+
                 g = GraphParser.initialize(FileLoader.loadFile("src/" + file + ".txt"));
                 AssignCoordinates.initialize(g);
                 GraphInterface.setGraph(g);
@@ -74,8 +75,12 @@ public class FilePrompt {
                             + "algorithm on an undirected graph. It might not give\n"
                             + "expected results.");
                 }
+            } else if (algorithm.equals("b")) {
+
+                AlgorithmInterface.setAlgorithm(new BreadthFirstSearch(GraphInterface.getGraph()));
             }
+        } else {
+            AlgorithmInterface.setAlgorithm(new BreadthFirstSearch(GraphInterface.getGraph()));
         }
-        AlgorithmInterface.setAlgorithm(new BreadthFirstSearch(GraphInterface.getGraph()));
     }
 }
