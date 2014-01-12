@@ -13,5 +13,5 @@ import Graph.Vertex;
  */
 public interface Algorithm {
     public void initialize(Vertex start);
-    public void singleStep();
+    public boolean singleStep();
 }

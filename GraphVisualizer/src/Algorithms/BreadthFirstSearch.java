@@ -57,7 +57,7 @@ public class BreadthFirstSearch implements Algorithm {
      * Advances the algorithm by one step.
      */
     @Override
-    public void singleStep() {
+    public boolean singleStep() {
         if (!queue.isEmpty()) {
             Vertex u = queue.dequeue();
             DoublyLinkedList<Vertex> neighbours = adjacency.getNeighbours(u);
@@ -76,6 +76,9 @@ public class BreadthFirstSearch implements Algorithm {
                 v = neighbours.succ(v);
             }
             u.setColor(VertexColor.BLACK);
+            return true;
+        } else {
+            return false;
         }
     }
 }

@@ -15,6 +15,7 @@ import DataStructures.DynamicArray;
 public class Graph {
 
     private boolean directed;
+    private boolean hasNegativeWeights;
     private DynamicArray<Vertex> vertices;
     private DynamicArray<Edge> edges;
     private AdjacencyList adjacencyList;
@@ -23,7 +24,8 @@ public class Graph {
         edges = new DynamicArray();
         vertices = new DynamicArray();
         adjacencyList = new AdjacencyList();
-        this.directed = false;
+        directed = false;
+        hasNegativeWeights = false;
     }
 
     public boolean isDirected() {
@@ -74,6 +76,9 @@ public class Graph {
                 adjacencyList.addEdge(start, end);
             }
         }
+        if (weight < 0) {
+            hasNegativeWeights = true;
+        }
     }
 
     /**
@@ -112,5 +117,13 @@ public class Graph {
 
     public AdjacencyList getAdjacencyList() {
         return adjacencyList;
+    }
+
+    public boolean hasNegativeWeights() {
+        return hasNegativeWeights;
+    }
+
+    public void setHasNegativeWeights(boolean hasNegativeWeights) {
+        this.hasNegativeWeights = hasNegativeWeights;
     }
 }

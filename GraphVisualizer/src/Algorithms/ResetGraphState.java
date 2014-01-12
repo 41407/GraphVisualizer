@@ -32,6 +32,7 @@ public class ResetGraphState implements Algorithm{
     }
 
     @Override
-    public void singleStep() {
+    public boolean singleStep() {
+        return true;
     } 
 }

@@ -56,7 +56,7 @@ public class Dijkstra implements Algorithm {
      * Does one iteration of Dijkstra's algorithm.
      */
     @Override
-    public void singleStep() {
+    public boolean singleStep() {
         if (!heap.isEmpty()) {
             Vertex u = heap.delMin();
             u.setColor(VertexColor.GRAY);
@@ -72,6 +72,9 @@ public class Dijkstra implements Algorithm {
                 graph.getEdgeByVertices(u.getPath(), u).setVisited(true);
             }
             u.setColor(VertexColor.BLACK);
+            return true;
+        } else {
+            return false;
         }
     }
 
