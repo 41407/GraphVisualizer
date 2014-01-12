@@ -87,11 +87,21 @@ public class GraphDrawer {
         int x2 = e.getEnd().getX();
         int y2 = e.getEnd().getY();
         g.setColor(Color.LIGHT_GRAY);
-        g.drawLine(x1, y1, x2, y2);
+        if (e.getStart() != e.getEnd()) {
+            /**
+             * Edge between u and v where u != v
+             */
+            g.drawLine(x1, y1, x2, y2);
+        } else {
+            /**
+             * Edge between u and u itself
+             */
+            g.drawOval(x1 - 4, y1 - 4, 30, 30);
+        }
         if (e.isVisited()) {
             drawVisitedEdge(g, e);
         }
-        if (e.isDirected()) {
+        if (e.isDirected() && e.getStart() != e.getEnd()) {
             drawArrowhead(g, e);
         }
         g.setFont(new Font("Sans", 1, 10));

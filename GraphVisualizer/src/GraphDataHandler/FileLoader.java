@@ -37,10 +37,10 @@ public class FileLoader {
      */
     public static DynamicArray<String> loadFile(String path) throws FileNotFoundException {
    //     String filePath = FileLoader.class.getResource(path).getPath();
-        String filePath = System.getProperty("user.dir");
-        filePath += "/" + path;
+ //       String filePath = System.getProperty("user.dir");
+  //      filePath += "/" + path;
  //       System.out.println(filePath);
-        graphFile = new File(filePath);
+        graphFile = new File(path);
         scanner = new Scanner(graphFile);
         lines = new DynamicArray();
         readFile();
