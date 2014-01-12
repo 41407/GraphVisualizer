@@ -15,6 +15,9 @@ public class DynamicArray<E> {
     private Object[] array;
     private int size;
 
+    /**
+     * Initializes a new dynamic array, with initial size of 10
+     */
     public DynamicArray() {
         this.array = new Object[10];
         this.size = 0;
@@ -122,16 +125,14 @@ public class DynamicArray<E> {
     }
 
     /**
-     * Returns the current number of elements in list.
-     *
-     * @return
+     * @return current number of elements in array.
      */
     public int getSize() {
         return size;
     }
 
     /**
-     * Returns a boolean depending on if array is empty or not
+     * Returns a boolean depending on if array contains elements.
      *
      * @return true if empty, false if not
      */

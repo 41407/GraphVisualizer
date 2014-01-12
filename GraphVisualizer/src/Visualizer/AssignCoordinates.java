@@ -53,7 +53,7 @@ public class AssignCoordinates {
         while (!verticesInOrder.isEmpty()) {
             Vertex v = verticesInOrder.delMin();
             v.setLocation((x) * (100) + r.nextInt(50),
-                    (y) * (100+(i%2*50)) + r.nextInt(50));
+                    (y) * (100 + (i % 2 * 50)) + r.nextInt(50));
             x--;
             y++;
             i++;
@@ -124,6 +124,14 @@ public class AssignCoordinates {
         return greatest;
     }
 
+    /**
+     * Fits graph in desired rectangular bounding box.
+     *
+     * @param g Graph to be resized
+     * @param xSize Desired x dimension
+     * @param ySize Desired y dimension
+     * @param padding Amount of empty space around graph's outer edges
+     */
     private static void fitToSize(Graph g, int xSize, int ySize, int padding) {
         double xMax = findGreatestX(g);
         double yMax = findGreatestY(g);

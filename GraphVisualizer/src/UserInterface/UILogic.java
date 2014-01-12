@@ -23,11 +23,5 @@ public class UILogic {
         GraphCanvas canvas = new GraphCanvas(drawer);
         Window w = new Window(canvas);
         SwingUtilities.invokeLater(w);
-        
-        /*
-         while (true) {
-         canvas.repaint();
-         }
-         */
     }
 }

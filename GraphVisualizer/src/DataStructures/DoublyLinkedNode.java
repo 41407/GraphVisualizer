@@ -81,10 +81,18 @@ public class DoublyLinkedNode {
         this.succ = succ;
     }
 
+    /**
+     * 
+     * @return Object contained within node
+     */
     public Object getKey() {
         return key;
     }
 
+    /**
+     * 
+     * @param key Content to be stored within node
+     */
     public void setKey(Object key) {
         this.key = key;
     }

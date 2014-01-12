@@ -60,7 +60,7 @@ public class GraphDrawer {
         }
         int distance = v.getDistance();
 
-        String distanceString = "";
+        String distanceString;
         if (distance >= Integer.MAX_VALUE - 100000) {
             distanceString = "∞";
         } else {

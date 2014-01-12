@@ -13,7 +13,7 @@ import Graph.Graph;
 import Graph.Vertex;
 
 /**
- * Simple breadth-first search algorithm.
+ * Simple breadth-first search algorithm as specified in tira.pdf
  *
  * @author 41407
  */
@@ -55,6 +55,8 @@ public class BreadthFirstSearch implements Algorithm {
 
     /**
      * Advances the algorithm by one step.
+     * 
+     * @return true if algorithm will continue after another call, false if not.
      */
     @Override
     public boolean singleStep() {

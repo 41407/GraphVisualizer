@@ -20,6 +20,9 @@ public class Graph {
     private DynamicArray<Edge> edges;
     private AdjacencyList adjacencyList;
 
+    /**
+     * Initializes a Graph. Initialized graph will be undirected.
+     */
     public Graph() {
         edges = new DynamicArray();
         vertices = new DynamicArray();
@@ -53,8 +56,6 @@ public class Graph {
 
     /**
      * Remove vertex from graph.
-     *
-     * TODO handle adjacencyList
      *
      * @param v vertex to be removed
      */

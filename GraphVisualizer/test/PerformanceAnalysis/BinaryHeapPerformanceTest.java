@@ -34,24 +34,23 @@ public class BinaryHeapPerformanceTest {
 
     @Test
     public void insertTest() {
-        for (int i = 1; i < 8; i++) {
-            int[] inserts = initializeRandomTable(10000 * (int) Math.pow(2, i));
+        for (int i = 1; i < 10; i++) {
+            int[] inserts = initializeRandomTable(10000 * ((int) Math.pow(2, i) / 4));
             printTime(testPriorityQueueInserts(inserts));
             printTime(testBinaryHeapInserts(inserts));
         }
     }
-
     @Test
     public void delMaxTest() {
-        for (int i = 1; i < 8; i++) {
-            int[] inserts = initializeRandomTable(10000 * (int) Math.pow(2, i));
+        for (int i = 1; i < 10; i++) {
+            int[] inserts = initializeRandomTable(10000 * ((int) Math.pow(2, i) / 4));
             printTime(testPriorityQueuePoll(inserts));
             printTime(testBinaryHeapDelMin(inserts));
         }
     }
 
     private double testPriorityQueueInserts(int[] inserts) {
-        System.out.println("Testing PriorityQueue with " + inserts.length + " inserts");
+        System.out.print("Testing PriorityQueue with " + inserts.length + " inserts... ");
 
         long[] times = new long[20];
         long startTime;
@@ -75,7 +74,7 @@ public class BinaryHeapPerformanceTest {
     }
 
     private double testBinaryHeapInserts(int[] inserts) {
-        System.out.println("Testing BinaryHeap with " + inserts.length + " inserts");
+        System.out.print("Testing BinaryHeap with " + inserts.length + " inserts... ");
 
         long[] times = new long[20];
         long startTime;

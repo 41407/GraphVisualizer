@@ -19,17 +19,38 @@ public class Edge implements Comparable<Edge> {
     private boolean visited;
     private boolean directed = false;
 
+    /**
+     * Initializes an Edge.
+     *
+     * @param start Starting vertex
+     * @param end End vertex
+     */
     public Edge(Vertex start, Vertex end) {
         this.start = start;
         this.end = end;
     }
 
+    /**
+     * Initializes an Edge.
+     *
+     * @param start Starting vertex
+     * @param end End vertex
+     * @param weight Weight of the edge
+     */
     public Edge(Vertex start, Vertex end, int weight) {
         this.start = start;
         this.end = end;
         this.weight = weight;
     }
 
+    /**
+     * Initializes an Edge.
+     *
+     * @param start Starting vertex
+     * @param end End vertex
+     * @param weight Weight of the edge
+     * @param directed Whether edge is directed or not
+     */
     public Edge(Vertex start, Vertex end, int weight, boolean directed) {
         this.start = start;
         this.end = end;
@@ -87,8 +108,8 @@ public class Edge implements Comparable<Edge> {
     }
 
     /**
-     * Returns a reversed version of parameter edge without modifying original
-     * edge.
+     * Returns a reversed version of parameter edge without altering the
+     * original edge.
      *
      * @param edge Edge, reverse of which will be returned
      * @return Reverse of parameter edge
@@ -98,7 +119,7 @@ public class Edge implements Comparable<Edge> {
     }
 
     /**
-     * Reverses the direction of the edge. Works with non-directional edges as
+     * Reverses the direction of the edge. Works with non-directed edges as
      * well.
      */
     void flip() {

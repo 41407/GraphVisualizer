@@ -30,9 +30,9 @@ public class GraphParser {
      * x 1 1
      * 1 x 1
      * 1 1 x
-     * 
+     *
      * Following string array would result in a directed graph:
-     * 
+     *
      * Directed
      * x 1 1
      * 1 x x
@@ -55,7 +55,7 @@ public class GraphParser {
                 if (adjacencyMatrix[i][j].matches("^[0-9]{1,9}$")) {
                     int weight = Integer.parseInt(adjacencyMatrix[i][j]);
                     g.addEdge(vertices[i], vertices[j], weight);
-                    if(!directed) {
+                    if (!directed) {
                         g.addEdge(vertices[j], vertices[i], weight);
                     }
                 }
@@ -65,6 +65,11 @@ public class GraphParser {
         return g;
     }
 
+    /**
+     * Takes a string array as an input, and returns an adjacency matrix.
+     * @param matrix DynamicArray of strings
+     * @return Adjacency matrix
+     */
     private static String[][] parseStringArray(DynamicArray<String> matrix) {
         if (matrix.get(0).toLowerCase().equals("directed")) {
             matrix.delete(0);

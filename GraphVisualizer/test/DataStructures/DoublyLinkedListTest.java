@@ -181,7 +181,7 @@ public class DoublyLinkedListTest {
     @Test
     public void deleteMinSingleEntry() {
         l.insert(v);
-        l.deleteMin();
+        l.delete();
         assertEquals(null, l.min());
         assertEquals(null, l.max());
     }
@@ -189,7 +189,7 @@ public class DoublyLinkedListTest {
     @Test
     public void deleteMinMultipleEntries() {
         initializeWithABC();
-        l.deleteMin();
+        l.delete();
         assertEquals(b, l.min());
     }
 }

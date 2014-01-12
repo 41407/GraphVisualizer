@@ -4,8 +4,6 @@
  */
 package DataStructures;
 
-import Graph.Vertex;
-
 /**
  * Binary heap
  *

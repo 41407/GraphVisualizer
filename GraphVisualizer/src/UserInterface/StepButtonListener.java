@@ -21,6 +21,11 @@ public class StepButtonListener implements ActionListener {
         this.d = d;
     }
 
+    /**
+     * Advances the algorithm stored in AlgorithmInterface by one step.
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         AlgorithmInterface.getAlgorithm().singleStep();

@@ -8,7 +8,9 @@ import DataStructures.DoublyLinkedList;
 import DataStructures.DynamicArray;
 
 /**
- * An adjacency list. Not really in use at the moment
+ * A list that contains information about Graph's edges. Vertex whose
+ * neighbours are contained within its linkedList of neighbours is stored as the
+ * head (min) value of its linkedList.
  *
  * @author 41407
  */
@@ -61,7 +63,6 @@ public class AdjacencyList {
      * @param end End vertex
      */
     public void addEdge(Vertex start, Vertex end) {
-//        addEdge(indexOf(start), indexOf(end));
         adjacencyList.get(indexOf(start)).insertLast(end);
     }
 
@@ -94,6 +95,12 @@ public class AdjacencyList {
         adjacencyList.delete(index);
     }
 
+    /**
+     * Returns index of parameter vertex.
+     * 
+     * @param v Vertex whose index is to be returned.
+     * @return Index of parameter vertex.
+     */
     private int indexOf(Vertex v) {
         Vertex r;
         if (v != null) {

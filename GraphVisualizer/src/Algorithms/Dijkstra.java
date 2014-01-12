@@ -13,7 +13,7 @@ import Graph.Graph;
 import Graph.Vertex;
 
 /**
- * Dijkstra's algorithm that uses a BinaryHeap
+ * Dijkstra's algorithm that uses a BinaryHeap to store edges.
  *
  * @author 41407
  */
@@ -54,6 +54,8 @@ public class Dijkstra implements Algorithm {
      * presentation.
      *
      * Does one iteration of Dijkstra's algorithm.
+     * 
+     * @return true if algorithm would go on if called again, false if not.
      */
     @Override
     public boolean singleStep() {

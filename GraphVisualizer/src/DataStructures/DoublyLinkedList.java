@@ -6,7 +6,7 @@ package DataStructures;
 
 /**
  * Simple doubly linked list. Knows its head and tail. In addition to methods
- * included in tira.pdf, this one has deleteMin() and insertLast() to facilitate
+ * included in tira.pdf, this one has delete() and insertLast() to facilitate
  * implementation of queues and stacks.
  *
  * @author 41407
@@ -109,9 +109,9 @@ public class DoublyLinkedList<E> implements Comparable<DoublyLinkedList<E>> {
     }
 
     /**
-     * Deletes first entry of list.
+     * Deletes first entry ie. head of list.
      */
-    void deleteMin() {
+    public void delete() {
         if (head != null) {
             if (head.equals(tail)) {
                 head = null;
@@ -195,7 +195,7 @@ public class DoublyLinkedList<E> implements Comparable<DoublyLinkedList<E>> {
      * @param e element node of which is to be searched
      * @return corresponding node, or null if not found
      */
-    private DoublyLinkedNode search(E e) {
+    public DoublyLinkedNode search(E e) {
         DoublyLinkedNode n = head;
         while (n != null) {
             if (n.getKey().equals(e)) {
@@ -206,6 +206,9 @@ public class DoublyLinkedList<E> implements Comparable<DoublyLinkedList<E>> {
         return null;
     }
 
+    /**
+     * @return Number of entries in linked list
+     */
     public int getSize() {
         return size;
     }
