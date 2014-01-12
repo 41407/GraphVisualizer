@@ -42,7 +42,7 @@ public class BreadthFirstSearchTest {
         expected = new VertexColor[4];
         actual = new VertexColor[4];
         try {
-            g = GraphParser.initialize(FileLoader.loadFile("src/testGraph.txt"));
+            g = GraphParser.initialize(FileLoader.loadFile("testGraph"));
             b = new BreadthFirstSearch(g);
         } catch (FileNotFoundException e) {
             fail("FileLoader failed");

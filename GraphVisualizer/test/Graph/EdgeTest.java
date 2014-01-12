@@ -44,4 +44,24 @@ public class EdgeTest {
         assertEquals(e.getStart(), u);
         assertEquals(e.getEnd(), v);
     }
+
+    @Test
+    public void isReverse() {
+        Vertex v = new Vertex(0);
+        Vertex u = new Vertex(0);
+        Edge e = new Edge(v, u);
+        Edge f = new Edge(u, v);
+        assertTrue(e.isReverseOf(f));
+    }
+
+    @Test
+    public void flip() {
+        Vertex v = new Vertex(0);
+        Vertex u = new Vertex(0);
+        Edge e = new Edge(v, u);
+        Edge f = new Edge(u, v);
+        f.flip();
+        assertEquals(e.getStart(), f.getStart());
+        assertEquals(e.getEnd(), f.getEnd());
+    }
 }

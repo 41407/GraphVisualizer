@@ -155,6 +155,11 @@ public class BinaryHeap<E extends Comparable<E>> {
         heap.set(secondIndex, firstKey);
     }
 
+    /**
+     * Updates an element whose key was decreased to correct position in heap
+     *
+     * @param element Element to be updated
+     */
     public void updateDecreasedElement(E element) {
         int i = heap.indexOf(element);
         while (i > 0 && heap.get(parent(i)).compareTo(element) > 0) {
